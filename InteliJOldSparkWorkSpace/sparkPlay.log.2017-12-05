@@ -1,0 +1,147 @@
+2017-12-05 20:18:52,972 [main] [WARN] (wordCountWrapper.scala:44) - Starting Program
+2017-12-05 20:18:54,920 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-12-05 20:18:59,790 [main] [WARN] (OperationSession.scala:60) - OperationSession Start
+2017-12-05 20:18:59,793 [main] [WARN] (Operator.scala:97) - Starting Operation
+2017-12-05 20:18:59,794 [main] [WARN] (Operator.scala:42) - *** Start load ***
+2017-12-05 20:19:04,526 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-12-05 21:01:01,913 [main] [WARN] (wordCountWrapper.scala:44) - Starting Program
+2017-12-05 21:01:02,757 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-12-05 21:01:25,753 [main-SendThread(10.118.36.103:2181)] [WARN] (ClientCnxn.java:1102) - Session 0x0 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection timed out: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+2017-12-05 21:01:47,867 [main-SendThread(10.118.36.103:2181)] [WARN] (ClientCnxn.java:1102) - Session 0x0 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection timed out: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+2017-12-05 21:02:09,970 [main-SendThread(10.118.36.103:2181)] [WARN] (ClientCnxn.java:1102) - Session 0x0 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection timed out: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+2017-12-05 21:02:32,072 [main-SendThread(10.118.36.103:2181)] [WARN] (ClientCnxn.java:1102) - Session 0x0 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection timed out: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+2017-12-05 21:02:54,176 [main-SendThread(10.118.36.103:2181)] [WARN] (ClientCnxn.java:1102) - Session 0x0 for server null, unexpected error, closing socket connection and attempting reconnect
+java.net.ConnectException: Connection timed out: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:361)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1081)
+2017-12-05 21:02:54,277 [main] [ERROR] (RecoverableZooKeeper.java:277) - ZooKeeper exists failed after 4 attempts
+2017-12-05 21:02:54,277 [main] [WARN] (ZKUtil.java:422) - hconnection-0x3aefe5e50x0, quorum=10.118.36.103:2181, baseZNode=/hbase Unable to set watcher on znode (/hbase/hbaseid)
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /hbase/hbaseid
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1045)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.exists(RecoverableZooKeeper.java:221)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.checkExists(ZKUtil.java:419)
+	at org.apache.hadoop.hbase.zookeeper.ZKClusterId.readClusterIdZNode(ZKClusterId.java:65)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.getClusterId(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.retrieveClusterId(ConnectionManager.java:905)
+	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.<init>(ConnectionManager.java:648)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:238)
+	at org.apache.hadoop.hbase.client.ConnectionManager.createConnection(ConnectionManager.java:431)
+	at org.apache.hadoop.hbase.client.ConnectionManager.createConnection(ConnectionManager.java:424)
+	at org.apache.hadoop.hbase.client.ConnectionManager.getConnectionInternal(ConnectionManager.java:302)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:184)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:150)
+	at com.deloitte.demo.framework.OperationSession.<init>(OperationSession.scala:29)
+	at com.deloitte.demo.sasLogic.wordCountOperation.<init>(wordCountOperation.scala:12)
+	at com.deloitte.demo.sasLogic.wordCountWrapper$.main(wordCountWrapper.scala:46)
+	at com.deloitte.demo.sasLogic.wordCountWrapper.main(wordCountWrapper.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+2017-12-05 21:02:54,278 [main] [ERROR] (ZooKeeperWatcher.java:742) - hconnection-0x3aefe5e50x0, quorum=10.118.36.103:2181, baseZNode=/hbase Received unexpected KeeperException, re-throwing exception
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /hbase/hbaseid
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1045)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.exists(RecoverableZooKeeper.java:221)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.checkExists(ZKUtil.java:419)
+	at org.apache.hadoop.hbase.zookeeper.ZKClusterId.readClusterIdZNode(ZKClusterId.java:65)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.getClusterId(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.retrieveClusterId(ConnectionManager.java:905)
+	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.<init>(ConnectionManager.java:648)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:238)
+	at org.apache.hadoop.hbase.client.ConnectionManager.createConnection(ConnectionManager.java:431)
+	at org.apache.hadoop.hbase.client.ConnectionManager.createConnection(ConnectionManager.java:424)
+	at org.apache.hadoop.hbase.client.ConnectionManager.getConnectionInternal(ConnectionManager.java:302)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:184)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:150)
+	at com.deloitte.demo.framework.OperationSession.<init>(OperationSession.scala:29)
+	at com.deloitte.demo.sasLogic.wordCountOperation.<init>(wordCountOperation.scala:12)
+	at com.deloitte.demo.sasLogic.wordCountWrapper$.main(wordCountWrapper.scala:46)
+	at com.deloitte.demo.sasLogic.wordCountWrapper.main(wordCountWrapper.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+2017-12-05 21:02:54,282 [main] [WARN] (ZooKeeperRegistry.java:110) - Can't retrieve clusterId from Zookeeper
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss for /hbase/hbaseid
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:51)
+	at org.apache.zookeeper.ZooKeeper.exists(ZooKeeper.java:1045)
+	at org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper.exists(RecoverableZooKeeper.java:221)
+	at org.apache.hadoop.hbase.zookeeper.ZKUtil.checkExists(ZKUtil.java:419)
+	at org.apache.hadoop.hbase.zookeeper.ZKClusterId.readClusterIdZNode(ZKClusterId.java:65)
+	at org.apache.hadoop.hbase.client.ZooKeeperRegistry.getClusterId(ZooKeeperRegistry.java:105)
+	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.retrieveClusterId(ConnectionManager.java:905)
+	at org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation.<init>(ConnectionManager.java:648)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.apache.hadoop.hbase.client.ConnectionFactory.createConnection(ConnectionFactory.java:238)
+	at org.apache.hadoop.hbase.client.ConnectionManager.createConnection(ConnectionManager.java:431)
+	at org.apache.hadoop.hbase.client.ConnectionManager.createConnection(ConnectionManager.java:424)
+	at org.apache.hadoop.hbase.client.ConnectionManager.getConnectionInternal(ConnectionManager.java:302)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:184)
+	at org.apache.hadoop.hbase.client.HTable.<init>(HTable.java:150)
+	at com.deloitte.demo.framework.OperationSession.<init>(OperationSession.scala:29)
+	at com.deloitte.demo.sasLogic.wordCountOperation.<init>(wordCountOperation.scala:12)
+	at com.deloitte.demo.sasLogic.wordCountWrapper$.main(wordCountWrapper.scala:46)
+	at com.deloitte.demo.sasLogic.wordCountWrapper.main(wordCountWrapper.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:147)
+2017-12-05 21:02:59,296 [main] [WARN] (OperationSession.scala:71) - OperationSession Start
+2017-12-05 21:02:59,299 [main] [WARN] (Operator.scala:97) - Starting Operation
+2017-12-05 21:02:59,299 [main] [WARN] (Operator.scala:42) - *** Start load ***
+2017-12-05 21:03:02,971 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-12-05 21:07:54,982 [main] [WARN] (wordCountWrapper.scala:44) - Starting Program
+2017-12-05 21:07:56,867 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-12-05 21:08:01,362 [main] [WARN] (OperationSession.scala:71) - OperationSession Start
+2017-12-05 21:08:01,364 [main] [WARN] (Operator.scala:97) - Starting Operation
+2017-12-05 21:08:01,364 [main] [WARN] (Operator.scala:42) - *** Start load ***
+2017-12-05 21:08:04,591 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-12-05 21:17:13,244 [main] [WARN] (wordCountWrapper.scala:44) - Starting Program
+2017-12-05 21:17:14,944 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-12-05 21:17:17,843 [main] [WARN] (Logging.scala:70) - Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+2017-12-05 21:17:17,857 [main] [WARN] (Logging.scala:70) - Service 'SparkUI' could not bind on port 4041. Attempting port 4042.
+2017-12-05 21:17:18,966 [main] [WARN] (OperationSession.scala:75) - OperationSession Start
+2017-12-05 21:17:18,970 [main] [WARN] (Operator.scala:97) - Starting Operation
+2017-12-05 21:17:18,971 [main] [WARN] (Operator.scala:42) - *** Start load ***
+2017-12-05 21:17:22,524 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load

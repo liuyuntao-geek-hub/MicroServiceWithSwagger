@@ -1,0 +1,7 @@
+2017-11-12 07:32:01,006 [main] [WARN] (mySubclass.scala:32) - Starting Program mySubclass - Object
+2017-11-12 07:32:01,017 [main] [WARN] (mySubclass.scala:15) - Starting Program mySubclass
+2017-11-12 07:43:38,996 [main] [WARN] (slf4j.scala:190) - This is the sub Class
+2017-11-12 07:44:59,093 [main] [WARN] (slf4j.scala:190) - This is the sub Class
+2017-11-12 09:24:49,117 [main] [WARN] (mySubclass.scala:33) - Starting Program mySubclass - Object - slf4JOnly
+2017-11-12 19:35:38,741 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-12 19:35:42,538 [main] [WARN] (OperationSession.scala:55) - OperationSession Start

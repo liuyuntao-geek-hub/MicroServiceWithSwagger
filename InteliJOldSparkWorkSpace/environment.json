@@ -1,0 +1,26 @@
+{
+  "env":
+  {
+    "log4jConfig": "C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/src/main/resources/log4JSpark.properties",
+    "inputFilePath": "file:///C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/",
+    "SaveFilePath": "file:///C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/",
+    "SaveFileName": "HiveToCsv.csv",
+    "name": "DEV",
+    "droolsRuleName": "IfContainsEPrepend0KS"
+  },
+
+
+
+  "DB":
+  {
+    "dbname":"localTest"
+  },
+
+  "excel":
+  {
+    "SaveFileName": "excelFileNames.csv",
+    "excelFilePath": "C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/excel/"
+  }
+
+
+}

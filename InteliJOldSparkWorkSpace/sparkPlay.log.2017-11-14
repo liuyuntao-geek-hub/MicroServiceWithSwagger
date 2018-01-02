@@ -1,0 +1,42 @@
+2017-11-14 06:13:20,485 [main] [WARN] (slf4j.scala:190) - Starting Program
+2017-11-14 06:13:22,155 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-14 06:13:26,448 [main] [WARN] (slf4j.scala:190) - OperationSession Start
+2017-11-14 06:13:26,448 [main] [ERROR] (slf4j.scala:128) - Starting Operation
+2017-11-14 06:13:26,448 [main] [WARN] (slf4j.scala:190) - *** Start load ***
+2017-11-14 06:13:29,586 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-14 06:15:38,788 [main] [WARN] (slf4j.scala:190) - Starting Program
+2017-11-14 06:15:40,491 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-14 06:15:44,257 [main] [WARN] (slf4j.scala:190) - OperationSession Start
+2017-11-14 06:15:44,257 [main] [ERROR] (slf4j.scala:128) - Starting Operation
+2017-11-14 06:15:44,257 [main] [WARN] (slf4j.scala:190) - *** Start load ***
+2017-11-14 06:15:47,721 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-14 06:18:10,337 [main] [WARN] (slf4j.scala:190) - Starting Program
+2017-11-14 06:18:11,759 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-14 06:18:15,353 [main] [WARN] (slf4j.scala:190) - OperationSession Start
+2017-11-14 06:18:15,368 [main] [ERROR] (slf4j.scala:128) - Starting Operation
+2017-11-14 06:18:15,368 [main] [WARN] (slf4j.scala:190) - *** Start load ***
+2017-11-14 06:18:18,712 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-14 20:36:51,101 [main] [WARN] (wordCountWrapper.scala:45) - Starting Program
+2017-11-14 20:36:52,680 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-14 20:36:56,336 [main] [WARN] (slf4j.scala:190) - OperationSession Start
+2017-11-14 20:36:56,336 [main] [ERROR] (Operator.scala:91) - Starting Operation
+2017-11-14 20:36:56,336 [main] [WARN] (Operator.scala:38) - *** Start load ***
+2017-11-14 20:36:59,461 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-14 20:38:03,622 [main] [WARN] (wordCountWrapper.scala:45) - Starting Program
+2017-11-14 20:38:05,122 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-14 20:38:08,450 [main] [WARN] (slf4j.scala:190) - OperationSession Start
+2017-11-14 20:38:08,450 [main] [WARN] (Operator.scala:91) - Starting Operation
+2017-11-14 20:38:08,450 [main] [WARN] (Operator.scala:38) - *** Start load ***
+2017-11-14 20:38:11,169 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-14 20:42:36,577 [main] [WARN] (wordCountWrapper.scala:43) - Starting Program
+2017-11-14 20:42:38,748 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-14 20:42:43,645 [main] [WARN] (OperationSession.scala:55) - OperationSession Start
+2017-11-14 20:42:43,645 [main] [WARN] (Operator.scala:91) - Starting Operation
+2017-11-14 20:42:43,645 [main] [WARN] (Operator.scala:38) - *** Start load ***
+2017-11-14 20:42:47,036 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-14 21:07:00,948 [main] [WARN] (wordCountWrapper.scala:43) - Starting Program
+2017-11-14 21:07:02,308 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-14 21:07:05,433 [main] [WARN] (OperationSession.scala:55) - OperationSession Start
+2017-11-14 21:07:05,433 [main] [WARN] (Operator.scala:91) - Starting Operation
+2017-11-14 21:07:05,433 [main] [WARN] (Operator.scala:38) - *** Start load ***
+2017-11-14 21:07:08,198 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load

@@ -1,0 +1,24 @@
+{
+  "env":
+  {
+    "log4jConfig": "/home/yuntliu/workstation/sparkPlayGround/anthem/padp/sas/bin/log4JSpark.properties",
+    "inputFilePath": "hdfs:///user/yuntliu/anthem/padp/sas/data/input/",
+    "SaveFilePath": "hdfs:///user/yuntliu/anthem/padp/sas/data/output/",
+    "SaveFileName": "HiveToCsv.csv",
+    "name": "SERVER"
+  },
+
+  "DB":
+  {
+    "dbname":"devTest"
+  },
+
+  "excel":
+  {
+    "SaveFileName": "excelFileNames.csv",
+    "excelFilePath": "/user/yuntliu/anthem/padp/sas/data/input/excel/",
+    "excelFileLocalPath": "/home/yuntliu/workstation/sparkPlayGround/anthem/padp/sas/bin/data/excel/"
+  }
+
+
+}
