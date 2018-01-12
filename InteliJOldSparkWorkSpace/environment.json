@@ -20,7 +20,11 @@
   {
     "SaveFileName": "excelFileNames.csv",
     "excelFilePath": "C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/excel/"
+  },
+
+
+  "Drools":
+  {
+    "DroolsXLSRuleFile": "C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/src/main/resources/rules/DroolsRuleDecisionTableDiscount.xls"
   }
-
-
 }

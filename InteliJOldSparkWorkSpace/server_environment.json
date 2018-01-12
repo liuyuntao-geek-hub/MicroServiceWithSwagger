@@ -18,7 +18,10 @@
     "SaveFileName": "excelFileNames.csv",
     "excelFilePath": "/user/yuntliu/anthem/padp/sas/data/input/excel/",
     "excelFileLocalPath": "/home/yuntliu/workstation/sparkPlayGround/anthem/padp/sas/bin/data/excel/"
+  },
+
+  "Drools":
+  {
+    "DroolsXLSRuleFile": "hdfs:///user/yuntliu/anthem/padp/sas/data/input/DroolsRuleDecisionTableDiscount.xls"
   }
-
-
 }

@@ -37,7 +37,7 @@
     <scala.tools.version>2.10</scala.tools.version>
     <scala.version>2.10.5</scala.version>
     <spark.version>1.6.0</spark.version>
-    <drools.version>6.0.1.Final</drools.version>
+    <drools.version>6.2.0.final</drools.version>
   </properties>
 
   <dependencies>
@@ -197,7 +197,7 @@
       <version>1.0.1</version>
     </dependency>
 
-    <dependency>
+<!--    <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-compiler</artifactId>
       <version>${drools.version}</version>
@@ -206,7 +206,34 @@
       <groupId>org.drools</groupId>
       <artifactId>drools-core</artifactId>
       <version>${drools.version}</version>
+    </dependency>-->
+
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>knowledge-api</artifactId>
+      <version>${drools.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-core</artifactId>
+      <version>${drools.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-compiler</artifactId>
+      <version>${drools.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-bom</artifactId>
+      <type>pom</type>
+      <version>${drools.version}</version>
+      <scope>import</scope>
+    </dependency>
+
+
 
   </dependencies>
 
