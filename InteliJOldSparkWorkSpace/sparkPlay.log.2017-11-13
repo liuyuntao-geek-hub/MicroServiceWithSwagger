@@ -1,0 +1,191 @@
+2017-11-13 06:34:07,110 [main] [WARN] (myLog4JSubclass.scala:53) - Starting Program mySubclass - Object - log4J
+2017-11-13 06:34:07,131 [main] [WARN] (myLog4JSubclass.scala:35) - Starting Program mySubclass
+2017-11-13 06:34:07,135 [main] [WARN] (myLog4JTrait.scala:12) - Trait - Rull All - log4J
+2017-11-13 06:34:07,846 [main] [WARN] (myLog4JSubclass.scala:39) - This is the Trait implementation with override - log4J
+2017-11-13 06:34:07,846 [main] [WARN] (myLog4JSubclass.scala:42) - This is the Trait implementation without Override - log4J
+2017-11-13 06:36:09,177 [main] [WARN] (mySlf4JSubclass.scala:44) - Starting Program mySubclass - Object - slf4JOnly
+2017-11-13 06:36:09,189 [main] [WARN] (mySlf4JTrait.scala:15) - Trait - Rull All - Slf4J Only
+2017-11-13 06:36:09,651 [main] [WARN] (mySlf4JSubclass.scala:25) - This is Trait Implementation without override - slf4JOnly
+2017-11-13 06:36:09,651 [main] [WARN] (mySlf4JSubclass.scala:28) - This is Trait Implementation with override - slf4JOnly
+2017-11-13 06:38:49,118 [main] [WARN] (slf4j.scala:190) - This is the sub Class - Grizzled
+2017-11-13 06:38:49,134 [main] [WARN] (slf4j.scala:190) - Trait - Rull All - Grizzled 
+2017-11-13 06:42:03,069 [main] [WARN] (wordCountWrapper.scala:21) - Starting Program
+2017-11-13 06:42:05,720 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-13 06:42:09,953 [main] [WARN] (OperationSession.scala:55) - OperationSession Start
+2017-11-13 06:50:39,458 [main] [WARN] (wordCountWrapper.scala:22) - Starting Program
+2017-11-13 06:50:41,405 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-13 06:50:45,230 [main] [WARN] (OperationSession.scala:55) - OperationSession Start
+2017-11-13 06:50:45,233 [main] [ERROR] (Operator.scala:81) - Starting Operation
+2017-11-13 06:50:45,233 [main] [WARN] (Operator.scala:33) - *** Start load ***
+2017-11-13 06:50:46,085 [main] [INFO] (Logging.scala:58) - Block broadcast_0 stored as values in memory (estimated size 107.7 KB, free 107.7 KB)
+2017-11-13 06:50:46,124 [main] [INFO] (Logging.scala:58) - Block broadcast_0_piece0 stored as bytes in memory (estimated size 9.8 KB, free 117.5 KB)
+2017-11-13 06:50:46,127 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - Added broadcast_0_piece0 in memory on localhost:56455 (size: 9.8 KB, free: 2.4 GB)
+2017-11-13 06:50:46,134 [main] [INFO] (Logging.scala:58) - Created broadcast 0 from textFile at TextFile.scala:30
+2017-11-13 06:50:46,529 [main] [INFO] (FileInputFormat.java:253) - Total input paths to process : 1
+2017-11-13 06:50:46,596 [main] [INFO] (Logging.scala:58) - Starting job: first at CsvRelation.scala:269
+2017-11-13 06:50:46,631 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Got job 0 (first at CsvRelation.scala:269) with 1 output partitions
+2017-11-13 06:50:46,632 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Final stage: ResultStage 0 (first at CsvRelation.scala:269)
+2017-11-13 06:50:46,632 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Parents of final stage: List()
+2017-11-13 06:50:46,636 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Missing parents: List()
+2017-11-13 06:50:46,645 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting ResultStage 0 (MapPartitionsRDD[2] at filter at CsvRelation.scala:267), which has no missing parents
+2017-11-13 06:50:46,672 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_1 stored as values in memory (estimated size 4.9 KB, free 122.4 KB)
+2017-11-13 06:50:46,680 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_1_piece0 stored as bytes in memory (estimated size 2.9 KB, free 125.3 KB)
+2017-11-13 06:50:46,681 [dispatcher-event-loop-1] [INFO] (Logging.scala:58) - Added broadcast_1_piece0 in memory on localhost:56455 (size: 2.9 KB, free: 2.4 GB)
+2017-11-13 06:50:46,686 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Created broadcast 1 from broadcast at DAGScheduler.scala:1006
+2017-11-13 06:50:46,692 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at filter at CsvRelation.scala:267)
+2017-11-13 06:50:46,695 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Adding task set 0.0 with 1 tasks
+2017-11-13 06:50:46,793 [dispatcher-event-loop-2] [INFO] (Logging.scala:58) - Starting task 0.0 in stage 0.0 (TID 0, localhost, partition 0,PROCESS_LOCAL, 2213 bytes)
+2017-11-13 06:50:46,839 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Running task 0.0 in stage 0.0 (TID 0)
+2017-11-13 06:50:46,981 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Input split: file:/C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/testdata_combined.csv:0+6632
+2017-11-13 06:50:47,013 [Executor task launch worker-0] [INFO] (Configuration.java:840) - mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+2017-11-13 06:50:47,014 [Executor task launch worker-0] [INFO] (Configuration.java:840) - mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+2017-11-13 06:50:47,015 [Executor task launch worker-0] [INFO] (Configuration.java:840) - mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+2017-11-13 06:50:47,015 [Executor task launch worker-0] [INFO] (Configuration.java:840) - mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+2017-11-13 06:50:47,016 [Executor task launch worker-0] [INFO] (Configuration.java:840) - mapred.job.id is deprecated. Instead, use mapreduce.job.id
+2017-11-13 06:50:47,083 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 0.0 (TID 0). 2204 bytes result sent to driver
+2017-11-13 06:50:47,108 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - ResultStage 0 (first at CsvRelation.scala:269) finished in 0.380 s
+2017-11-13 06:50:47,124 [main] [INFO] (Logging.scala:58) - Job 0 finished: first at CsvRelation.scala:269, took 0.527319 s
+2017-11-13 06:50:47,129 [task-result-getter-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 0.0 (TID 0) in 330 ms on localhost (1/1)
+2017-11-13 06:50:47,140 [task-result-getter-0] [INFO] (Logging.scala:58) - Removed TaskSet 0.0, whose tasks have all completed, from pool 
+2017-11-13 06:50:47,645 [dispatcher-event-loop-3] [INFO] (Logging.scala:58) - Removed broadcast_1_piece0 on localhost:56455 in memory (size: 2.9 KB, free: 2.4 GB)
+2017-11-13 06:50:47,655 [Spark Context Cleaner] [INFO] (Logging.scala:58) - Cleaned accumulator 1
+2017-11-13 06:50:47,657 [dispatcher-event-loop-2] [INFO] (Logging.scala:58) - Removed broadcast_0_piece0 on localhost:56455 in memory (size: 9.8 KB, free: 2.4 GB)
+2017-11-13 06:50:48,614 [main] [INFO] (Logging.scala:58) - Block broadcast_2 stored as values in memory (estimated size 59.6 KB, free 59.6 KB)
+2017-11-13 06:50:48,649 [main] [INFO] (Logging.scala:58) - Block broadcast_2_piece0 stored as bytes in memory (estimated size 13.8 KB, free 73.4 KB)
+2017-11-13 06:50:48,652 [dispatcher-event-loop-3] [INFO] (Logging.scala:58) - Added broadcast_2_piece0 in memory on localhost:56455 (size: 13.8 KB, free: 2.4 GB)
+2017-11-13 06:50:48,654 [main] [INFO] (Logging.scala:58) - Created broadcast 2 from textFile at TextFile.scala:30
+2017-11-13 06:50:48,697 [main] [INFO] (FileInputFormat.java:253) - Total input paths to process : 1
+2017-11-13 06:50:48,704 [main] [INFO] (Logging.scala:58) - Starting job: aggregate at InferSchema.scala:41
+2017-11-13 06:50:48,705 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Got job 1 (aggregate at InferSchema.scala:41) with 1 output partitions
+2017-11-13 06:50:48,706 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Final stage: ResultStage 1 (aggregate at InferSchema.scala:41)
+2017-11-13 06:50:48,706 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Parents of final stage: List()
+2017-11-13 06:50:48,706 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Missing parents: List()
+2017-11-13 06:50:48,707 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting ResultStage 1 (MapPartitionsRDD[5] at mapPartitions at CsvRelation.scala:92), which has no missing parents
+2017-11-13 06:50:48,712 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_3 stored as values in memory (estimated size 6.2 KB, free 79.6 KB)
+2017-11-13 06:50:48,714 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_3_piece0 stored as bytes in memory (estimated size 3.6 KB, free 83.1 KB)
+2017-11-13 06:50:48,715 [dispatcher-event-loop-1] [INFO] (Logging.scala:58) - Added broadcast_3_piece0 in memory on localhost:56455 (size: 3.6 KB, free: 2.4 GB)
+2017-11-13 06:50:48,716 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Created broadcast 3 from broadcast at DAGScheduler.scala:1006
+2017-11-13 06:50:48,716 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[5] at mapPartitions at CsvRelation.scala:92)
+2017-11-13 06:50:48,716 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Adding task set 1.0 with 1 tasks
+2017-11-13 06:50:48,718 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - Starting task 0.0 in stage 1.0 (TID 1, localhost, partition 0,PROCESS_LOCAL, 2213 bytes)
+2017-11-13 06:50:48,719 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Running task 0.0 in stage 1.0 (TID 1)
+2017-11-13 06:50:48,724 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Input split: file:/C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/testdata_combined.csv:0+6632
+2017-11-13 06:50:48,775 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 1.0 (TID 1). 2270 bytes result sent to driver
+2017-11-13 06:50:48,779 [task-result-getter-1] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 1.0 (TID 1) in 62 ms on localhost (1/1)
+2017-11-13 06:50:48,779 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - ResultStage 1 (aggregate at InferSchema.scala:41) finished in 0.062 s
+2017-11-13 06:50:48,779 [task-result-getter-1] [INFO] (Logging.scala:58) - Removed TaskSet 1.0, whose tasks have all completed, from pool 
+2017-11-13 06:50:48,782 [main] [INFO] (Logging.scala:58) - Job 1 finished: aggregate at InferSchema.scala:41, took 0.077695 s
+2017-11-13 06:50:49,275 [main] [INFO] (Logging.scala:58) - Block broadcast_4 stored as values in memory (estimated size 127.2 KB, free 210.3 KB)
+2017-11-13 06:50:49,289 [main] [INFO] (Logging.scala:58) - Block broadcast_4_piece0 stored as bytes in memory (estimated size 13.8 KB, free 224.1 KB)
+2017-11-13 06:50:49,291 [dispatcher-event-loop-1] [INFO] (Logging.scala:58) - Added broadcast_4_piece0 in memory on localhost:56455 (size: 13.8 KB, free: 2.4 GB)
+2017-11-13 06:50:49,292 [main] [INFO] (Logging.scala:58) - Created broadcast 4 from textFile at TextFile.scala:30
+2017-11-13 06:50:49,471 [main] [INFO] (FileInputFormat.java:253) - Total input paths to process : 1
+2017-11-13 06:50:49,479 [main] [INFO] (Logging.scala:58) - Starting job: show at wordCountOperation.scala:30
+2017-11-13 06:50:49,480 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Got job 2 (show at wordCountOperation.scala:30) with 1 output partitions
+2017-11-13 06:50:49,480 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Final stage: ResultStage 2 (show at wordCountOperation.scala:30)
+2017-11-13 06:50:49,481 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Parents of final stage: List()
+2017-11-13 06:50:49,481 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Missing parents: List()
+2017-11-13 06:50:49,482 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting ResultStage 2 (MapPartitionsRDD[11] at show at wordCountOperation.scala:30), which has no missing parents
+2017-11-13 06:50:49,491 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_5 stored as values in memory (estimated size 7.6 KB, free 231.7 KB)
+2017-11-13 06:50:49,496 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_5_piece0 stored as bytes in memory (estimated size 4.2 KB, free 235.9 KB)
+2017-11-13 06:50:49,499 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - Added broadcast_5_piece0 in memory on localhost:56455 (size: 4.2 KB, free: 2.4 GB)
+2017-11-13 06:50:49,500 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Created broadcast 5 from broadcast at DAGScheduler.scala:1006
+2017-11-13 06:50:49,500 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[11] at show at wordCountOperation.scala:30)
+2017-11-13 06:50:49,500 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Adding task set 2.0 with 1 tasks
+2017-11-13 06:50:49,503 [dispatcher-event-loop-2] [INFO] (Logging.scala:58) - Starting task 0.0 in stage 2.0 (TID 2, localhost, partition 0,PROCESS_LOCAL, 2213 bytes)
+2017-11-13 06:50:49,503 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Running task 0.0 in stage 2.0 (TID 2)
+2017-11-13 06:50:49,512 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Input split: file:/C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/testdata_combined.csv:0+6632
+2017-11-13 06:50:49,556 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 2.0 (TID 2). 8153 bytes result sent to driver
+2017-11-13 06:50:49,570 [task-result-getter-2] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 2.0 (TID 2) in 68 ms on localhost (1/1)
+2017-11-13 06:50:49,571 [task-result-getter-2] [INFO] (Logging.scala:58) - Removed TaskSet 2.0, whose tasks have all completed, from pool 
+2017-11-13 06:50:49,570 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - ResultStage 2 (show at wordCountOperation.scala:30) finished in 0.068 s
+2017-11-13 06:50:49,571 [main] [INFO] (Logging.scala:58) - Job 2 finished: show at wordCountOperation.scala:30, took 0.091472 s
+2017-11-13 06:50:49,603 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-13 06:50:49,611 [main] [INFO] (Logging.scala:58) - Block broadcast_6 stored as values in memory (estimated size 127.2 KB, free 363.1 KB)
+2017-11-13 06:50:49,627 [main] [INFO] (Logging.scala:58) - Block broadcast_6_piece0 stored as bytes in memory (estimated size 13.8 KB, free 376.9 KB)
+2017-11-13 06:50:49,630 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - Added broadcast_6_piece0 in memory on localhost:56455 (size: 13.8 KB, free: 2.4 GB)
+2017-11-13 06:50:49,631 [main] [INFO] (Logging.scala:58) - Created broadcast 6 from textFile at TextFile.scala:30
+2017-11-13 06:50:49,892 [main] [INFO] (FileInputFormat.java:253) - Total input paths to process : 1
+2017-11-13 06:50:49,943 [dispatcher-event-loop-1] [INFO] (Logging.scala:58) - Removed broadcast_5_piece0 on localhost:56455 in memory (size: 4.2 KB, free: 2.4 GB)
+2017-11-13 06:50:49,945 [Spark Context Cleaner] [INFO] (Logging.scala:58) - Cleaned accumulator 3
+2017-11-13 06:50:49,948 [dispatcher-event-loop-3] [INFO] (Logging.scala:58) - Removed broadcast_4_piece0 on localhost:56455 in memory (size: 13.8 KB, free: 2.4 GB)
+2017-11-13 06:50:49,951 [dispatcher-event-loop-2] [INFO] (Logging.scala:58) - Removed broadcast_3_piece0 on localhost:56455 in memory (size: 3.6 KB, free: 2.4 GB)
+2017-11-13 06:50:49,952 [Spark Context Cleaner] [INFO] (Logging.scala:58) - Cleaned accumulator 2
+2017-11-13 06:50:49,953 [dispatcher-event-loop-1] [INFO] (Logging.scala:58) - Removed broadcast_2_piece0 on localhost:56455 in memory (size: 13.8 KB, free: 2.4 GB)
+2017-11-13 06:50:50,664 [main] [INFO] (Logging.scala:58) - Starting job: show at wordCountOperation.scala:38
+2017-11-13 06:50:50,674 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Registering RDD 19 (map at wordCountOperation.scala:48)
+2017-11-13 06:50:50,676 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Got job 3 (show at wordCountOperation.scala:38) with 1 output partitions
+2017-11-13 06:50:50,676 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Final stage: ResultStage 4 (show at wordCountOperation.scala:38)
+2017-11-13 06:50:50,676 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Parents of final stage: List(ShuffleMapStage 3)
+2017-11-13 06:50:50,677 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Missing parents: List(ShuffleMapStage 3)
+2017-11-13 06:50:50,679 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting ShuffleMapStage 3 (MapPartitionsRDD[19] at map at wordCountOperation.scala:48), which has no missing parents
+2017-11-13 06:50:50,692 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_7 stored as values in memory (estimated size 9.0 KB, free 149.9 KB)
+2017-11-13 06:50:50,695 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_7_piece0 stored as bytes in memory (estimated size 4.8 KB, free 154.8 KB)
+2017-11-13 06:50:50,696 [dispatcher-event-loop-2] [INFO] (Logging.scala:58) - Added broadcast_7_piece0 in memory on localhost:56455 (size: 4.8 KB, free: 2.4 GB)
+2017-11-13 06:50:50,697 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Created broadcast 7 from broadcast at DAGScheduler.scala:1006
+2017-11-13 06:50:50,700 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting 1 missing tasks from ShuffleMapStage 3 (MapPartitionsRDD[19] at map at wordCountOperation.scala:48)
+2017-11-13 06:50:50,700 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Adding task set 3.0 with 1 tasks
+2017-11-13 06:50:50,704 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - Starting task 0.0 in stage 3.0 (TID 3, localhost, partition 0,PROCESS_LOCAL, 2202 bytes)
+2017-11-13 06:50:50,705 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Running task 0.0 in stage 3.0 (TID 3)
+2017-11-13 06:50:50,713 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Input split: file:/C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/data/testdata_combined.csv:0+6632
+2017-11-13 06:50:50,882 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 3.0 (TID 3). 2253 bytes result sent to driver
+2017-11-13 06:50:50,891 [task-result-getter-3] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 3.0 (TID 3) in 188 ms on localhost (1/1)
+2017-11-13 06:50:50,891 [task-result-getter-3] [INFO] (Logging.scala:58) - Removed TaskSet 3.0, whose tasks have all completed, from pool 
+2017-11-13 06:50:50,892 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - ShuffleMapStage 3 (map at wordCountOperation.scala:48) finished in 0.192 s
+2017-11-13 06:50:50,893 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - looking for newly runnable stages
+2017-11-13 06:50:50,893 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - running: Set()
+2017-11-13 06:50:50,894 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - waiting: Set(ResultStage 4)
+2017-11-13 06:50:50,895 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - failed: Set()
+2017-11-13 06:50:50,897 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting ResultStage 4 (MapPartitionsRDD[24] at show at wordCountOperation.scala:38), which has no missing parents
+2017-11-13 06:50:50,912 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_8 stored as values in memory (estimated size 6.5 KB, free 161.3 KB)
+2017-11-13 06:50:50,914 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_8_piece0 stored as bytes in memory (estimated size 3.5 KB, free 164.8 KB)
+2017-11-13 06:50:50,916 [dispatcher-event-loop-2] [INFO] (Logging.scala:58) - Added broadcast_8_piece0 in memory on localhost:56455 (size: 3.5 KB, free: 2.4 GB)
+2017-11-13 06:50:50,917 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Created broadcast 8 from broadcast at DAGScheduler.scala:1006
+2017-11-13 06:50:50,917 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting 1 missing tasks from ResultStage 4 (MapPartitionsRDD[24] at show at wordCountOperation.scala:38)
+2017-11-13 06:50:50,917 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Adding task set 4.0 with 1 tasks
+2017-11-13 06:50:50,931 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - Starting task 0.0 in stage 4.0 (TID 4, localhost, partition 0,NODE_LOCAL, 1894 bytes)
+2017-11-13 06:50:50,932 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Running task 0.0 in stage 4.0 (TID 4)
+2017-11-13 06:50:50,979 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Getting 1 non-empty blocks out of 1 blocks
+2017-11-13 06:50:50,998 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Started 0 remote fetches in 27 ms
+2017-11-13 06:50:51,563 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - Removed broadcast_7_piece0 on localhost:56455 in memory (size: 4.8 KB, free: 2.4 GB)
+2017-11-13 06:50:51,722 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Code generated in 528.362754 ms
+2017-11-13 06:50:51,747 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Code generated in 7.917262 ms
+2017-11-13 06:50:51,753 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 4.0 (TID 4). 2744 bytes result sent to driver
+2017-11-13 06:50:51,755 [task-result-getter-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 4.0 (TID 4) in 827 ms on localhost (1/1)
+2017-11-13 06:50:51,756 [task-result-getter-0] [INFO] (Logging.scala:58) - Removed TaskSet 4.0, whose tasks have all completed, from pool 
+2017-11-13 06:50:51,757 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - ResultStage 4 (show at wordCountOperation.scala:38) finished in 0.829 s
+2017-11-13 06:50:51,762 [main] [INFO] (Logging.scala:58) - Job 3 finished: show at wordCountOperation.scala:38, took 1.094122 s
+2017-11-13 06:50:51,855 [main] [INFO] (Logging.scala:58) - Starting job: show at wordCountOperation.scala:42
+2017-11-13 06:50:51,862 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Size of output statuses for shuffle 0 is 143 bytes
+2017-11-13 06:50:51,865 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Got job 4 (show at wordCountOperation.scala:42) with 1 output partitions
+2017-11-13 06:50:51,866 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Final stage: ResultStage 6 (show at wordCountOperation.scala:42)
+2017-11-13 06:50:51,866 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Parents of final stage: List(ShuffleMapStage 5)
+2017-11-13 06:50:51,866 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Missing parents: List()
+2017-11-13 06:50:51,871 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting ResultStage 6 (MapPartitionsRDD[27] at show at wordCountOperation.scala:42), which has no missing parents
+2017-11-13 06:50:51,879 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_9 stored as values in memory (estimated size 6.5 KB, free 157.5 KB)
+2017-11-13 06:50:51,883 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Block broadcast_9_piece0 stored as bytes in memory (estimated size 3.5 KB, free 161.0 KB)
+2017-11-13 06:50:51,886 [dispatcher-event-loop-1] [INFO] (Logging.scala:58) - Added broadcast_9_piece0 in memory on localhost:56455 (size: 3.5 KB, free: 2.4 GB)
+2017-11-13 06:50:51,887 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Created broadcast 9 from broadcast at DAGScheduler.scala:1006
+2017-11-13 06:50:51,887 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Submitting 1 missing tasks from ResultStage 6 (MapPartitionsRDD[27] at show at wordCountOperation.scala:42)
+2017-11-13 06:50:51,887 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - Adding task set 6.0 with 1 tasks
+2017-11-13 06:50:51,889 [dispatcher-event-loop-2] [INFO] (Logging.scala:58) - Starting task 0.0 in stage 6.0 (TID 5, localhost, partition 0,NODE_LOCAL, 1894 bytes)
+2017-11-13 06:50:51,889 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Running task 0.0 in stage 6.0 (TID 5)
+2017-11-13 06:50:51,900 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Getting 1 non-empty blocks out of 1 blocks
+2017-11-13 06:50:51,900 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Started 0 remote fetches in 0 ms
+2017-11-13 06:50:51,910 [Executor task launch worker-0] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 6.0 (TID 5). 2744 bytes result sent to driver
+2017-11-13 06:50:51,912 [dag-scheduler-event-loop] [INFO] (Logging.scala:58) - ResultStage 6 (show at wordCountOperation.scala:42) finished in 0.024 s
+2017-11-13 06:50:51,912 [task-result-getter-1] [INFO] (Logging.scala:58) - Finished task 0.0 in stage 6.0 (TID 5) in 22 ms on localhost (1/1)
+2017-11-13 06:50:51,912 [task-result-getter-1] [INFO] (Logging.scala:58) - Removed TaskSet 6.0, whose tasks have all completed, from pool 
+2017-11-13 06:50:51,912 [main] [INFO] (Logging.scala:58) - Job 4 finished: show at wordCountOperation.scala:42, took 0.056672 s
+2017-11-13 06:50:51,919 [Thread-2] [INFO] (Logging.scala:58) - Invoking stop() from shutdown hook
+2017-11-13 06:50:51,996 [Thread-2] [INFO] (Logging.scala:58) - Stopped Spark web UI at http://10.27.56.139:4040
+2017-11-13 06:50:52,023 [dispatcher-event-loop-0] [INFO] (Logging.scala:58) - MapOutputTrackerMasterEndpoint stopped!
+2017-11-13 06:50:52,124 [Thread-2] [INFO] (Logging.scala:58) - MemoryStore cleared
+2017-11-13 06:50:52,126 [Thread-2] [INFO] (Logging.scala:58) - BlockManager stopped
+2017-11-13 06:50:52,129 [Thread-2] [INFO] (Logging.scala:58) - BlockManagerMaster stopped
+2017-11-13 06:50:52,133 [dispatcher-event-loop-3] [INFO] (Logging.scala:58) - OutputCommitCoordinator stopped!
+2017-11-13 06:50:52,148 [sparkDriverActorSystem-akka.actor.default-dispatcher-2] [INFO] (Slf4jLogger.scala:74) - Shutting down remote daemon.
+2017-11-13 06:50:52,152 [sparkDriverActorSystem-akka.actor.default-dispatcher-2] [INFO] (Slf4jLogger.scala:74) - Remote daemon shut down; proceeding with flushing remote transports.
+2017-11-13 06:50:52,182 [Thread-2] [INFO] (Logging.scala:58) - Successfully stopped SparkContext
+2017-11-13 06:50:52,183 [Thread-2] [INFO] (Logging.scala:58) - Shutdown hook called
+2017-11-13 06:50:52,196 [Thread-2] [INFO] (Logging.scala:58) - Deleting directory C:\Users\yuntliu\AppData\Local\Temp\spark-036105e8-0d04-4190-a78e-58f65e81d1e8

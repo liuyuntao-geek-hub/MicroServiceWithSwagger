@@ -261,19 +261,15 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.apache.hadoop:hadoop-mapreduce-client-hs:2.6.4" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.scalatest:scalatest_2.10:2.2.6" level="project" />
     <orderEntry type="library" name="Maven: it.nerdammer.bigdata:spark-hbase-connector_2.10:1.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.drools:knowledge-api:6.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.drools:drools-reteoo:6.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.drools:drools-decisiontables:6.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.drools:drools-templates:6.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.kie:kie-api:6.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.kie:kie-internal:6.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.drools:drools-core:6.2.0.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.mvel:mvel2:2.2.4.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.drools:drools-compiler:6.2.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.drools:drools-compiler:6.0.1.Final" level="project" />
     <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.5" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jdt.core.compiler:ecj:4.3.1" level="project" />
-    <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.4.7" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jdt.core.compiler:ecj:3.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.mvel:mvel2:2.1.8.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.4.3" level="project" />
     <orderEntry type="library" name="Maven: xmlpull:xmlpull:1.1.3.1" level="project" />
     <orderEntry type="library" name="Maven: xpp3:xpp3_min:1.1.4c" level="project" />
+    <orderEntry type="library" name="Maven: org.drools:drools-core:6.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.kie:kie-api:6.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.kie:kie-internal:6.0.1.Final" level="project" />
   </component>
 </module>

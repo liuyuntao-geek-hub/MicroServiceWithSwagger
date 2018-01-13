@@ -1,0 +1,12 @@
+2017-11-28 16:54:12,354 [main] [WARN] (wordCountWrapper.scala:47) - Starting Program
+2017-11-28 16:54:14,057 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-28 16:54:17,854 [main] [WARN] (OperationSession.scala:60) - OperationSession Start
+2017-11-28 16:54:17,854 [main] [WARN] (Operator.scala:97) - Starting Operation
+2017-11-28 16:54:17,854 [main] [WARN] (Operator.scala:42) - *** Start load ***
+2017-11-28 16:54:21,526 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load
+2017-11-28 17:18:17,786 [main] [WARN] (wordCountWrapper.scala:47) - Starting Program
+2017-11-28 17:18:19,177 [main] [WARN] (NativeCodeLoader.java:62) - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2017-11-28 17:18:22,505 [main] [WARN] (OperationSession.scala:60) - OperationSession Start
+2017-11-28 17:18:22,505 [main] [WARN] (Operator.scala:97) - Starting Operation
+2017-11-28 17:18:22,505 [main] [WARN] (Operator.scala:42) - *** Start load ***
+2017-11-28 17:18:25,146 [main] [WARN] (wordCountOperation.scala:32) - wordcount - data load

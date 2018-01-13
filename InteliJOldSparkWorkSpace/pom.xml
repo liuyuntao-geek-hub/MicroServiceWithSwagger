@@ -37,7 +37,7 @@
     <scala.tools.version>2.10</scala.tools.version>
     <scala.version>2.10.5</scala.version>
     <spark.version>1.6.0</spark.version>
-    <drools.version>6.2.0.final</drools.version>
+    <drools.version>6.2.0.Final</drools.version>
   </properties>
 
   <dependencies>

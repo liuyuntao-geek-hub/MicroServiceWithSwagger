@@ -25,6 +25,6 @@
 
   "Drools":
   {
-    "DroolsXLSRuleFile": "C:/Users/yuntliu/Documents/workstation/Study/IntelliJ/InteliJOldSparkWorkSpace/src/main/resources/rules/DroolsRuleDecisionTableDiscount.xls"
+    "DroolsXLSRuleFile": "C:/java/git/repos/geekhub/MicroServiceWithSwagger/InteliJOldSparkWorkSpace/src/main/resources/rules/DroolsRuleDecisionTableDiscount.xls"
   }
 }

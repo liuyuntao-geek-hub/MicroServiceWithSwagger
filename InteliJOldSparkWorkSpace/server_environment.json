@@ -22,6 +22,6 @@
 
   "Drools":
   {
-    "DroolsXLSRuleFile": "hdfs:///user/yuntliu/anthem/padp/sas/data/input/DroolsRuleDecisionTableDiscount.xls"
+    "DroolsXLSRuleFile": "/dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/bin/poc/DroolsRuleDecisionTableDiscount.xls"
   }
 }

@@ -12,7 +12,11 @@ import org.slf4j.LoggerFactory;*/
 import com.typesafe.config.{Config, ConfigFactory}
 import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.{SparkConf, SparkContext}
-
+import org.apache.hadoop.fs.Path
+import java.io.InputStreamReader
+import org.apache.hadoop.fs.FileSystem
+import grizzled.slf4j.Logging
+import org.apache.spark.SparkFiles
 
 /**
   * Created by yuntliu on 11/7/2017.
@@ -22,7 +26,6 @@ class OperationSession (val AppName:String="ParentDriver", val master:String="lo
                        )
 {
 // Setup HBase Configuration
-
 
   ///////////// **** Constructing *********** //////////////////
  // grizzled.slf4j = not doing well when extended
@@ -37,7 +40,28 @@ class OperationSession (val AppName:String="ParentDriver", val master:String="lo
 
  // @transient private val logger:Logger = LoggerFactory.getLogger(OperationSession.getClass)
 
+/*  val conf = OperationSession.conf
+  val sc = OperationSession.sc;
+  val sqlContext = OperationSession.sqlContext
+  var hiveSqlContext:HiveContext = _
+  var  docReader:Config = OperationSession.docReader*/
+/*  
+    val conf = new SparkConf()
+    .set("hive.execution.engine", "spark")
+    .set("spark.acls.enable", "true")
 
+  val sc = new SparkContext(conf)
+    */
+    
+
+ val conf = new SparkConf().setAppName(AppName).setMaster(master)
+ val sc = SparkContext.getOrCreate(conf);
+ 
+
+  val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+  var hiveSqlContext:HiveContext = _
+  var  docReader:Config = ConfigFactory.load();
+  
   // In parent class Logger works
   @transient lazy private val log = org.apache.log4j.LogManager.getLogger(OperationSession.getClass)
 
@@ -48,14 +72,27 @@ class OperationSession (val AppName:String="ParentDriver", val master:String="lo
     println("Application ID From YT: "+sc.applicationId)
   }
 
-  val conf = new SparkConf().setAppName(AppName).setMaster(master)
-  val sc = SparkContext.getOrCreate(conf);
-  val sqlContext = new org.apache.spark.sql.SQLContext(sc)
-  var hiveSqlContext:HiveContext = _
-  var  docReader:Config = ConfigFactory.load();
+
+  
+  
+   val hdfs: FileSystem = OperationSession.hdfs
+  //  sc.setLogLevel("OFF")
+
+  //loading application_<env>.properties file
+   //************************************ When running on deploy-mode cluster- local mode ***************************************
+  val appConfFile = hdfs.open(new Path("hdfs:///dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/bin/poc/environment.json"))
+  val appConfReader = new InputStreamReader(appConfFile)
+  val exDocReader:Config = ConfigFactory.parseReader(appConfReader)
+   //****************************************************************************************************************
+   
+ // val appConf = ConfigFactory.parseReader(appConfReader)
+
 
   // THis is to give the customized configuration file from the file system
-  val exDocReader:Config = ConfigFactory.parseFile(new File( externalConfig.getOrElse( "environment.json")))
+//************************************ When running on deploy-mode client local mode ***************************************
+ //  val exDocReader:Config = ConfigFactory.parseFile(new File( externalConfig.getOrElse( "environment.json")))
+     //****************************************************************************************************************
+   
   println(exDocReader.getString("env.inputFilePath"))
 
   //rootlogger.warn("Root")
@@ -111,8 +148,29 @@ class OperationSession (val AppName:String="ParentDriver", val master:String="lo
 
 
 object OperationSession {
+  
+ // val conf = new SparkConf().setAppName("override").setMaster("local[4]")
+    val conf = new SparkConf().setAppName("override").setMaster("yarn")
+  val sc = SparkContext.getOrCreate(conf);
+  val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+  var hiveSqlContext:HiveContext = _
+  var  docReader:Config = ConfigFactory.load();
+  
+  val hdfs: FileSystem = FileSystem.get(sc.hadoopConfiguration)
+
+  
   def apply(AppName:String,Master:String): OperationSession = new OperationSession(AppName,Master,  None)
+  
+  
+  
+  
 }
+
+
+
+
+
+
 
 object SQLHiveContextSingleton {
     @transient private var instance: HiveContext = _
