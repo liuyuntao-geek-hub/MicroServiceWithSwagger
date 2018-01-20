@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.anthem</groupId>
+  <artifactId>CenterOfExcellence</artifactId>
+  <name>PADP DATA HPIP InteliJSpark22COE</name>
+  <version>2.0.0</version>
+  <inceptionYear>2017</inceptionYear>
+  <build>
+    <sourceDirectory>src/main/scala</sourceDirectory>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <version>3.2.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+            <configuration>
+              <args>
+                <arg>-dependencyfile</arg>
+                <arg>${project.build.directory}/.scala_dependencies</arg>
+              </args>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+          <mainClass>com.anthem.hpip.mtclm.MTCLMDriver</mainClass>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.3</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <relocations>
+                <relocation>
+                  <pattern>org.apache.commons.beanutils</pattern>
+                  <shadedPattern>com.anthem.hpip.util</shadedPattern>
+                </relocation>
+              </relocations>
+              <transformers>
+                <transformer>
+                  <mainClass>com.anthem.hpip.mtclm.MTCLMDriver</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration />
+      </plugin>
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <releases />
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>cloudera-releases</id>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+    </repository>
+  </repositories>
+  <properties>
+    <jasypt.version>1.9.2</jasypt.version>
+    <scala.version>2.11.7</scala.version>
+    <encoding>UTF-8</encoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <spark.version>2.2.0.cloudera1</spark.version>
+    <scala.tools.version>2.11</scala.tools.version>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+</project>
+
