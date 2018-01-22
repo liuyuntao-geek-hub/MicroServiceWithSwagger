@@ -7,17 +7,9 @@ object Spark2Config extends Serializable {
 
 val warehouseLocation = "file:${system:user.dir}/spark-warehouse"
 
- /////////// When Run on Local ///////////////
+ val spark = SparkSession.builder().appName("FSI").master("local[*]").getOrCreate()
 
-// val spark = SparkSession.builder().appName("FSI").master("local[*]").getOrCreate()
-
-
- ///////////  End of When Run on Local ///////////////
-
-/////////////////// When Run on Cluster /////////////////////
-
-
- val spark = SparkSession
+/*val spark = SparkSession
     .builder()
    // .config("spark.sql.warehouse.dir", warehouseLocation)
     .config("hive.exec.dynamic.partition", "true")
@@ -26,13 +18,10 @@ val warehouseLocation = "file:${system:user.dir}/spark-warehouse"
     .config("hive.warehouse.data.skipTrash", "true")
     .config("spark.sql.parquet.writeLegacyFormat", "true")
     .enableHiveSupport()
-    .getOrCreate()
+    .getOrCreate()*/
 
-/////////////////// End of When Run on Cluster /////////////////////
-    
   //  config("spark.sql.shuffle.partitions", 6)
 
-  
  
   spark.sparkContext.hadoopConfiguration.set("parquet.enable.summary-metadata", "false")
   lazy val hdfs: FileSystem = FileSystem.get(spark.sparkContext.hadoopConfiguration)

@@ -12,7 +12,7 @@ import org.apache.spark.sql.functions.{current_timestamp, lit}
   */
 class TemplateOperation(confFilePath: String, env: String, queryFileCategory: String) extends OperationSession(confFilePath, env,queryFileCategory) with Operator {
 
-  sc.setLogLevel("OFF")
+  sc.setLogLevel("info")
   val firstTableName=config.getString("firstTableName")
   val secondTableName=config.getString("secondTableName")
   def loadData(): Map[String, DataFrame] = {
@@ -53,7 +53,7 @@ class TemplateOperation(confFilePath: String, env: String, queryFileCategory: St
   def writeData(outDFs: Map[String, DataFrame]): Unit = {
 
     val df1 = outDFs.getOrElse(firstTableName, null)
-
+    Thread.sleep(10000)
     df1.show()
 
   }

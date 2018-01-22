@@ -50,7 +50,7 @@ class MTCLMOperation(confFilePath: String, env: String, queryFileCategory: Strin
     hpipAuditDF.write.insertInto(warehouseHiveDB + """.""" + "hpip_audit")
   }
 
- override def afterWriteData() {
+  override def afterWriteData() {
     val warehouseHiveDB = config.getString("warehouse-hive-db")
     var listBuffer = ListBuffer[hpipAudit]()
     val end_time = DateUtils.getCurrentDateTime

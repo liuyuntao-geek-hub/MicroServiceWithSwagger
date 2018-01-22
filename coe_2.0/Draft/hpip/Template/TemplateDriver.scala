@@ -1,13 +1,18 @@
-package com.anthem.hpip.JumpStart.prototype.CSVToHive
+package com.anthem.hpip.Template
+
+
 import grizzled.slf4j.Logging
 import com.anthem.hpip.util.HPIPCommonUtils
 import com.anthem.hpip.config.Spark2Config
 import org.joda.time.DateTime
 import org.joda.time.Minutes
 /**
-  * Created by yuntliu on 12/6/2017.
+  * Created by yuntliu on 1/20/2018.
+
+
   */
-object CSVToHiveDriver extends Logging {
+object TemplateDriver  extends Logging {
+  
 /*  def main(args: Array[String]): Unit = {
     //    (new PharmacyOperation(appName = "SpendFileProcessing", master = "local[2]",
     //      propertyFile = "application.properties")).operation()
@@ -21,11 +26,11 @@ object CSVToHiveDriver extends Logging {
 
     val Array(confFilePath, env,queryFileCategory) = args
 
-    (new CSVToHiveOperation(confFilePath, env,queryFileCategory)).operation()
+    (new TemplateOperation(confFilePath, env,queryFileCategory)).operation()
   }
   */
   
-    
+  
   def main(args: Array[String]): Unit = {
 
     require(args != null && args.size == 3, HPIPCommonUtils.argsErrorMsg)
@@ -34,7 +39,7 @@ object CSVToHiveDriver extends Logging {
     try {
       val startTime = DateTime.now
       info(s"[HPIP-ETL] Template application Started: $startTime")
-      (new CSVToHiveOperation(confFilePath, env, queryFileCategory)).operation()
+      (new TemplateOperation(confFilePath, env, queryFileCategory)).operation()
       info(s"[HPIP-ETL] Template Completed at: " + DateTime.now())
       info(s"[HPIP-ETL] Time Taken for Template Completion :" + Minutes.minutesBetween(startTime, DateTime.now()).getMinutes + " mins.")
 

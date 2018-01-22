@@ -17,9 +17,11 @@ class OperationSession(configPath: String, env: String, queryFileCategory: Strin
   val spark = Spark2Config.spark
   import spark.implicits._
 
+  
+  
 ///////////////////////////////////////////
 
-  var appConfPath = ""
+/*  var appConfPath = ""
   var queryFilePath = ""
   var appConfFile:FSDataInputStream = null
   var appConfReader:InputStreamReader = null
@@ -57,16 +59,18 @@ class OperationSession(configPath: String, env: String, queryFileCategory: Strin
 
 
   info(s"[HPIP-ETL] Application Config Path is $appConfPath")
-  info(s"[HPIP-ETL] Query File Path is $queryFilePath")
+  info(s"[HPIP-ETL] Query File Path is $queryFilePath")*/
 
   //loading application_<env>.properties file
   //loading query_<queryFileCategory>.properties file
 
 //////////////////////////////////////////////////////////////
   
-  /*
+  
   
   val hdfs = Spark2Config.hdfs
+  
+  println("convert to coe Code")
 
   val appConfPath = configPath + File.separator + s"application_${env}.properties"
   val queryFilePath = configPath + File.separator + s"query_${queryFileCategory}.properties"
@@ -86,7 +90,7 @@ class OperationSession(configPath: String, env: String, queryFileCategory: Strin
 
   
   
-  */
+  
 
 /////////////////////////////////////////////////////////////
   

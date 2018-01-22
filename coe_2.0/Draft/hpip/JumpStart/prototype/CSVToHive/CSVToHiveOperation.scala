@@ -29,31 +29,31 @@ class CSVToHiveOperation (confFilePath: String, env: String,queryFileCategory: S
     testDF.show(50)
 
     val newTestDF = testDF.toDF(inputFieldsListArray: _*)
-//var dataMap = Map("zz_phmp_customer"->newTestDF)
-   var dataMap = Map("zz_phmp_customer"->newTestDF, "zz_phmp_mtclm"->loadHiveTableData())
+var dataMap = Map("zz_phmp_customer"->newTestDF)
+  //  var dataMap = Map("zz_phmp_customer"->newTestDF, "zz_phmp_mtclm"->loadHiveTableData())
 
     return dataMap
   }
 
   def processData(inDFs: Map[String, DataFrame]): Map[String, DataFrame] = {
     val df1 = inDFs.getOrElse("zz_phmp_customer", null)
-    val df2 = inDFs.getOrElse("zz_phmp_mtclm", null)
+ //   val df2 = inDFs.getOrElse("zz_phmp_mtclm", null)
     val lastUpdatedDate = config.getString("audit-column-name").toLowerCase
     val df1WithAuditColumn = df1.withColumn(lastUpdatedDate, lit(current_timestamp()))
-    val df2WithAuditColumn = df2.withColumn(lastUpdatedDate, lit(current_timestamp()))
+   // val df2WithAuditColumn = df2.withColumn(lastUpdatedDate, lit(current_timestamp()))
 
-  //  var dataMap = Map("zz_phmp_customer"->df1WithAuditColumn)
+    var dataMap = Map("zz_phmp_customer"->df1WithAuditColumn)
         
-    var dataMap = Map("zz_phmp_customer"->df1WithAuditColumn, "zz_phmp_mtclm"->df2WithAuditColumn)
+  //  var dataMap = Map("zz_phmp_customer"->df1WithAuditColumn, "zz_phmp_mtclm"->df2WithAuditColumn)
     return dataMap
   }
 
   def writeData(outDFs: Map[String, DataFrame]): Unit = {
 
     val df1 = outDFs.getOrElse("zz_phmp_customer", null)
-    val df2 = outDFs.getOrElse("zz_phmp_mtclm", null)
+  //  val df2 = outDFs.getOrElse("zz_phmp_mtclm", null)
     df1.show()
-    df2.show()
+  //  df2.show()
 
 
 
@@ -89,7 +89,8 @@ class CSVToHiveOperation (confFilePath: String, env: String,queryFileCategory: S
       if (tablename.equalsIgnoreCase("zz_phmp_customer"))
       {
         partitionColumn1 = config.getString("zz_phmp_customer_partition_col").toLowerCase()
- 
+         df.write.mode("overwrite").option("truncate", "true").insertInto(warehouseHiveDB + """.""" + tablename)
+
       }
       else
       {
@@ -98,7 +99,6 @@ class CSVToHiveOperation (confFilePath: String, env: String,queryFileCategory: S
        // df = spark.sql("SELECT * from TempDFTable limit 100")
       }
 
-        df.write.mode("overwrite").option("truncate", "true").insertInto(warehouseHiveDB + """.""" + tablename)
 
       
       //Creating the table in Hive

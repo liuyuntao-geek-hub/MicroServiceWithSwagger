@@ -1,0 +1,53 @@
+
+==== Create Testing tables for template program =============
+
+drop table dv_pdpspfiph_nogbd_r000_wh.zz_phmp_mtclm purge;
+
+CREATE  TABLE IF NOT EXISTS dv_pdpspfiph_nogbd_r000_wh.zz_phmp_mtclm(
+clm_adjstmnt_key string ,
+mbrshp_sor_cd string ,
+clm_its_host_cd string ,
+srvc_rndrg_type_cd string ,
+src_prov_natl_prov_id string ,
+src_billg_tax_id string ,
+mbr_key string ,
+rx_filled_dt timestamp,
+clm_sor_cd string,
+last_updt_dtm timestamp)
+
+stored as parquet
+location  'hdfs://nameservice1/dv/hdfsdata/ve2/pdp/spfi/phi/no_gbd/r000/warehouse/zz_phmp_mtclm';
+
+drop table dv_pdpspfiph_nogbd_r000_wh.zz_phmp_customer purge;
+
+CREATE  TABLE IF NOT EXISTS dv_pdpspfiph_nogbd_r000_wh.zz_phmp_customer(
+source_rowID string ,
+first_name string ,
+last_name string ,
+street string ,
+state string ,
+city string,
+zip string ,
+phone string ,
+email string ,
+source string ,
+rowID string,
+last_updt_dtm timestamp)
+
+stored as parquet
+location  'hdfs://nameservice1/dv/hdfsdata/ve2/pdp/spfi/phi/no_gbd/r000/warehouse/zz_phmp_customer';
+
+
+
+
+
+select * from dv_pdpspfiph_nogbd_r000_wh.zz_phmp_mtclm limit 100;
+
+select * from dv_pdphpipph_nogbd_r000_in.clm  where ADJDCTN_DT BETWEEN '2016-04-01' and '2016-04-02' limit 100;
+
+select count(*) from dv_pdphpipph_nogbd_r000_in.clm  where ADJDCTN_DT BETWEEN '2016-04-01' and '2016-04-02';
+
+select  TRIM(CLM_ADJSTMNT_KEY) as CLM_ADJSTMNT_KEY, TRIM(MBRSHP_SOR_CD) as MBRSHP_SOR_CD, TRIM(CLM_ITS_HOST_CD) as CLM_ITS_HOST_CD, TRIM(SRVC_RNDRG_TYPE_CD) as SRVC_RNDRG_TYPE_CD, TRIM(SRC_PROV_NATL_PROV_ID) as SRC_PROV_NATL_PROV_ID, TRIM(SRC_BILLG_TAX_ID) as SRC_BILLG_TAX_ID, TRIM(MBR_KEY) as MBR_KEY, RX_FILLED_DT ,TRIM(CLM_SOR_CD) as CLM_SOR_CD from dv_pdphpipph_nogbd_r000_in.CLM where ADJDCTN_DT BETWEEN '2016-04-01' and '2016-06-30';
+
+
+select * from dv_pdpspfiph_nogbd_r000_wh.zz_phmp_customer limit 10;
