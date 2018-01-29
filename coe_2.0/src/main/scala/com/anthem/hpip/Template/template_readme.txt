@@ -1,13 +1,26 @@
 *** This is the package to test local environment and cluster environment ***
 *** Only basic test included ***
 
+
+******************** Critical Note **********************
+- --deploymode client => if reading from HIVE => will throw Exception for file not found
+	- Solution: have to use --deploymode cluster
+- LoadData() function read from Hive will not start pipeline to DF
+	- Pipeline start when collecting, writing, showing the DF
+	- Pipeline will be defined in LoadData()
+	- When processing it will be Monodic process row by row distributed through LoadData -> procData -> WriteData
+
+**********************************************************
+
 Section 1 - Run Template on Local
 Step 1 - Change the code in com.anthem.hpip.config.Spark2Config 
 	- pick up the local run section 
-	
+	(in InteliJ need the next step:)
+	- pom.xml => change to <scope>compile</scope>
+	- pom.xml has a run local Session
 Step 1 - Run com.anthem.hpip.Template.TemplateDriver within eClipse with the following Parameter
 
-	C:\java\git\repos\coe_2.0\conf local TemplateLocal
+	C:\java\git\repos\ps_poc\SmartSelection_ETL\conf local TemplateLocal
 
 Step 2 - Before to deploy to cluster: 
 	*** reverse back the code in com.anthem.hpip.config.Spark2Config
@@ -95,7 +108,7 @@ spark2-submit \
 --driver-java-options "-Dlog4j.configuration=log4j.xml" \
 --conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=log4j.xml" \
 --class com.anthem.hpip.Template.TemplateDriver \
-hdfs:///dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/bin/CenterOfExcellence-2.0.0.jar \
+hdfs:///dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/bin/SmartPCPSelect-2.0.0.jar \
 hdfs:///dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/control/ dev_coe smartProviderCoe
 
 
@@ -132,7 +145,7 @@ spark2-submit \
 --driver-java-options "-Dlog4j.configuration=log4j.xml" \
 --conf "spark.executor.extraJavaOptions=-Dlog4j.configuration=log4j.xml" \
 --class com.anthem.hpip.Template.TemplateDriver \
-hdfs:///dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/bin/CenterOfExcellence-2.0.0.jar \
+hdfs:///dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/bin/SmartPCPSelect-2.0.0.jar \
 hdfs:///dv/hdfsapp/ve2/pdp/spfi/phi/no_gbd/r000/control/ dev_coe smartProviderCoe
 
 ==================================================================

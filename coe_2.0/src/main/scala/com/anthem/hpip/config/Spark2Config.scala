@@ -9,12 +9,13 @@ val warehouseLocation = "file:${system:user.dir}/spark-warehouse"
 
  /////////// When Run on Local ///////////////
 
-// val spark = SparkSession.builder().appName("FSI").master("local[*]").getOrCreate()
+ //val spark = SparkSession.builder().appName("FSI").master("local[4]").getOrCreate()
 
 
  ///////////  End of When Run on Local ///////////////
 
 /////////////////// When Run on Cluster /////////////////////
+
 
 
  val spark = SparkSession
@@ -28,6 +29,10 @@ val warehouseLocation = "file:${system:user.dir}/spark-warehouse"
     .enableHiveSupport()
     .getOrCreate()
 
+
+
+ 
+ 
 /////////////////// End of When Run on Cluster /////////////////////
     
   //  config("spark.sql.shuffle.partitions", 6)
