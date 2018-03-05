@@ -1,0 +1,20 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+      server:
+        encrypt.enabled: false
+        git:
+          uri: https://bitbucket.com/pcp/config-repo/
+          searchPaths: member,provider,zuulservice
+          username: native-cloud-apps
+          password: 0ffended
+ 
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.thoughtmechanix: DEBUG

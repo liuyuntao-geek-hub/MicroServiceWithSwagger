@@ -1,0 +1,38 @@
+server:
+  port:8080
+  
+spring:
+  application:
+    name:demoapp 
+#  jpa:
+#    hibernate:
+#      ddl-auto : update
+#    properties:
+#      hibernate:
+#        show_sql:false
+#        use_sql_comments=false
+#        format_sql=false
+        
+management:
+ security:
+  enabled: false
+  
+
+hive:
+  userImpersonation:
+    enabled:false   
+  cache:
+      expiry:
+        duration:4
+        time-unit:HOURS
+        
+hive:
+  datasource:
+  driverClassName: org.apache.hive.jdbc.HiveDriver
+  url: jdbc:hive2://dwbdtest1r2m3.wellpoint.com:2181/dv_pdppadpph_nogbd_r000_in
+  username:
+  password:
+    validationQuery: show tables 'test'
+          
+ 
+    

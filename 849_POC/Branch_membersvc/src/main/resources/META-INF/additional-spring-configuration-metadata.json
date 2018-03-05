@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "management.security.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'management.security.enabled'"
+  },
+  {
+    "name": "hive.userImpersonation.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'hive.userImpersonation.enabled'"
+  },
+  {
+    "name": "hive.datasource.driverClassName",
+    "type": "java.lang.String",
+    "description": "A description for 'hive.datasource.driverClassName'"
+  }
+]}

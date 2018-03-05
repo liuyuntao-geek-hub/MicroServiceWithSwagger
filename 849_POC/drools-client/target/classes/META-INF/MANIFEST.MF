@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: sample
+Implementation-Version: 4.0.0
+Built-By: AF71111
+Implementation-Vendor-Id: com.anthem.emep.dckr.microsvc
+Build-Jdk: 1.8.0_45
+Implementation-URL: http://projects.spring.io/spring-boot/drools-clien
+ t/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+Main-Class: com.anthem.emep.dckr.microsvc.drools-client.Application
+

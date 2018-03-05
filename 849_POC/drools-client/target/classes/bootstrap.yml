@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: drools-client
+  cloud:
+    config: 
+      uri: https://sit-interlock.anthem.com/utlconfig    
+    
+management:
+ security:
+  enabled: false
+  
+server:
+  port: 9091
+  
+droolsengine:
+  url: http://localhost:9090/discount/
+
+
+
+
+---
+
+spring:
+  profiles: sit
+
+---
+
+spring:
+ profiles: uat
+ 
+---
+
+spring:
+ profiles: prod	
+     
+     
+     
+     

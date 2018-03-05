@@ -1,0 +1,31 @@
+# Tomcat settings
+server:
+  contextPath:
+  port: 8080
+  
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path:/api-docs
+        
+# Splice Machine settings
+spring:
+  datasource:
+    driver-class-name: com.splicemachine.db.jdbc.ClientDriver
+    url: jdbc:splice://dwbdtest1r2w9.wellpoint.com:1527/splicedb
+    username: splice
+    password: admin
+    
+# JPA settings
+spring:
+  jpa:
+    hibernate:
+      ddl-auto : none
+      dialect : org.hibernate.dialect.DerbyDialect
+      
+# SpringBoot settings
+spring:
+  jackson:
+    date-format: com.deloitte.demo.RFC3339DateFormat
+    serialization.WRITE_DATES_AS_TIMESTAMPS: false

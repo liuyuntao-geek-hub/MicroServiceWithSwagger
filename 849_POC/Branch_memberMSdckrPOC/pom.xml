@@ -1,0 +1,444 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.anthem</groupId>
+	<artifactId>HiveDemoPOC</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo</name>
+	<description>demo</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.7.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<properties>
+		<start-class>com.hivePoc.HiveApplication</start-class>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
+		<java.version>1.8</java.version>
+		<dev.docker.image.prefix>sit-dtr.anthem.com/dev</dev.docker.image.prefix>
+		<sit.docker.image.prefix>sit-dtr.anthem.com/sit</sit.docker.image.prefix>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Dalston.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+	
+	
+	<dependencies>
+		<!-- <dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>2.8.5</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-rsa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-undertow</artifactId>
+			
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+ 
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </exclusion>
+        <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+
+ 
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-core</artifactId>
+    </dependency>
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    </dependency>  
+
+
+	<!-- <dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+
+			<exclusions>
+			
+
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<exclusions>
+        <exclusion>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <groupId>org.hibernate</groupId>
+        </exclusion>
+    </exclusions>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-solr</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-http</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-exec</artifactId>
+			<version>1.1.0</version>
+
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-client</artifactId>
+			<version>2.7.1</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>servlet-api</groupId>
+					<artifactId>javax.servlet</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-common</artifactId>
+			<version>2.7.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>servlet-api</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+
+			<groupId>org.apache.hive</groupId>
+			<artifactId>hive-jdbc</artifactId>
+			<version>1.1.0</version>
+
+			<exclusions>
+
+				<exclusion>
+					<groupId>org.eclipse.jetty.aggregate</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+	
+	
+	
+	<profiles>
+		<profile>
+			<id>develop</id>
+
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<!--<executions> <execution> <goals> <goal>repackage</goal> </goals> 
+							</execution> </executions> -->
+					</plugin>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.4.11</version>
+						<configuration>
+							<imageName>${dev.docker.image.prefix}/${project.artifactId}</imageName>
+							<dockerDirectory>src/main/docker</dockerDirectory>
+							<resources>
+								<resource>
+									<targetPath>/</targetPath>
+									<directory>${project.build.directory}</directory>
+									<include>${project.build.finalName}.jar</include>
+								</resource>
+								<resource>
+									<targetPath>/</targetPath>
+									<directory>src/main/resources</directory>
+									<include>log4j2.xml</include>
+								</resource>
+							</resources>
+						</configuration>
+						<executions>
+							<execution>
+								<id>build-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>tag-image-version</id>
+								<phase>package</phase>
+								<goals>
+									<goal>tag</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<image>${dev.docker.image.prefix}/${project.artifactId}</image>
+									<newName>${dev.docker.image.prefix}/${project.artifactId}:${project.version}</newName>
+								</configuration>
+							</execution>
+							<execution>
+								<id>tag-image-latest</id>
+								<phase>package</phase>
+								<goals>
+									<goal>tag</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<image>${dev.docker.image.prefix}/${project.artifactId}</image>
+									<newName>${dev.docker.image.prefix}/${project.artifactId}:latest</newName>
+								</configuration>
+							</execution>
+							<execution>
+								<id>push-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>push</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<imageName>${dev.docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+									<serverId>soasit-docker-dtr</serverId>
+									<registryUrl>https://sit-dtr.anthem.com</registryUrl>
+									<retryPushCount>1</retryPushCount>
+								</configuration>
+							</execution>
+							<execution>
+								<id>push-image-latest</id>
+								<phase>package</phase>
+								<goals>
+									<goal>push</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<imageName>${dev.docker.image.prefix}/${project.artifactId}:latest</imageName>
+									<serverId>soasit-docker-dtr</serverId>
+									<registryUrl>https://sit-dtr.anthem.com</registryUrl>
+									<retryPushCount>1</retryPushCount>
+								</configuration>
+							</execution>
+
+						</executions>
+
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>master</id>
+
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<!--<executions> <execution> <goals> <goal>repackage</goal> </goals> 
+							</execution> </executions> -->
+					</plugin>
+					<plugin>
+						<groupId>com.spotify</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.4.11</version>
+						<configuration>
+							<imageName>${sit.docker.image.prefix}/${project.artifactId}</imageName>
+							<dockerDirectory>src/main/docker</dockerDirectory>
+							<resources>
+								<resource>
+									<targetPath>/</targetPath>
+									<directory>${project.build.directory}</directory>
+									<include>${project.build.finalName}.jar</include>
+								</resource>
+								<resource>
+									<targetPath>/</targetPath>
+									<directory>src/main/resources</directory>
+									<include>log4j2.xml</include>
+								</resource>
+							</resources>
+						</configuration>
+						<executions>
+							<execution>
+								<id>build-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>tag-image-version</id>
+								<phase>package</phase>
+								<goals>
+									<goal>tag</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<image>${sit.docker.image.prefix}/${project.artifactId}</image>
+									<newName>${sit.docker.image.prefix}/${project.artifactId}:${project.version}</newName>
+								</configuration>
+							</execution>
+							<execution>
+								<id>tag-image-latest</id>
+								<phase>package</phase>
+								<goals>
+									<goal>tag</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<image>${sit.docker.image.prefix}/${project.artifactId}</image>
+									<newName>${sit.docker.image.prefix}/${project.artifactId}:latest</newName>
+								</configuration>
+							</execution>
+							<execution>
+								<id>push-image</id>
+								<phase>package</phase>
+								<goals>
+									<goal>push</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<imageName>${sit.docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+									<serverId>soasit-docker-dtr</serverId>
+									<registryUrl>https://sit-dtr.anthem.com</registryUrl>
+									<retryPushCount>1</retryPushCount>
+								</configuration>
+							</execution>
+							<execution>
+								<id>push-image-latest</id>
+								<phase>package</phase>
+								<goals>
+									<goal>push</goal>
+								</goals>
+								<configuration>
+									<forceTags>true</forceTags>
+									<imageName>${sit.docker.image.prefix}/${project.artifactId}:latest</imageName>
+									<serverId>soasit-docker-dtr</serverId>
+									<registryUrl>https://sit-dtr.anthem.com</registryUrl>
+									<retryPushCount>1</retryPushCount>
+								</configuration>
+							</execution>
+
+						</executions>
+
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
