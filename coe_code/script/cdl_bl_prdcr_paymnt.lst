@@ -1,5 +1,0 @@
-/dv/app/ve2/cdp/edwd/phi/no_gbd/r000/bin/CDL_BTEQ_Wrapper.sh /dv/app/ve2/cdp/edwd/phi/no_gbd/r000/etl/cdl_bl_prdcr_paymnt.conf 5
-/dv/app/ve2/cdp/edwd/phi/no_gbd/r000/bin/CDL_TDCH_Wrapper.sh /dv/app/ve2/cdp/edwd/phi/no_gbd/r000/etl/cdl_bl_prdcr_paymnt.conf 5
-/dv/app/ve2/cdp/edwd/phi/no_gbd/r000/bin/CDL_PARQUET_Wrapper.sh /dv/app/ve2/cdp/edwd/phi/no_gbd/r000/etl/cdl_bl_prdcr_paymnt.conf 5
-/dv/app/ve2/cdp/edwd/phi/no_gbd/r000/bin/CDL_AUDIT_Wrapper.sh /dv/app/ve2/cdp/edwd/phi/no_gbd/r000/etl/cdl_bl_prdcr_paymnt.conf 5
-
