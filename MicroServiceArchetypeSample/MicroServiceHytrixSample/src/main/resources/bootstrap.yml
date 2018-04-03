@@ -1,0 +1,41 @@
+
+defaultReadTimeout: 100
+defaultConnectionTimeout: 100
+
+spring:
+  application:
+    name: MicroServiceHytrixSample
+       
+  cloud:
+    config: 
+      uri: https://sit-interlock.anthem.com/utlconfig    
+    
+management:
+ security:
+  enabled: false
+  
+logging:
+ level: DEBUG
+
+server:
+ port: 8090
+
+---
+
+spring:
+  profiles: sit
+
+---
+
+spring:
+ profiles: uat
+ 
+---
+
+spring:
+ profiles: prod	
+     
+
+ 
+     
+     
