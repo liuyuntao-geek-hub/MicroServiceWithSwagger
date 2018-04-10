@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: DroolsRuleEngine-Service
+  cloud:
+    config: 
+      uri: https://sit-interlock.anthem.com/utlconfig    
+
+management:
+  security:
+    enabled: false
+
+server:
+  port: 8443
+
+transactions:
+  service:
+    url: http://30.138.170.207:8080/logSPCPFlowOprtn
+
+
+---
+
+spring:
+  profiles: sit
+
+---
+
+spring:
+  profiles: uat
+
+---
+
+spring:
+  profiles: prod	
