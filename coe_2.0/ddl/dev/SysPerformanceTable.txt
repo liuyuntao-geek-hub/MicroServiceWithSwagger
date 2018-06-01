@@ -1,0 +1,49 @@
+
+drop table dv_pdpspfiph_nogbd_r000_wh.zz_random_util purge;
+CREATE  TABLE IF NOT EXISTS dv_pdpspfiph_nogbd_r000_wh.zz_random_util(
+id_key bigint ,
+random_string string 
+)
+stored as parquet
+location  'hdfs:///dv/hdfsdata/ve2/pdp/spfi/phi/no_gbd/r000/warehouse/zz_random_util';
+
+
+drop table dv_pdpspfiph_nogbd_r000_wh.zz_srctb_a purge;
+
+CREATE  TABLE IF NOT EXISTS dv_pdpspfiph_nogbd_r000_wh.zz_srctb_a(
+id_key bigint ,
+random_number bigint,
+random_string string 
+)
+stored as parquet
+location  'hdfs:///dv/hdfsdata/ve2/pdp/spfi/phi/no_gbd/r000/warehouse/zz_srctb_a';
+
+drop table dv_pdpspfiph_nogbd_r000_wh.zz_srctb_b purge;
+
+CREATE  TABLE IF NOT EXISTS dv_pdpspfiph_nogbd_r000_wh.zz_srctb_b(
+id_key bigint ,
+random_number bigint,
+random_string string 
+)
+stored as parquet
+location  'hdfs:///dv/hdfsdata/ve2/pdp/spfi/phi/no_gbd/r000/warehouse/zz_srctb_b';
+
+
+drop table dv_pdpspfiph_nogbd_r000_wh.zz_tgttb_a purge;
+
+CREATE  TABLE IF NOT EXISTS dv_pdpspfiph_nogbd_r000_wh.zz_tgttb_a (
+MatchingString string,
+b_id_key bigint,
+a_id_key bigint,
+b_random_number bigint,
+a_random_number bigint,
+last_updt_dtm timestamp)
+
+stored as parquet
+location  'hdfs:///dv/hdfsdata/ve2/pdp/spfi/phi/no_gbd/r000/warehouse/zz_tgttb_a';
+
+select count (*) from dv_pdpspfiph_nogbd_r000_wh.zz_tgttb_a
+
+select * from dv_pdpspfiph_nogbd_r000_wh.zz_srctb_b where id_key = 468
+
+

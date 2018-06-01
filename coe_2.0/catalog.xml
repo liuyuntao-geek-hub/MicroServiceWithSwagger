@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+  <archetype-catalog xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd">
+  <archetypes>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.common</groupId> 
+  <artifactId>docker-prototype-common</artifactId> 
+  <version>1.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker Common Component</description> 
+  </archetype>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.microsvc</groupId> 
+  <artifactId>docker-prototype-ms</artifactId> 
+  <version>15.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker basic service</description> 
+  </archetype>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.microsvc</groupId> 
+  <artifactId>docker-prototype-ms-hystrix</artifactId> 
+  <version>15.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker basic service with hystrix sample</description> 
+  </archetype>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.microsvc</groupId> 
+  <artifactId>docker-prototype-ms-emad</artifactId> 
+  <version>15.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker basic service with emad connection sample</description> 
+  </archetype>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.microsvc</groupId> 
+  <artifactId>docker-prototype-ms-emad-autoconfiguration</artifactId> 
+  <version>15.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker basic service with emad connection sample using spring boot auto configuration</description> 
+  </archetype>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.microsvc</groupId> 
+  <artifactId>docker-prototype-ms-ehub</artifactId> 
+  <version>15.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker basic service with ehub connection sample</description> 
+  </archetype>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.microsvc</groupId> 
+  <artifactId>docker-prototype-ms-ehub-autoconfiguration</artifactId> 
+  <version>15.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker basic service with ehub connection sample with spring boot auto configuration</description> 
+  </archetype>
+  <archetype>
+  <groupId>com.anthem.emep.dckr.microsvc</groupId> 
+  <artifactId>docker-prototype-ms-ims</artifactId> 
+  <version>16.0</version> 
+  <repository>https://va10pwprpo001.us.ad.wellpoint.com/artifactory/maven-releases</repository> 
+  <description>Docker basic service for IMS connect</description> 
+  </archetype>
+  </archetypes>
+  </archetype-catalog>
