@@ -1,1 +1,0 @@
-# Drools Rules Engine MicroService.

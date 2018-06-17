@@ -1,7 +1,0 @@
-/target/
-/.apt_generated/
-/.settings/
-/.factorypath
-/.project
-/.classpath
-/src/main/resources/application.properties
