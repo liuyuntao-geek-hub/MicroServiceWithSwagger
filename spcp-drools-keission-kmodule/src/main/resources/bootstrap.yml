@@ -1,0 +1,44 @@
+management:
+  security:
+    enabled: false
+
+spring.application.name: spcp-drools
+
+---
+
+spring:
+  profiles: dev
+  cloud:
+    config: 
+      uri: https://sit-interlock.anthem.com/spcp-config-server
+
+---
+
+spring:
+  profiles: sit
+  cloud:
+    config: 
+      uri: https://sit-interlock.anthem.com/spcp-config-server
+
+---
+
+spring:
+  profiles: uat
+  cloud:
+    config: 
+      uri: https://uat-interlock.anthem.com/spcp-config-server
+
+---
+
+spring:
+  profiles: prod
+  cloud:
+    config: 
+      uri: https://prod-interlock.anthem.com/spcp-config-server
+
+encrypt:
+  key-store:
+    location: file:${key.path}
+    password: anthem$$docker
+    alias: docker
+    secret: anthem$$docker
