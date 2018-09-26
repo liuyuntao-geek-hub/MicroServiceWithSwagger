@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>SmartPCP Tracker</title>
+<script>
+	if(window.location.href.indexOf("spcp-track-audit/") == -1) {
+	 	window.location.href += "/";
+	 }
+</script>
+<script src="common/angular-1.7.2/angular.js"></script>
+<script src="common/angular-1.7.2/angular-animate.js"></script>
+<script src="common/angular-1.7.2/angular-aria.js"></script>
+<script src="common/angular-1.7.2/angular-messages.js"></script>
+<script src="common/md-data-table.js"></script>
+<script src="common/material-1.1.9/angular-material.min.js"></script>
+
+
+<link rel="stylesheet"
+	href="common/material-1.1.9/angular-material.min.css" />
+<link rel="stylesheet" href="common/md-data-table.css" />
+
+<style>
+.md-tab{
+    text-transform: none
+}
+.material-icons.md-light {
+	color: rgba(255, 255, 255, 1);
+}
+
+md-input-container label {
+	overflow: visible !important;
+}
+
+.material-icons.md-light.md-inactive {
+	color: rgba(255, 255, 255, 0.3);
+}
+</style>
+
+</head>
+<body ng-app="trackingApp">
+	<hr />
+	<div layout="column" ng-cloak class="md-inline-form">
+
+		<md-toolbar md-scroll-shrink>
+		<div class="md-toolbar-tools">SmartPCP Tracker</div>
+		</md-toolbar>
+		<md-subheader class="md-primary">Score Tracker</md-subheader>
+		<div ng-cloak>
+			<md-content> <md-tabs md-dynamic-height md-border-bottom>
+			<md-tab label="Trace Id"> <md-content class="md-padding">
+			<div
+				ng-controller="WithTracingIdSearchCtrl as withTracingIdSearchCtrl">
+				<form name="withTraceIdSearchForm" method="POST"
+					action="getPCPScoreDataAsXLSX" id="withTraceIdSearchForm"
+					target="_blank">
+
+					<div layout-gt-sm="row">
+						<div flex-gt-xs>
+							<md-input-container class="md-block" flex-gt-sm>
+							<label>Trace Id</label> <input name="traceId" ng-model="traceId"
+								required md-maxlength="25" minlength="16"
+								aria-label="Enter Trace Id">
+							<div ng-messages="withTraceIdSearchForm.traceId.$error"
+								ng-show="withTraceIdSearchForm.traceId.$dirty">
+								<div ng-message="required">This is required!</div>
+								<div ng-message="md-maxlength">That's too long!</div>
+								<div ng-message="minlength">That's too short!</div>
+							</div>
+							</md-input-container>
+						</div>
+						<div flex-gt-xs>
+							<md-input-container> <label>PCP
+								assignment date</label> <md-datepicker
+								ng-model="withTracingIdSearchCtrl.pcpAssignmentDate"
+								name="pcpAssignmentDate"
+								md-max-date="withTraceIdSearchForm.maxDate" required></md-datepicker>
+							<div ng-messages="withTraceIdSearchForm.pcpAssignmentDate.$error">
+								<div ng-message="valid">Use a valid date format</div>
+								<div ng-message="maxdate">Choose a date on or before
+									{{withTracingIdSearchCtrl.maxDate | date:"shortDate"}}</div>
+							</div>
+							</md-input-container>
+						</div>
+						<div flex-gt-xs>
+							<md-button class="md-raised md-primary"
+								ng-click="fetchPcpAssignmentData(withTraceIdSearchForm.traceId,withTraceIdSearchForm.pcpAssignmentDate)"
+								ng-disabled="withTraceIdSearchForm.traceId.$dirty && withTraceIdSearchForm.traceId.$invalid && withTraceIdSearchForm.pcpAssignmentDate.$dirty && withTraceIdSearchForm.pcpAssignmentDate.$invalid">
+							Submit </md-button>
+						</div>
+					</div>
+				</form>
+
+
+				<md-divider></md-divider>
+
+				<md-table-container>
+				<table md-table>
+					<thead md-head>
+						<tr md-row>
+							<th md-column><span>Trace Id</span></th>
+							<th md-column><span>MBR First Name</span></th>
+							<th md-column>Assigned PCP Id</th>
+							<th md-column>MBR Network</th>
+							<th md-column>MBR Processing State</th>
+							<th md-column>Download Excel</th>
+							<th md-column>Show JSON</th>
+						</tr>
+					</thead>
+					<tbody md-body>
+						<tr md-row ng-repeat="assignmentData in pcpAssignmentInfo">
+							<td md-cell>{{assignmentData.traceId}}</td>
+							<td md-cell>{{assignmentData.frstNm}}</td>
+							<td md-cell>{{assignmentData.pcpIdAssigned}}</td>
+							<td md-cell>{{assignmentData.mbrNtwrkId}}</td>
+							<td md-cell>{{assignmentData.mbrProcessingSt}}</td>
+							<td md-cell><md-button class="md-fab md-primary"
+									ng-click="downloadPcpScoringData(assignmentData.traceId)"
+									aria-label="Download PCP scoring details"> <md-tooltip
+									md-direction="left">Download PCP scoring details</md-tooltip> <md-icon
+									md-svg-src="common/img/icons/baseline-cloud_download-24px.svg"></md-icon>
+								</md-button></td>
+							<td md-cell><md-button class="md-fab md-primary"
+									ng-click="showPcpScoringData(assignmentData.traceId)"
+									aria-label="Download PCP scoring details"> <md-tooltip
+									md-direction="left">PCP scoring details as JSON</md-tooltip> {
+								} </md-button></td>
+						</tr>
+					</tbody>
+				</table>
+				</md-table-container>
+
+				<md-table-pagination md-limit="query.limit"
+					md-limit-options="[5, 10, 15]" md-page="query.page"
+					md-total="{{pcpAssignmentInfo.length}}"></md-table-pagination>
+
+			</div>
+
+			</md-content> </md-tab> <md-tab label="Assignment"> <md-content class="md-padding">
+			<div
+				ng-controller="WithMemberInfoSearchCtrl as withMemberInfoSearchCtrl"
+				class="inset">
+				<form name="withMemberInfoSearchForm">
+
+					<div layout-gt-xs="row">
+						<!-- FIRST NAME -->
+						<div flex-gt-xs>
+							<md-input-container> <label>First
+								Name</label> <input name="firstName"
+								ng-model="withMemberInfoSearchCtrl.firstName" md-maxlength="25"
+								minlength="2" aria-label="Enter First Name">
+							<div ng-messages="withMemberInfoSearchForm.firstName.$error"
+								ng-show="withMemberInfoSearchForm.firstName.$dirty">
+								<!-- <div ng-message="required">This is required!</div> -->
+								<div ng-message="md-maxlength">That's too long!</div>
+								<div ng-message="minlength">That's too short!</div>
+							</div>
+							</md-input-container>
+						</div>
+						<!-- PCP ID -->
+						<div flex-gt-xs>
+							<md-input-container> <label>PCP Id</label> <input
+								name="pcpId" ng-model="withMemberInfoSearchCtrl.pcpId"
+								md-maxlength="25" minlength="2" aria-label="Enter PCP Id">
+							<div ng-messages="withMemberInfoSearchForm.pcpId.$error"
+								ng-show="withMemberInfoSearchForm.pcpId.$dirty">
+								<!-- <div ng-message="required">This is required!</div> -->
+								<div ng-message="md-maxlength">That's too long!</div>
+								<div ng-message="minlength">That's too short!</div>
+							</div>
+							</md-input-container>
+						</div>
+						<!-- PCP ASSIGNMENT DATE -->
+						<div flex-gt-xs>
+							<md-input-container> <label>PCP
+								assignment date</label> <md-datepicker
+								ng-model="withMemberInfoSearchCtrl.pcpAssignmentDate"
+								name="pcpAssignmentDate"
+								md-max-date="withMemberInfoSearchCtrl.maxDate" required></md-datepicker>
+							<div
+								ng-messages="withMemberInfoSearchForm.pcpAssignmentDate.$error">
+								<div ng-message="valid">Use a valid date format</div>
+								<div ng-message="maxdate">Choose a date on or before
+									{{withMemberInfoSearchCtrl.maxDate | date:"shortDate"}}</div>
+							</div>
+							</md-input-container>
+						</div>
+						<div flex-gt-xs>
+							<md-button class="md-raised md-primary"
+								ng-click="fetchPcpAssignmentData(withMemberInfoSearchForm.firstName, withMemberInfoSearchCtrl.pcpId, withMemberInfoSearchForm.pcpAssignmentDate)"
+								ng-disabled="withMemberInfoSearchForm.firstName.$dirty && withMemberInfoSearchForm.firstName.$invalid && withMemberInfoSearchCtrl.pcpId.$dirty && withMemberInfoSearchCtrl.pcpId.$invalid && withMemberInfoSearchForm.pcpAssignmentDate.$dirty && withMemberInfoSearchForm.pcpAssignmentDate.$invalid">
+							Submit </md-button>
+						</div>
+					</div>
+
+				</form>
+
+				<md-divider></md-divider>
+				<md-table-container>
+				<table md-table>
+					<thead md-head>
+						<tr md-row>
+							<th md-column><span>Trace Id</span></th>
+							<th md-column><span>MBR First Name</span></th>
+							<th md-column>Assigned PCP Id</th>
+							<th md-column>MBR Network</th>
+							<th md-column>MBR Processing State</th>
+							<th md-column>Download Excel</th>
+							<th md-column>Show JSON</th>
+						</tr>
+					</thead>
+					<tbody md-body>
+						<tr md-row ng-repeat="assignmentData in pcpAssignmentInfo">
+							<td md-cell>{{assignmentData.traceId}}</td>
+							<td md-cell>{{assignmentData.frstNm}}</td>
+							<td md-cell>{{assignmentData.pcpIdAssigned}}</td>
+							<td md-cell>{{assignmentData.mbrNtwrkId}}</td>
+							<td md-cell>{{assignmentData.mbrProcessingSt}}</td>
+							<td md-cell><md-button class="md-fab md-primary"
+									ng-click="downloadPcpScoringData(assignmentData.traceId)"
+									aria-label="Download PCP scoring details"> <md-tooltip
+									md-direction="left">Download PCP scoring details</md-tooltip> <md-icon
+									md-svg-src="common/img/icons/baseline-cloud_download-24px.svg"></md-icon>
+								</md-button></td>
+							<td md-cell><md-button class="md-fab md-primary"
+									ng-click="showPcpScoringData(assignmentData.traceId)"
+									aria-label="Download PCP scoring details"> <md-tooltip
+									md-direction="left">PCP scoring details as JSON</md-tooltip> {
+								} </md-button></td>
+						</tr>
+					</tbody>
+				</table>
+				</md-table-container>
+
+				<md-table-pagination md-limit="query.limit"
+					md-limit-options="[5, 10, 15]" md-page="query.page"
+					md-total="{{pcpAssignmentInfo.length}}"></md-table-pagination>
+
+			</div>
+
+			</md-content> </md-tab> </md-tabs> </md-content>
+		</div>
+	</div>
+	<script src="scoringdata/app.js"></script>
+</body>
+</html>
