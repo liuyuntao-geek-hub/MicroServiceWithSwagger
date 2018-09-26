@@ -1,0 +1,160 @@
+swagger: '2.0'
+info:
+  description: MicroService to receive the member from Smart PCP, process it, and return a single PCP as response.
+  version: '1'
+  title: MDO Processing MicroService
+host: localhost:8585
+basePath: /
+tags:
+- name: mdo-processing-controller
+  description: MDO Processing Controller
+paths:
+  /MDOProcessing:
+    post:
+      tags:
+      - mdo-processing-controller
+      summary: Get Member for SmartPCP and PCP from MDO Pooling
+      operationId: getPCPUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - '*/*'
+      parameters:
+      - in: body
+        name: member
+        description: Member input Payload for MDO Processing
+        required: true
+        schema:
+          $ref: '#/definitions/Member'
+      responses:
+        '200':
+          description: SUCCESS
+          schema:
+            $ref: '#/definitions/PCP'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '600':
+          description: OTHER_EXCEPTIONS
+          schema:
+            $ref: '#/definitions/PCP'
+        '700':
+          description: 'SERVICE_DOWN '
+          schema:
+            $ref: '#/definitions/PCP'
+definitions:
+  Address:
+    type: object
+    required:
+    - latitude
+    - longitude
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: Contains latitude  of the member address
+      longitude:
+        type: number
+        format: double
+        description: Contains longitude  of the member address
+  Member:
+    type: object
+    required:
+    - address
+    - invocationSystem
+    - memberDob
+    - memberEffectiveDate
+    - memberLineOfBusiness
+    - memberProcessingState
+    - memberProductType
+    - memberType
+    - systemType
+    properties:
+      address:
+        description: Contains the address of the member, must contain latitude and longitude for MDO pool
+        $ref: '#/definitions/Address'
+      invocationSystem:
+        type: string
+        description: Contains the invoking system, length max of 2 characters, regex = [0-9]*
+      memberContractCode:
+        type: array
+        description: Contains the contract code information of the member for non west regions
+        items:
+          type: string
+      memberDob:
+        type: string
+        description: Contains date of birth of the member in format YYYY-MM-dd
+      memberEffectiveDate:
+        type: string
+        description: Effective date of the member  in format YYYY-MM-dd
+      memberGender:
+        type: string
+        description: Contains the gender of the member, it can be [M|F|m|f|O|o] and can be max of 1 character
+      memberLineOfBusiness:
+        type: string
+        description: Contains Member LOB,length max of 8 characters, regex = [a-z-A-Z-0-9]*
+      memberNetworkId:
+        type: array
+        description: Contains the network Id information of the member for west regions
+        items:
+          type: string
+      memberPregnancyIndicator:
+        type: string
+        description: Indication if the member is pregnant(Y) or not(N) and must be max of 1 character
+      memberProcessingState:
+        type: string
+        description: State to which member belongs to, length max of 2 characters, regex = [a-z-A-Z]*
+      memberProductType:
+        type: string
+        description: Contains product type of member and length must be max of 10 characters
+      memberType:
+        type: string
+        description: Contains Member Type New or Existing, length max of 1 character, regex = [a-z-A-Z]*
+      rollOverPcpId:
+        type: string
+        description: Contains the rollover pcp Id in case of rollover
+      systemType:
+        type: string
+        description: Invoking System Type Online or Batch, length max of 1 character, regex = [a-z-A-Z]*
+    description: Contains member request information received by spcp-mdo-pool microservice
+  PCP:
+    type: object
+    required:
+    - drivingDistance
+    - dummyFlag
+    - mdoScore
+    - pcpId
+    - pcpNtwrkId
+    - responseCode
+    - responseMessage
+    properties:
+      drivingDistance:
+        type: number
+        format: double
+        description: Contains Driving Distance for Assigned PCP ID
+      dummyFlag:
+        type: boolean
+        example: false
+        description: Contains Dummy Flag for Assigned PCP ID
+      mdoScore:
+        type: integer
+        format: int32
+        description: Contains MDO Score for Assigned PCP ID
+      pcpId:
+        type: string
+        description: Contains Assigned PCP ID
+      pcpNtwrkId:
+        type: string
+        description: Contains Network ID for Assigned PCP ID
+      responseCode:
+        type: string
+        description: Contains response code for spcp-mdo-processing Microservice
+      responseMessage:
+        type: string
+        description: Contains response message for spcp-mdo-processing Microservice
+    description: contains PCP information assigned by spcp-mdo-processing microservice

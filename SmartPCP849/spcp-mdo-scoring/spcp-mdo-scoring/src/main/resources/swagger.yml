@@ -1,0 +1,239 @@
+swagger: '2.0'
+info:
+  description: spcp-mdo-scoring
+  version: '1'
+  title: spcp-mdo-scoring
+host: localhost:8090
+basePath: /
+tags:
+- name: mdo-score-controller
+  description: MDO Score Controller
+paths:
+  /MDOScoreService:
+    post:
+      tags:
+      - mdo-score-controller
+      summary: MDO scoring to find the best PCP for a member
+      operationId: getMdoScoreUsingPOST
+      consumes:
+      - application/json
+      produces:
+      - '*/*'
+      parameters:
+      - in: body
+        name: inputPayloadInfo
+        description: input Payload
+        required: true
+        schema:
+          $ref: '#/definitions/InputPayloadInfo'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/OutputPayloadInfo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '600':
+          description: OTHER_EXCEPTIONS
+          schema:
+            $ref: '#/definitions/OutputPayloadInfo'
+        '700':
+          description: SERVICE_DOWN
+          schema:
+            $ref: '#/definitions/OutputPayloadInfo'
+definitions:
+  ActionPair«boolean,int»:
+    type: object
+    properties:
+      key:
+        type: boolean
+      value:
+        type: integer
+        format: int32
+  ActionPair«int,int»:
+    type: object
+    properties:
+      key:
+        type: integer
+        format: int32
+      value:
+        type: integer
+        format: int32
+  ActionPair«string,int»:
+    type: object
+    properties:
+      key:
+        type: string
+      value:
+        type: integer
+        format: int32
+  Address:
+    type: object
+    required:
+    - latitude
+    - longitude
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: Contains latitude of the member
+      longitude:
+        type: number
+        format: double
+        description: Contains longitude of the member
+  InputPayloadInfo:
+    type: object
+    properties:
+      member:
+        $ref: '#/definitions/Member'
+      pcp:
+        type: array
+        items:
+          $ref: '#/definitions/PCP'
+      rules:
+        $ref: '#/definitions/rules'
+  Member:
+    type: object
+    required:
+    - address
+    properties:
+      address:
+        description: Contains the address information of the member
+        $ref: '#/definitions/Address'
+      memberLanguageCode:
+        type: array
+        description: Contains the language code of the member
+        items:
+          type: string
+    description: Contains member request information received by spcp-mdo-scoring microservice
+  OutputPayloadInfo:
+    type: object
+    properties:
+      drivingDistance:
+        type: number
+        format: double
+      mdoScore:
+        type: integer
+        format: int32
+      provPcpId:
+        type: string
+      responseCode:
+        type: string
+      responseMessage:
+        type: string
+      rgnlNtwkId:
+        type: string
+  PCP:
+    type: object
+    properties:
+      aerialDistance:
+        type: number
+        format: double
+        description: Contains the aerial distance of the PCP
+      curntMbrCnt:
+        type: integer
+        format: int32
+        description: Contains the current member count of the PCP
+      drivingDistance:
+        type: number
+        format: double
+      grpgRltdPadrsEfctvDt:
+        type: string
+        format: date-time
+        description: Contains the effective date of the PCP
+      latdCordntNbr:
+        type: number
+        format: double
+        description: Contains the latitude of the PCP
+      lngtdCordntNbr:
+        type: number
+        format: double
+        description: Contains the longitude of the PCP
+      maxMbrCnt:
+        type: integer
+        format: int32
+        description: Contains the max member count of the PCP
+      mdoScore:
+        type: integer
+        format: int32
+        description: Contains the mdo score of the PCP
+      panelCapacity:
+        type: number
+        format: float
+        description: Contains the panel capacity of the PCP
+      pcpLang:
+        type: array
+        description: Contains the Lang code of the PCP
+        items:
+          type: string
+      pcpLastNm:
+        type: string
+        description: Contains the last name of the PCP
+      pcpRankgId:
+        type: string
+        description: Contains Rank ID of the PCP
+      provPcpId:
+        type: string
+        description: Contains the provider id of PCP
+      rgnlNtwkId:
+        type: string
+        description: Contains the regional network id of the PCP
+      spcltyDesc:
+        type: string
+        description: Contains the specialty description of the PCP
+      vbpFlag:
+        type: string
+        description: Contains the vbp flag of the PCP
+    description: Contains PCP request information received by spcp-mdo-scoring microservice
+  rules:
+    type: object
+    properties:
+      ageSpecialtyMatchScoreList:
+        type: array
+        description: Contains age speciality from rules
+        items:
+          $ref: '#/definitions/ActionPair«boolean,int»'
+      languageMatchScoreList:
+        type: array
+        description: Contains language match score from rules
+        items:
+          $ref: '#/definitions/ActionPair«boolean,int»'
+      limitedTime:
+        type: integer
+        format: int32
+        description: Contains limited time from rules
+      limitedTimeScore:
+        type: integer
+        format: int32
+        description: Contains the limited time score from rules
+      mdorankScoreList:
+        type: array
+        description: Contains mdo rank scores from rules
+        items:
+          $ref: '#/definitions/ActionPair«int,int»'
+      panelCapacityPercent:
+        type: integer
+        format: int32
+        description: Contains the panel capacity limit from rules
+      proximityScoreList:
+        type: array
+        description: Contains proximity scores from rules
+        items:
+          $ref: '#/definitions/ActionPair«string,int»'
+      restrictedAgeSpecialties:
+        type: array
+        description: Contains the specialities from rules
+        items:
+          type: string
+      vbaparticipationScoreList:
+        type: array
+        description: Contains vbp participation scores from rules
+        items:
+          $ref: '#/definitions/ActionPair«boolean,int»'
+    description: Contains rules request information received by spcp-mdo-scoring microservice
