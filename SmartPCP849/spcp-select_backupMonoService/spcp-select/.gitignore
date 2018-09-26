@@ -1,0 +1,12 @@
+/dependency-reduced-pom.xml
+/target/
+/.cache-main
+/.cache-tests
+/.classpath
+/.project
+/.settings/
+/.idea/
+/spcp-etl.iml
+/.apt_generated/
+/.factorypath
+/src/main/resources/application.properties

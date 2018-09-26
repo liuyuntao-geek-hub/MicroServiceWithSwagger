@@ -1,0 +1,46 @@
+SPCLTY_CD|Business Description|Specialty Mnemonics
+C1XG0PFS8B|Family Practice|Fam Pra
+C1XG0PK0Y5|Family Practice|Fam Pra
+P0N612VX2K|General Practice|Gen Pra
+D3HF0I59TM|Internal Medicine|Int Med
+P0N612VX0Z|Internal Medicine|Int Med
+CQH_SP1093|Geriatric|Geriatric
+P0N612VX23|Geriatric|Geriatric
+8173|Geriatric|Geriatric
+P0N612VX1E|OBGYN|OBGYN
+D1O70XC83H|Mid Wife|Mid Wife
+P0N612VYJX|Nurse Practitioner|Nur Pra
+8270|Nurse Practitioner|Nur Pra
+8273|Nurse Practitioner|Nur Pra
+8269|Nurse Practitioner|Nur Pra
+8274|Nurse Practitioner|Nur Pra
+8276|Nurse Practitioner|Nur Pra
+8272|Nurse Practitioner|Nur Pra
+8271|Nurse Practitioner|Nur Pra
+D1O70XB48K|Phycisian Assistance|Phy Asst
+CQH_SP1077|Pediatric|Pediatric
+CQH_SP1078|Pediatric|Pediatric
+CQH_SP1082|Pediatric|Pediatric
+CQH_SP1137|Pediatric|Pediatric
+C1XG0PFUHH|Pediatric|Pediatric
+D14J0R1EY3|Pediatric|Pediatric
+D14O0XTTUD|Pediatric|Pediatric
+D14O0YS8QI|Pediatric|Pediatric
+D14O0YS8QI|Pediatric|Pediatric
+D14O0YVI9E|Pediatric|Pediatric
+D14O0YYCW0|Pediatric|Pediatric
+P0N612VXB7|Pediatric|Pediatric
+P0N612VXC2|Pediatric|Pediatric
+P0N612VX1T|Pediatric|Pediatric
+P0N612VX17|Pediatric|Pediatric
+P0N612VX2M|Pediatric|Pediatric
+P0N612VX3V|Pediatric|Pediatric
+P0N612VX91|Pediatric|Pediatric
+P0N612VX1F|Pediatric|Pediatric
+P0OD14CMJ9|Pediatric|Pediatric
+P0RS0UVFPG|Pediatric|Pediatric
+P0RS0UVFVC|Pediatric|Pediatric
+D24X0P27WO|Pediatric|Pediatric
+P0RS0UVG1M|Pediatric|Pediatric
+S3L30J0ZVK|Pediatric|Pediatric
+P0RS0UVF7D|Pediatric|Pediatric

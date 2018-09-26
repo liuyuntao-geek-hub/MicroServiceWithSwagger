@@ -1,0 +1,42 @@
+{
+	"invocationSystem": "01",
+	"systemType": "O",
+	"requestType": "S",
+	"memberType": "N",
+	"memberLineOfBusiness": "CT0",
+	"memberGender": "F",
+	"memberLanguageCode": [
+		"ENG"
+	],
+	"memberProduct": "14EM",
+	"memberProductType": "HMO",
+	"memberSourceSystem": "ISG",
+	"memberMiddleName": "H",
+	"memberLastName": "GAYLE_SPCP_PERF",
+	"rollOverPcpId": "AS123",
+	"memberPregnancyIndicator": "Y",
+	"memberEffectiveDate": "2019-01-01",
+	"memberTerminationDate": "1992-06-13",
+	"updateCounter": "1",
+	"memberGroupId": 123,
+	"memberSubGroupId": 123,
+	"memberEid": "AN3192018",
+	"memberProcessingState": "GA",
+	"memberDob": "1962-07-23",
+	"memberSequenceNumber": "11",
+	"address": {
+		"addressLine1": "108 N PARK DR",
+		"addressLine2": "",
+		"city": "FAYETTEVILLE",
+		"state": "GA",
+		"zipCode": "11201",
+		"countyCode": "97"
+	},
+	"memberNetworkId": [
+		"NYHBPR00",
+		"NYEPT300",
+		"NYHFLU00"
+	],
+	"memberFirstName": "Michael"
+}
+

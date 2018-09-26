@@ -1,0 +1,104 @@
+server:
+ port: 8080
+
+spring:
+ application:
+  name: spcp-config-server
+
+management:
+ security:
+  enabled: false
+
+encrypt:
+  key-store:
+    location: file:${key.path}
+    password: anthem$$docker
+    alias: docker
+    secret: anthem$$docker
+  
+---
+
+spring:
+ profiles: dev
+ cloud:
+    config:
+      server:
+          git:
+            uri: ssh://git@bitbucket.anthem.com:7999/soadckrad/spcp-configuration.git
+            searchPaths: properties/{application}
+            ignoreLocalSshSettings: false
+            strictHostKeyChecking: false 
+            default-label: dev
+            force-pull: true
+            timeout: 120
+          encrypt:
+           enabled: false
+---
+
+spring:
+ profiles: sit
+ cloud:
+    config:
+      server:
+          git:
+            uri: ssh://git@bitbucket.anthem.com:7999/soadckrad/spcp-configuration.git
+            searchPaths: properties/{application}
+            ignoreLocalSshSettings: false
+            strictHostKeyChecking: false 
+            default-label: sit
+            force-pull: true
+            timeout: 120 
+          encrypt:
+           enabled: false
+---
+
+spring:
+ profiles: uat
+ cloud:
+    config:
+      server:
+          git:
+            uri: ssh://git@bitbucket.anthem.com:7999/soadckrad/spcp-configuration.git
+            searchPaths: properties/{application}
+            ignoreLocalSshSettings: false
+            strictHostKeyChecking: false 
+            default-label: uat
+            force-pull: true
+            timeout: 120 
+          encrypt:
+           enabled: false
+---
+
+spring:
+ profiles: perf
+ cloud:
+    config:
+      server:
+          git:
+            uri: ssh://git@bitbucket.anthem.com:7999/soadckrad/spcp-configuration.git
+            searchPaths: properties/{application}
+            ignoreLocalSshSettings: false
+            strictHostKeyChecking: false 
+            default-label: perf
+            force-pull: true
+            timeout: 120 
+          encrypt:
+           enabled: false
+
+---
+
+spring:
+ profiles: prod
+ cloud:
+    config:
+      server:
+          git:
+            uri: ssh://git@bitbucket.anthem.com:7999/soadckrad/spcp-configuration.git
+            searchPaths: properties/{application}
+            ignoreLocalSshSettings: false
+            strictHostKeyChecking: false 
+            default-label: master
+            force-pull: true
+            timeout: 120
+          encrypt:
+           enabled: false 

@@ -1,0 +1,95 @@
+{
+	"variables": [],
+	"info": {
+		"name": "spcp-track-audit-postman-collection",
+		"_postman_id": "c9f417c0-a288-57c7-5aca-cdd8faa9973f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://sit-interlock.anthem.com/spcp-track-audit/savePCPScoreData",
+			"request": {
+				"url": "https://sit-interlock.anthem.com/spcp-track-audit/savePCPScoreData",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"traceId\" : \"0a02c503cee6d393\",\r\n\t\"providerData\" : \"{\\\"name\\\":\\\"Jane\\\"}\"\r\n} "
+				},
+				"description": "Save PCP Details"
+			},
+			"response": []
+		},
+		{
+			"name": "https://sit-interlock.anthem.com/spcp-track-audit/getPCPScoreDataAsJson?traceId=0a02c503cee6d393",
+			"request": {
+				"url": {
+					"raw": "https://sit-interlock.anthem.com/spcp-track-audit/getPCPScoreDataAsJson?traceId=0a02c503cee6d393",
+					"protocol": "https",
+					"host": [
+						"sit-interlock",
+						"anthem",
+						"com"
+					],
+					"path": [
+						"spcp-track-audit",
+						"getPCPScoreDataAsJson"
+					],
+					"query": [
+						{
+							"key": "traceId",
+							"value": "0a02c503cee6d393",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "GET PCP Data as JSON"
+			},
+			"response": []
+		},
+		{
+			"name": "https://sit-interlock.anthem.com/spcp-track-audit/getPCPScoreDataAsXLSX?traceId=0a02c503cee6d393",
+			"request": {
+				"url": {
+					"raw": "https://sit-interlock.anthem.com/spcp-track-audit/getPCPScoreDataAsXLSX?traceId=0a02c503cee6d393",
+					"protocol": "https",
+					"host": [
+						"sit-interlock",
+						"anthem",
+						"com"
+					],
+					"path": [
+						"spcp-track-audit",
+						"getPCPScoreDataAsXLSX"
+					],
+					"query": [
+						{
+							"key": "traceId",
+							"value": "0a02c503cee6d393",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "GET PCP Data in XLS File"
+			},
+			"response": []
+		}
+	]
+}

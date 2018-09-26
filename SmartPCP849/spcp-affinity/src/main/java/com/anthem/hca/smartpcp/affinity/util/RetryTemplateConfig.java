@@ -1,0 +1,60 @@
+package com.anthem.hca.smartpcp.affinity.util;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.RetryPolicy;
+import org.springframework.retry.backoff.FixedBackOffPolicy;
+import org.springframework.retry.policy.CompositeRetryPolicy;
+import org.springframework.retry.policy.SimpleRetryPolicy;
+import org.springframework.retry.policy.TimeoutRetryPolicy;
+import org.springframework.retry.support.RetryTemplate;
+
+/** 
+ * Copyright © 2018 Anthem, Inc.
+ * 
+ * 			The RetryTemplateConfig class is the Configuration Level implementation for setting the required 
+ * 			attributes to retry getting the token from apigee in case the same is down for any reason
+ * 
+ * @author AF65409 
+ */
+@Configuration
+public class RetryTemplateConfig {
+
+	@Value("${spcp.affinity.timeout}")
+	private int timeout;
+	@Value("${spcp.affinity.delay}")
+	private int delayPeriod;
+	@Value("${spcp.affinity.attempts}")
+	private int attempts;
+
+	/**
+	 * @return RetryTemplate  -  header with access token
+	 * 
+	 * 			RetryTemplate acts a bean and available through out the affinity module.
+	 * 			It has got three property configured.
+	 * 			backOffPeriod - this is known as delay period for retrying the service call
+	 * 			attempts - number of attempts has to be made to call the service
+	 * 			timeOut - within the specified timeout the retry event will occur  
+	 * 
+	 */
+	@Bean
+	public RetryTemplate retryTemplate() {
+		final FixedBackOffPolicy backOffPolicy = new FixedBackOffPolicy();
+		backOffPolicy.setBackOffPeriod(delayPeriod);
+
+		final SimpleRetryPolicy attemptsPolicy = new SimpleRetryPolicy();
+		attemptsPolicy.setMaxAttempts(attempts);
+		final TimeoutRetryPolicy timeoutPolicy = new TimeoutRetryPolicy();
+		timeoutPolicy.setTimeout(timeout);
+
+		final CompositeRetryPolicy retryPolicy = new CompositeRetryPolicy();
+		retryPolicy.setPolicies(new RetryPolicy[] { timeoutPolicy, attemptsPolicy });
+
+		final RetryTemplate template = new RetryTemplate();
+		template.setBackOffPolicy(backOffPolicy);
+		template.setRetryPolicy(retryPolicy);
+
+		return template;
+	}
+}

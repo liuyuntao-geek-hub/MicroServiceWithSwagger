@@ -1,0 +1,81 @@
+{
+    "responseCode": 200,
+    "responseMessage": "Rules extracted for MDO Build Pool and Provider Validation",
+    "rules": {
+        "poolSize": 1000,
+        "dummyProviderId": "DUMCT0",
+        "primarySpecialties": [
+            "Internal Medicine",
+            "Family Practice",
+            "Pediatric",
+            "General Practice"
+        ],
+        "contractEffectiveBeyond": 90,
+        "distance": 15,
+        "providerTiers": [
+            1
+        ],
+        "rolloverFlag": "Y",
+        "specialtyMinAgeList": [
+            {
+                "key": "Pediatric",
+                "value": 0
+            }
+        ],
+        "specialtyMaxAgeList": [
+            {
+                "key": "Pediatric",
+                "value": 18
+            }
+        ],
+        "specialtyGenderList": [
+            {
+                "key": "OBGYN",
+                "value": "F"
+            }
+        ],
+        "panelCapacityPercent": 85,
+        "validationFlagList": [
+            {
+                "key": "SPECIALTY_VALIDATION",
+                "value": true
+            },
+            {
+                "key": "AGE_RANGE_VALIDATION",
+                "value": true
+            },
+            {
+                "key": "GENDER_VALIDATION",
+                "value": false
+            },
+            {
+                "key": "CONTRACT_VALIDATION",
+                "value": true
+            },
+            {
+                "key": "DISTANCE_VALIDATION",
+                "value": true
+            },
+            {
+                "key": "PANEL_CAPACITY_VALIDATION",
+                "value": true
+            },
+            {
+                "key": "NETWORK_VALIDATION",
+                "value": true
+            },
+            {
+                "key": "TIER_VALIDATION",
+                "value": false
+            },
+            {
+                "key": "ACCEPTING_PATIENTS_VALIDATION",
+                "value": true
+            },
+            {
+                "key": "ROLLOVER_VALIDATION",
+                "value": true
+            }
+        ]
+    }
+}

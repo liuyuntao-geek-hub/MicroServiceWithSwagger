@@ -1,0 +1,460 @@
+{  
+   "swagger":"2.0",
+   "info":{  
+      "description":"Smart Select PCP for the received Member",
+      "version":"1",
+      "title":"Smart PCP Select Microservice"
+   },
+   "host":"localhost:9999",
+   "basePath":"/",
+   "tags":[  
+      {  
+         "name":"smart-pcp-controller",
+         "description":"Smart PCP Controller"
+      }
+   ],
+   "paths":{  
+      "/smartSelection":{  
+         "post":{  
+            "tags":[  
+               "smart-pcp-controller"
+            ],
+            "summary":"Smart Select PCP for the received Member",
+            "operationId":"getPCPUsingPOST",
+            "consumes":[  
+               "application/json"
+            ],
+            "produces":[  
+               "*/*"
+            ],
+            "parameters":[  
+               {  
+                  "in":"body",
+                  "name":"member",
+                  "description":"Member input Payload",
+                  "required":true,
+                  "schema":{  
+                     "$ref":"#/definitions/Member"
+                  }
+               }
+            ],
+            "responses":{  
+               "200":{  
+                  "description":"OK",
+                  "schema":{  
+                     "$ref":"#/definitions/OutputPayload"
+                  }
+               },
+               "201":{  
+                  "description":"Created"
+               },
+               "401":{  
+                  "description":"Unauthorized"
+               },
+               "403":{  
+                  "description":"Forbidden"
+               },
+               "404":{  
+                  "description":"Not Found"
+               },
+               "600":{  
+                  "description":"OTHER_EXCEPTIONS",
+                  "schema":{  
+                     "$ref":"#/definitions/OutputPayload"
+                  }
+               },
+               "700":{  
+                  "description":"SERVICE_NOT_AVAILABLE ",
+                  "schema":{  
+                     "$ref":"#/definitions/OutputPayload"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "definitions":{  
+      "Address":{  
+         "type":"object",
+         "required":[  
+            "addressLine1",
+            "city",
+            "state",
+            "zipCode"
+         ],
+         "properties":{  
+            "addressLine1":{  
+               "type":"string",
+               "description":"Contains address line2 value,max size = 30"
+            },
+            "addressLine2":{  
+               "type":"string",
+               "description":"Contains address line2 value,max size = 30"
+            },
+            "city":{  
+               "type":"string",
+               "description":"Contains city ,max size = 13 and regular exp as [[a-z-A-Z]\\s]*"
+            },
+            "countyCode":{  
+               "type":"string",
+               "description":"Contains county code,max size = 3"
+            },
+            "latitude":{  
+               "type":"number",
+               "format":"double",
+               "description":"Contains latitude"
+            },
+            "longitude":{  
+               "type":"number",
+               "format":"double",
+               "description":"Contains longitude"
+            },
+            "state":{  
+               "type":"string",
+               "description":"Contains state,max size = 2 and regular exp as [a-z-A-Z]*"
+            },
+            "zipCode":{  
+               "type":"string",
+               "description":"Contains zipcode,Should be 5 digit number"
+            },
+            "zipFour":{  
+               "type":"string",
+               "description":"Contains zip plus4,max size = 4"
+            }
+         }
+      },
+      "Member":{  
+         "type":"object",
+         "required":[  
+            "address",
+            "invocationSystem",
+            "memberDob",
+            "memberEffectiveDate",
+            "memberGender",
+            "memberLanguageCode",
+            "memberLineOfBusiness",
+            "memberProduct",
+            "memberType",
+            "requestType",
+            "systemType"
+         ],
+         "properties":{  
+            "address":{  
+               "description":"Contains the address information of the member",
+               "$ref":"#/definitions/Address"
+            },
+            "invocationSystem":{  
+               "type":"string",
+               "description":"Contains the invoking system code,max size = 2 and regular exp as [0-9]*"
+            },
+            "memberContractCode":{  
+               "type":"array",
+               "description":"Contains the contract code information of the member for non west regions",
+               "items":{  
+                  "type":"string"
+               }
+            },
+            "memberDob":{  
+               "type":"string",
+               "description":"Contains date of birth of the member in format YYYY-MM-dd"
+            },
+            "memberEffectiveDate":{  
+               "type":"string",
+               "description":"Effective date of the member  in format YYYY-MM-dd"
+            },
+            "memberEid":{  
+               "type":"string",
+               "description":"Contains Member ID,max size = 9"
+            },
+            "memberFirstName":{  
+               "type":"string",
+               "description":"Contains the first name of the member,max size = 40"
+            },
+            "memberGender":{  
+               "type":"string",
+               "description":"Contains the gender of the member,max size = 1"
+            },
+            "memberGroupId":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Contains the group ID of the member,max value = 99999999"
+            },
+            "memberLanguageCode":{  
+               "type":"array",
+               "description":"Contains the gender of the member",
+               "items":{  
+                  "type":"string"
+               }
+            },
+            "memberLastName":{  
+               "type":"string",
+               "description":"Contains the last name of the member,max size = 40"
+            },
+            "memberLineOfBusiness":{  
+               "type":"string",
+               "description":"Contains Member LOB,max size = 8 and regular exp as [a-z-A-Z-0-9]*"
+            },
+            "memberMiddleName":{  
+               "type":"string",
+               "description":"Contains the middle name of the member,max size = 1"
+            },
+            "memberNetworkId":{  
+               "type":"array",
+               "description":"Contains the network Id information of the member for west regions",
+               "items":{  
+                  "type":"string"
+               }
+            },
+            "memberPregnancyIndicator":{  
+               "type":"string",
+               "description":"Indication if the member is pregnant or not,max size = 1"
+            },
+            "memberProcessingState":{  
+               "type":"string",
+               "description":"Processing state of the member,max size = 2"
+            },
+            "memberProduct":{  
+               "type":"string",
+               "description":"Contains product of member,max size = 10"
+            },
+            "memberProductType":{  
+               "type":"string",
+               "description":"Contains product type of member,max size = 10"
+            },
+            "memberSequenceNumber":{  
+               "type":"string",
+               "description":"Contains the sequence number of the member,max size = 3"
+            },
+            "memberSourceSystem":{  
+               "type":"string",
+               "description":"Contains the source system(WGS or ISG),,max size = 5"
+            },
+            "memberSubGroupId":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Contains the subgroup ID of the member,max value = 9999"
+            },
+            "memberTerminationDate":{  
+               "type":"string",
+               "description":"Termination date of the member  in format YYYY-MM-dd"
+            },
+            "memberType":{  
+               "type":"string",
+               "description":"Contains Member Type(New or Existing),max size = 1 and regular exp as [a-z-A-Z]*"
+            },
+            "requestType":{  
+               "type":"string",
+               "description":"PCP Request Type (Single or List of PCP),max size = 1 and regular exp as [a-z-A-Z]*"
+            },
+            "rollOverPcpId":{  
+               "type":"string",
+               "description":"Contains the rollover pcp Id in case of rollover,max size = 10"
+            },
+            "systemType":{  
+               "type":"string",
+               "description":"Invoking System Type (Online or Batch),max size = 1 and regular exp as [a-z-A-Z]*"
+            },
+            "updateCounter":{  
+               "type":"string",
+               "description":"Indicator on whether to update the panel capacity for the assigned PCP"
+            }
+         },
+         "description":"Contains request information received by spcp-select microservice"
+      },
+      "MemberOutput":{  
+         "type":"object",
+         "properties":{  
+            "address":{  
+               "description":"Contains the address of the member",
+               "$ref":"#/definitions/Address"
+            },
+            "memberEid":{  
+               "type":"string",
+               "description":"Contains Member ID"
+            },
+            "memberGroupId":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Contains the group ID of the member"
+            },
+            "memberSequenceNumber":{  
+               "type":"string",
+               "description":"Contains the sequence number of the member"
+            },
+            "memberSubGroupId":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Contains the subgroup ID of the member"
+            }
+         }
+      },
+      "OutputPayload":{  
+         "type":"object",
+         "properties":{  
+            "member":{  
+               "description":"Contains the member information",
+               "$ref":"#/definitions/MemberOutput"
+            },
+            "provider":{  
+               "description":"Contains the assigned PCP information",
+               "$ref":"#/definitions/PCP"
+            },
+            "reporting":{  
+               "description":"Contains the reporting level information",
+               "$ref":"#/definitions/Reporting"
+            },
+            "smartPCPTraceID":{  
+               "type":"string",
+               "description":"Contains the transaction ID"
+            },
+            "status":{  
+               "description":"Contains the status information",
+               "$ref":"#/definitions/Status"
+            }
+         }
+      },
+      "PCP":{  
+         "type":"object",
+         "properties":{  
+            "acoPcpReturned":{  
+               "type":"string",
+               "description":"Contains PRTY_CD of the assigned PCP"
+            },
+            "address":{  
+               "description":"Contains address information of the assigned PCP",
+               "$ref":"#/definitions/Address"
+            },
+            "contractCode":{  
+               "type":"string",
+               "description":"contract code of the assigned PCP in case of non west regions"
+            },
+            "dummyPCP":{  
+               "type":"string",
+               "description":"Indicates whether assigned PCP is dummy or not"
+            },
+            "firstName":{  
+               "type":"string",
+               "description":"Contains first name of the assigned PCP"
+            },
+            "lastName":{  
+               "type":"string",
+               "description":"Contains last name of the assigned PCP"
+            },
+            "middleName":{  
+               "type":"string",
+               "description":"Contains middle name of the assigned PCP"
+            },
+            "networkId":{  
+               "type":"string",
+               "description":"network ID of the assigned PCP in case of  west regions"
+            },
+            "pcpPmgIpa":{  
+               "type":"string",
+               "description":"Type of the assigned PCP(PMG or IPA)"
+            },
+            "pcpRank":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Rank of the assigned PCP in case of MDO"
+            },
+            "pcpScore":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Score of the assigned PCP in case of MDO"
+            },
+            "phoneNumber":{  
+               "type":"string",
+               "description":"Contains phone number of the assigned PCP"
+            },
+            "provPcpId":{  
+               "type":"string",
+               "description":"PCP ID of the assigned PCP"
+            },
+            "speciality":{  
+               "type":"array",
+               "description":"Contains specialty of the assigned PCP",
+               "items":{  
+                  "type":"string"
+               }
+            },
+            "taxId":{  
+               "type":"string",
+               "description":"Contains tax id of the assigned PCP"
+            }
+         }
+      },
+      "Reporting":{  
+         "type":"object",
+         "properties":{  
+            "reportingCode":{  
+               "type":"string",
+               "description":"Contains the module through which module pcp is assigned"
+            },
+            "reportingText1":{  
+               "type":"string",
+               "description":"Contains Reporting Text"
+            },
+            "reportingText2":{  
+               "type":"string",
+               "description":"Contains Reporting Text"
+            },
+            "shortRepText":{  
+               "type":"string",
+               "description":"Contains Short Reporting text"
+            }
+         }
+      },
+      "ServiceStatus":{  
+         "type":"object",
+         "properties":{  
+            "errorCode":{  
+               "type":"string",
+               "description":"Contains the error code of the service"
+            },
+            "errorText":{  
+               "type":"string",
+               "description":"Contains the error text of the service"
+            },
+            "status":{  
+               "type":"string",
+               "description":"Contains the status  of the service"
+            }
+         }
+      },
+      "Status":{  
+         "type":"object",
+         "properties":{  
+            "service":{  
+               "description":"Contains the service level status",
+               "$ref":"#/definitions/ServiceStatus"
+            },
+            "totalErrors":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Conatins the total number of errors"
+            },
+            "transaction":{  
+               "description":"Contains the transaction level status",
+               "$ref":"#/definitions/TransactionStatus"
+            }
+         }
+      },
+      "TransactionStatus":{  
+         "type":"object",
+         "properties":{  
+            "errorCode":{  
+               "type":"string",
+               "description":"Contains the error code of the transaction"
+            },
+            "errorText":{  
+               "type":"string",
+               "description":"Contains the error message of the transaction"
+            },
+            "status":{  
+               "type":"string",
+               "description":"Status of Transaction (S/U)"
+            }
+         }
+      }
+   }
+}

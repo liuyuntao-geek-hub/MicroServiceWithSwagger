@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>
+				%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-B3-TraceId:-}] [%thread] %-5level %logger{36} -%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="async" class="ch.qos.logback.classic.AsyncAppender">
+		<queueSize>500</queueSize>
+		<discardingThreshold>0</discardingThreshold>
+		<appender-ref ref="console" />
+	</appender>
+	<root level="INFO">
+		<appender-ref ref="async" />
+	</root>
+</configuration>

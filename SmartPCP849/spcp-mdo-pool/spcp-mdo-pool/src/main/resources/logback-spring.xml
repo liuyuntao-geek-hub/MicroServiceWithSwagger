@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	
+	<springProperty name="appLogLevel" source="appLogLevel"
+		defaultValue="INFO"/>
+		
+	<springProperty name="springLogLevel" source="springLogLevel"
+		defaultValue="INFO"/>
+		
+	<springProperty name="splunkTraceLogLevel" source="splunkTraceLogLevel"
+		defaultValue="INFO"/>
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{X-B3-TraceId:-}] [%thread] %-5level %logger{36} -%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="splunkconsole" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>UTF-8</charset>
+
+			       <pattern>SPLUNK-TRACE-DateandTime - %d{yyyy-MM-dd HH:mm:ss.SSS} ThreadID=%X{ThreadId};ThreadIDHex=%X{ThreadIDHex};ThreadName=[%thread];Node=%X{Node};TransID=%X{TranId};ConsumerSenderID=%X{ConsumerSenderID};URI=%X{URI};ServiceName=%X{ServiceName};TranasactionStartTime=%X{TranasactionStartTime};TransactionEndTime=%X{TransactionEndTime};TotalResponseTime=%X{TotalResponseTime};TransactionStatus=%X{TransactionStatus};Method=%X{Method};StatusCode=%X{StatusCode};ErrorMsg=%X{ErrorMsg};CaptureLocation=%X{CaptureLocation}; %n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="appASYNC500" class="ch.qos.logback.classic.AsyncAppender">
+		<queueSize>500</queueSize>
+		<discardingThreshold>0</discardingThreshold>
+		<appender-ref ref="console" />
+	</appender>
+	
+	<appender name="splunkASYNC500" class="ch.qos.logback.classic.AsyncAppender">
+		<queueSize>500</queueSize>
+		<discardingThreshold>0</discardingThreshold>
+		<appender-ref ref="splunkconsole" />
+	</appender>
+
+
+	<logger name="org.springframework" level="${springLogLevel}" additivity="false">
+		<appender-ref ref="console" />
+	</logger>
+	
+	<logger name="com.anthem" level="${appLogLevel}" additivity="false">
+		<appender-ref ref="appASYNC500" />
+	</logger>
+	
+	<logger name="SPLUNK_TRACE" level="${splunkTraceLogLevel}" additivity="false">
+		<appender-ref ref="splunkASYNC500" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="console" />
+	</root>
+
+</configuration>
