@@ -1,9 +1,0 @@
-/dependency-reduced-pom.xml
-/target/
-/.cache-main
-/.cache-tests
-/.classpath
-/.project
-/.settings/
-/.idea/
-/spcp-etl.iml

@@ -1,8 +1,0 @@
-{
-    "responseCode": 200,
-    "responseMessage": "Rules extracted for MDO Build Pool",
-    "rules": {
-        "poolSize": 1000,
-        "dummyProviderId": "DUMCT0"
-    }
-}
