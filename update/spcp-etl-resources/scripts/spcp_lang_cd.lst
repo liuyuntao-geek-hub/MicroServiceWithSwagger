@@ -1,1 +1,0 @@
-/pr/app/ve2/pdp/spcp/phi/no_gbd/r000/bin/SPCP_STATIC_LOAD_Wrapper.sh prod /pr/app/ve2/pdp/spcp/phi/no_gbd/r000/control wgsp_pcp_lang_mapping pdpspcp hdfs:///user/srcpdpspcpbthpr/flat_files/language_mapping.txt
