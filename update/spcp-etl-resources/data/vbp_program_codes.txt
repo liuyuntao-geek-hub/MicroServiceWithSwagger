@@ -1,0 +1,13 @@
+8025|COO|Cooperative Care
+8000|PC2|Patient-Centered Primary Care
+8001|ACO|Accountable Care Organization
+8004|CPC|Comprehensive Primary Care Initiative
+8005|ECC|Enhanced Care Coordination
+8008|PQIP|Physician Quality Incentive Program
+8009|ACD|Non-PQIP Risk / Shared Savings / Medicaid
+8011|PCR|Standard / Medicare Advantage
+8012|ACR|FPCC / Medicare Advantage
+8021|CLR|Commercial Loss Ratio
+8022|PAQ|Provider Access and Quality Care Program
+8023|VIV|Vivity
+8024|ESN|Essentials

@@ -1,0 +1,55 @@
+RC01|Choice
+RC7A|Crosswalk Affinity PCP
+RC7D|Crosswalk Default PCP
+RC7M|Crosswalk MDO PCP
+RC1A|Affinity PCP
+RC2A|Affinity PCP
+RC3A|Affinity PCP
+RC4A|Affinity PCP
+RC5A|Affinity PCP
+RC6A|Affinity PCP
+RC14|EPS MDO PCP
+RC15|EPS MDO PCP
+RC24|EPS MDO PCP
+RC25|EPS MDO PCP
+RC40|EPS MDO PCP
+RC42|EPS MDO PCP
+RC84|EPS MDO PCP
+RC85|EPS MDO PCP
+RC1D|Default PCP
+RC2D|Default PCP
+RC3D|Default PCP
+RC4D|Default PCP
+RC5D|Default PCP
+RC6D|Default PCP
+RC16|Default PCP
+RC17|Default PCP
+RC26|Default PCP
+RC27|Default PCP
+RC86|Default PCP
+RC41|Default PCP
+RC43|Default PCP
+RC92|Default PCP - Out Of State
+RC12|Family PCP
+RC13|Family PCP
+RC22|Family PCP
+RC23|Family PCP
+RC36|Family PCP
+RC1M|Smart MDO PCP
+RC2M|Smart MDO PCP
+RC3M|Smart MDO PCP
+RC4M|Smart MDO PCP
+RC5M|Smart MDO PCP
+RC6M|Smart MDO PCP
+RC28|Member assigned to Alternate location
+RC35|PCP Assigned For MPP ID
+RC02|Prefix
+RC11|Prior PCP
+RC21|Prior PCP
+RC8A|Rollover Affinity PCP
+RC8D|Rollover Default PCP
+RC30|Rollover MDO PCP
+RC8M|Rollover MDO PCP
+RC29|Rollover MDO PCP
+RC19|Rollover Same PCP Alternate Location
+RC32|Rollover Same Tax ID Different PCP
