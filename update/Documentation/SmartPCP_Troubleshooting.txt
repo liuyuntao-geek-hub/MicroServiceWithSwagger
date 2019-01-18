@@ -1,0 +1,739 @@
+================================================================================
+********************************************************************************
+	Client ID: 30002887fcf84262971caae7dec8c887
+	Client Secret: c719819a293a119305b0a21d406c043ad2d6c7316c02e7621b5b10355de00ac4 
+	APIKEy: c8el3OqAddkCo5N2J4hGMHDr4rh0uJx3
+	Token URL: https://sit-ext.api.anthem.com/v1/oauth/accesstoken
+================================================================================
+Project 849 Troubleshooting process:
+(MicroService Section)
+============================================
+SmartPCP API:
+Action 1 - Service Confluence:
+	https://confluence.anthem.com/display/BDH/SmartPCP+API
+	(Need to include links in Confluence related to this specific Service)
+Action 2 - Interlock URL
+	(All links need to be working - Swagger links not working)
+	(Need to add brief explanation about each link)
+	
+Interlock:
+	Dev:
+	Health Status https://sit-interlock.anthem.com/dev/spcp-select/health 
+	Swagger UI https://sit-interlock.anthem.com/dev/spcp-select/swagger-ui.html 
+	Swagger File https://sit-interlock.anthem.com/dev/spcp-select/v2/api-docs 
+	End Point https://sit-interlock.anthem.com/dev/spcp-select/smartSelection 
+	
+	SIT:
+	Health Status https://sit-interlock.anthem.com/spcp-select/health 
+	Swagger UI https://sit-interlock.anthem.com/spcp-select/swagger-ui.html = Not working correctly
+	Swagger File https://sit-interlock.anthem.com/spcp-select/v2/api-docs = Not available
+	End Point https://sit-interlock.anthem.com/spcp-select/smartSelection  
+	Perf Test
+ApiGee:
+
+Action 3 - ApiGee Manual invocation process:
+	
+----------------------------------
+OAuth process
+Step 1 - Get token
+	https://sit-ext.api.anthem.com/v1/oauth/accesstoken 
+
+
+Postman:
+	Post: Anthorization = Basic Anthorization 
+		Client ID: 30002887fcf84262971caae7dec8c887
+		Client Secret: c719819a293a119305b0a21d406c043ad2d6c7316c02e7621b5b10355de00ac4	
+	Header:
+	apikey: c8el3OqAddkCo5N2J4hGMHDr4rh0uJx3
+	content-type: application/x-www-urlencoded/
+	Body:
+	application/x-www-urlencoded
+	grant_type:client_credentials
+	scope: public
+
+Step 2 - Access the real service
+
+https://sit.api.anthem.com/v1/spcp/members/pcp/select/smartSelection
+Postman:
+	Post: Anthorization: Bear token => provide token
+	Body:
+	apikey: c8el3OqAddkCo5N2J4hGMHDr4rh0uJx3
+	content-type: application/json	
+	raw:
+	(JSON payload or postman collection need to be included as attachement)
+
+
+input for smartpcp
+{
+                "invocationSystem":"01",
+                "systemType": "O",
+                "requestType": "S",
+                "memberEid": "976A78568",       
+                "memberType": "N",
+                "memberLineOfBusiness": "AS",
+                "memberProcessingState": "VA",
+                "memberContractCode": ["CC86"],
+                "memberNetworkId": ["CC0D"],
+                "address": {
+                                "addressLine1": "525 ROBERTS LN",
+                                "addressLine2": "",
+                                "city": "BAKERSFIELD",
+                                "state": "CA",
+                                "zipCode": 93308,
+                                "zipFour": 4799,
+                                "countyCode": "97"
+                },
+                "memberDob": "1983-09-05",
+                "memberGender": "M",
+                "memberLanguageCode":["SPA","ENG"],
+                "memberProduct":"Z2LK",
+                "memberProductType":"HMO",
+                "memberSourceSystem": "ISG",
+                "memberSequenceNumber": "2",
+                "memberFirstName": "KERI",
+                "memberMiddleName": "H",
+                "memberLastName": "GAYLE_SPCP_DEV",
+                "rollOverPcpId": "AS123",
+                "memberPregnancyIndicator":"Y",
+                "memberEffectiveDate":"2014-01-01",
+                "memberTerminationDate" : "2030-06-13",
+                "updateCounter" : "12",
+                "memberGroupId": 123,
+                "memberSubGroupId": 123
+}
+
+-----------------------------------
+	https://dev.api.anthem.com/v1/spcp/members/pcp/select/smartSelection
+	
+Action 4 - UCP https://sit-ucp.anthem.com/manage/resources/containers/b6472cf2eddf4b5d92caa6e85cd75c32b5575a377077a375ccf7ea9f4b8f485c/details
+		https://sit1-ucp.anthem.com/login/
+	(Need to include explanation about generic operation here, such as how to find and search related container, memory usage, and so on)
+
+Action 5 - splunk https://splunk-nonprod-search.wellpoint.com/en-US/app/search/search#en-US/app/search/search?q=search%20spcp&sid=1530123765.45294_B991C733-5243-43C1-848B-DD2BEC6C38DB&display.page.search.mode=smart&dispatch.sample_ratio=1&earliest=%40d&latest=now
+	- UAT / SIT all together
+	search: v1/spcp/members/pcp/select/smartSelection
+	search: SmartPCPController -SmartPCP Module started
+		- Get the tracerID: 73a3cb0b6f0d9366
+	Search
+	
+Action 6 - Download code from bitbucket	
+	https://bitbucket.anthem.com/projects/HCA849/repos/spcp-select/browse
+	
+	cd /repos/SmartPCP849/spcp-select
+	git clone https://AF35352@bitbucket.anthem.com/scm/hca849/spcp-select.git
+	git branch -a
+	git checkout master
+	
+	ScalaIDE -> import maven project => C:\java\git\repos\SmartPCP849\spcp-select\spcp-select
+	(Need to provide the Bitbucket link and instructions to import the project into eclipse)
+
+
+Note: if already download = reset and reload:
+ git reset --hard origin/master
+ git pull origin master
+
+
+Action 7 - Test run on local by modify the code 
+	(Need instructions about how to overwrite the bootstrap to make it run on local)
+	
+=========================================
+Add the repo in the pom.xml
+------------------------
+	<repositories>
+	<repository> 
+		<id>anthem</id> 
+		<url>https://artifactory.anthem.com:443/artifactory/public</url>
+			<releases> <enabled>true</enabled> </releases> 
+			<snapshots> <enabled>false</enabled></snapshots>
+	 </repository> 
+			
+		<!-- Spark2 jars are missing in JFROG artifactory -->
+		<repository>
+			<id>cloudera-releases</id>
+			<url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+			    
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		
+
+		
+		<!-- Add Splice machine repo  -->
+		<repository>
+			<id>splicemachine-public</id>
+			<url>http://repository.splicemachine.com/nexus/content/groups/public</url>
+		</repository>
+
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<!-- Add Splice machine repo Done -->
+		
+		
+	</repositories>
+
+-------------------
+1.	Comment the contents of the bootstrap.yml.
+	- comment all lines = this will disable the connection to the configuration server
+2.	Create the application.properties file in src/main/resources.
+	cd /repos/SmartPCP849/SOADCKRAD/spcp-configuration/spcp-configuration
+	git branch -a
+	git checkout sit
+	
+	C:\java\git\repos\SmartPCP849\SOADCKRAD\spcp-configuration\spcp-configuration\properties\spcp-select
+		= find property here and copy into the project
+		
+a.	Contents of this file can be picked from config server(https://bitbucket.anthem.com/projects/SOADCKRAD/repos/spcp-configuration/browse/properties?at=refs%2Fheads%2Fsit )
+b.	Please pick the contents of application-dev.properties if you want to point to dev or else from application-sit.properties to point to SIT from the corresponding service.
+
+3.	Replace credentials in application.properties with our credentials.
+	- need to remove the {cipher}
+	= ? we are not using apigee
+spring.datasource.username=af35352
+spring.datasource.password=Lyt#45Yu
+
+security.client.id=30002887fcf84262971caae7dec8c887
+security.secret.key=c719819a293a119305b0a21d406c043ad2d6c7316c02e7621b5b10355de00ac4
+security.api.key=c8el3OqAddkCo5N2J4hGMHDr4rh0uJx3
+
+(To run on local = need to remove {cipher})
+
+4. 	Fix the SSL certificates to make the Drools available
+	- Without this: MicroService to MicroService will be unavailable
+	https://sit-interlock.anthem.com/spcp-drools/rules/smartpcp/
+---------------------
+Action 1 - Get Cert:
+	https://sit-interlock.anthem.com/spcp-drools/rules/smartpcp/
+	https://sit-ext.api.anthem.com/v1/oauth/accesstoken
+	-- Even Cloudera need the certiification = only get from Chrome
+	Use Chrome: select the security (left to the URL) -> C:\java\installation\certificate\interlock.cer
+
+	Internet Option -> Content -> Certificates -> export to: C:\java\jdk8\jre\lib\security\interlock.cer
+								 C:\java\jdk8\jre\lib\security\apigeeToken.cer
+
+Action 2 - Import the cert to Java
+	right click cmd icon => run with privillege guard
+cd C:\java\jdk8\jre\lib\security
+keytool -import -trustcacerts -alias InterlockCert -file C:\java\jdk8\jre\lib\security\interlock.cer -keystore cacerts
+keytool -import -trustcacerts -alias apigeeToken -file C:\java\jdk8\jre\lib\security\apigeeToken.cer -keystore cacerts
+	password: changeit
+
+-----------------------
+----------------------------------------
+	run: com.anthem.hca.smartpcp.Application
+
+Action 8 - End to end flow
+	(Explain how to get the query from the code)
+	
+Action 9 - SQL server 
+	jdbc:jtds:sqlserver://VA33DWVSQL003.us.ad.wellpoint.com:10001;databaseName=SMARTPCP;useNTLMv2=true;domain=US;ssl=required;
+	
+	select * from DV_PDPSPCP_XM.operations_audit where trace_id = '73a3cb0b6f0d9366';
+	select * from DV_PDPSPCP_XM.FLOW_OPERATIONS_AUDIT where trace_id = '73a3cb0b6f0d9366';
+
+spring.datasource.username=af35352
+spring.datasource.password=Lyt#45Yu
+
+
+
+select * from DV_PDPSPCP_XM.operations_audit where trace_id = '73a3cb0b6f0d9366';
+select * from DV_PDPSPCP_XM.FLOW_OPERATIONS_AUDIT where trace_id = 'dcb2375ee896934d';
+
+select * from DV_PDPSPCP_XM.provider_HIST
+
+select * from DV_PDPSPCP_XM.operations_audit where MBR_HC_SUBS_ID = 'IN1147912'
+
+select * from DV_PDPSPCP_XM.PROVIDER_TX_HIST  where PROV_PCP_ID in 
+(
+'0UR305',
+'0PN670',
+'0PN766',
+'0UR377',
+'0UR342',
+'0PN671',
+'0UR027',
+'0UR087',
+'Z0Z033'
+)
+
+select * from DV_PDPSPCP_XM.MBR_TX_HIST
+
+select * from DV_PDPSPCP_XM.PROVIDER_INFO where PROV_PCP_ID in 
+(
+'0UR305',
+'0PN670',
+'0PN766',
+'0UR377',
+'0UR342',
+'0PN671',
+'0UR027',
+'0UR087',
+'Z0Z033'
+)
+
+-------------------------------------
+	
+
+Action 10 - Splice machine access:
+Splice Machine Access:
+----------------------------------------
+SIT & DEV
+
+jdbc:splice://dwbdtest1splice.wellpoint.com:1527/splicedb;user=srcpdpspcpbthdv;password=LeN2xBcFR3CH
+
+jdbc:splice://bdpr3splice.wellpoint.com:1527/splicedb
+
+sqlshell.sh -h bdpr3splice.wellpoint.com -u af35352 -P
+
+
+Shared Cluster:
+sqlshell.sh -h dwbdtest1r5w1.wellpoint.com
+sqlshell.sh -h dwbdtest1splice.wellpoint.com -u af35352 -P
+jdbc:splice://dwbdtest1splice.wellpoint.com:1527/splicedb
+---------------------------------------------
+[af44888@bdpr3r6e1pr ~]$ sqlshell.sh -h bdpr3splice.wellpoint.com -u af44888 -P
+java version 1.8.0_171
+
+Enter Password: 
+ ========= rlwrap detected and enabled. Use up and down arrow keys to scroll through command line history. ======== 
+
+Running Splice Machine SQL shell
+For help: "splice> help;"
+SPLICE* -   jdbc:splice://bdpr3splice.wellpoint.com:1527/splicedb
+* = current connection
+jdbc:splice://dwbdtest1splice.wellpoint.com:1527/splicedb;user=af35352;password=Lyt#45Yu
+jdbc:splice://dwbdtest1splice.wellpoint.com:1527/splicedb;user=af35352;password=Lyt#45Yu
+
+Right now, the loadbalancer is accessible only from the following server.
+#bdpr3r6e1pr.wellpoint.com
+#bdpr3r7e2pr.wellpoint.com
+dwbdtest1splice.wellpoint.com
+
+---------------------------------------
+	(Need to include a brief introduction about how to navigate through tables)
+	
+Action 11 - Contact list
+	- group e-mail or contact info for:
+		Business partner
+		Project Architect team
+		Project manager
+		Hadoop admin
+		Splice SME
+		SOA DevOps team
+		SOA Docker & Performance
+		SOA Apigee
+		BSI Team
+		Enterprise auto pic
+		Membership
+		ControlM
+		Veracode
+Action 12 - bamboo
+https://bamboo.anthem.com/browse/SPF849-
+https://bamboo.anthem.com/browse/SPF849-SMARTSIT/latest
+	- You can access Bamboo from bitbucket - commit
+================================================================================
+Project 849 Troubleshooting process:
+(ETL Section)
+============================================
+
+Action 1 - Hadoop HDFS
+	(List related jar files and control files, configuration files location)
+
+	ssh dwbdtest1r1e.wellpoint.com
+	Jar location Linux:
+	/dv/app/ve2/pdp/spcp/phi/no_gbd/r000/bin/
+	Jar location HDFS
+	/dv/app/ve2/pdp/spcp/phi/no_gbd/r000/bin/
+	Go to Hue to check
+	https://dwbdtest1r1e.wellpoint.com:8890/hue/editor/?type=impala
+	(Include details related to schema and table if necessary)
+
+
+Action 2
+	Debug spark job from Hue and Job Browser
+
+	Go to Hue to check
+	https://dwbdtest1r1e.wellpoint.com:8890/hue/editor/?type=impala
+
+	Driver logs can be check at cluster:
+	Driver logs
+	https://dwbdtest1r1m.wellpoint.com:8090/cluster/app/application_1527038069742_10176
+	https://dwbdtest1r1m.wellpoint.com:8090/cluster/app/application_1527038069742_14673
+
+	Check the vcore and memory
+	https://dwbdtest1r1e.wellpoint.com:8890/jobbrowser/jobs/application_1530023551824_3747 
+	https://dwbdtest1r1e.wellpoint.com:8890/jobbrowser/jobs/application_1530023551824_3747
+
+	Executor logs can be check at Spark UI:
+	Executor logs - Spark Top level
+	https://dwbdtest1r1e.wellpoint.com:8888/jobbrowser/
+
+	Spark Ui Detail Level
+	https://dwbdtest1r2m3.wellpoint.com:18489/history/application_1530023551824_3747/1/
+
+Action 3 - Bitbucket
+	https://bitbucket.anthem.com/projects/HCA849/repos/spcp-etl/browse
+	(Include detaisl about how to import and setup ScalaIDE)
+	
+Action 4 - ControlM Job details
+	Job name & Instructions to check and verify ControlM job status
+	
+Action 5 - Contact list
+	- group e-mail or contact info for:
+		Business partner
+		Project Architect team
+		Project manager
+		Hadoop admin
+		Splice SME
+		SOA DevOps team
+		SOA Docker & Performance
+		SOA Apigee
+		BSI Team
+		Enterprise auto pic
+		Membership	
+		ControlM Team
+============================================================
+
+
+
+Anthem outlook
+https://webmail.antheminc.com/owa/?path=/mail/inbox
+
+
+========================================================
+Narsi Daas
+http://30.138.173.139:9999/smartSelection/
+
+
+Source File for ETL process = Schedule = unknown
+/ts/data/ve2/cdl/wgsp/phi/gbd/r000/inbound
+/pr/data/ve2/cdl/wgsp/phi/gbd/r000/inbound
+
+
+99Z129    |E1|PCP |2013-08-01|2015-12-31|000000000   |000000000   |2013-08-01|2015-12-31|8020|330219957 |00|1990-01-01|9999-12-31|00 ||          | |     |   |EPDS1     |2018-11-03-18.54.22.000000|WGPPWCUS|2018-11-03-18.54.22.000000|WGPPWCUS|SAMUEL                                            |A                   |CARLIS                                            |0000526630                                        |                                                  |PROSPECT MEDICAL GROUP INC 
+
+
+Load to:(We do not have access) = File to CDL table = weekend = 3:00 PM, weekday = 8:00 PM
+select * from TS_CDLWGSP.WGSP_PCP_ASP where Prov_PCP_ID = 'AAB000'
+
+View:
+select *  from TS_CDLWGSP_ALLPHI_XM.WGSP_PCP_ASP where wgs_spclty_cd = '800' and HMO_TYPE_CD = 'PMG'
+
+
+Load to ADL (This also as static table and old backup CDL table):
+(We join on the first 4 columns of all the tables)
+select * from DV_PDPSPCP_XM.WGSP_PCP_ASP
+
+
+All SQL for MicroServices:
+C:\workstation\PADP\Project\SmartProvider\Troubleshooting\SmartPCP\MicroServiceSQL
+
+
+
+
+
+   
+select * from DV_PDPSPCP_XM.WGSP_PCP_SPCLTY_CD_MAPPING
+
+select * from TS_CDLWGSP_ALLPHI_XM.WGSP_PCP_ASP where Prov_PCP_ID = 'AAB000'
+
+select distinct(HMO_TYPE_CD) from TS_CDLWGSP_ALLPHI_XM.WGSP_PCP_ASP 
+
+
+SIT Interlock URL	
+https://dev-interlock.anthem.com/spcp-track-audit
+
+SIT Interlock URL	
+https://sit-interlock.anthem.com/spcp-track-audit
+PERF Interlock URL
+https://uat-interlock.anthem.com/perf/spcp-track-audit
+
+spcp-track-audit webservice
+https://sit-interlock.anthem.com/spcp-track-audit
+
+
+
+
+
+Trouble shooting for VBP
+----------------------------------------------------------------
+--To get Distinct VBP_TIN count
+SELECT COUNT(DISTINCT A.PROV_ORG_TAX_ID) FROM TS_PDPSPCP_XM.PCP_VBP A
+       
+--To get Matched VBP_TIN count
+SELECT count(*) FROM (SELECT DISTINCT A.PROV_ORG_TAX_ID FROM TS_PDPSPCP_XM.PCP_VBP A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON A.PROV_ORG_TAX_ID=B.TAX_ID WHERE B.TAX_ID IS NOT NULL) C;
+
+--To get Matched VBP_TIN's
+SELECT DISTINCT A.PROV_ORG_TAX_ID FROM TS_PDPSPCP_XM.PCP_VBP A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON A.PROV_ORG_TAX_ID=B.TAX_ID WHERE B.TAX_ID IS NOT NULL;
+
+--To get UnMatched VBP_TIN count         
+SELECT count(*) FROM (SELECT DISTINCT A.PROV_ORG_TAX_ID FROM TS_PDPSPCP_XM.PCP_VBP A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON A.PROV_ORG_TAX_ID=B.TAX_ID WHERE B.TAX_ID IS NULL) C;
+
+--To get UnMatched VBP_TIN's
+SELECT DISTINCT A.TAX_ID FROM TS_PDPSPCP_XM.PROVIDER_INFO A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON A.TAX_ID=B.TAX_ID WHERE B.TAX_ID IS NULL;
+
+--To get Distinct Provider_TIN count
+SELECT COUNT(DISTINCT A.TAX_ID) FROM TS_PDPSPCP_XM.PROVIDER_INFO A - 17588
+
+--To get Matched Provider_TIN count
+SELECT count(*) FROM (SELECT DISTINCT A.TAX_ID FROM TS_PDPSPCP_XM.PROVIDER_INFO A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON TRIM(LEADING '0' FROM A.TAX_ID)=TRIM(LEADING '0' FROM B.TAX_ID) WHERE B.TAX_ID IS NOT NULL) C;
+SELECT count(*) FROM (SELECT DISTINCT A.TAX_ID FROM TS_CDLWGSP_ALLPHI_XM.WGSP_PCP A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON TRIM(LEADING '0' FROM A.TAX_ID)=TRIM(LEADING '0' FROM B.TAX_ID) WHERE B.TAX_ID IS NOT NULL) C;
+
+--To get Matched Provider_TIN's
+SELECT DISTINCT A.TAX_ID FROM TS_PDPSPCP_XM.PROVIDER_INFO A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON TRIM(LEADING '0' FROM A.TAX_ID)=TRIM(LEADING '0' FROM B.TAX_ID) WHERE B.TAX_ID IS NOT NULL;
+
+--To get UnMatched Provider_TIN count           
+SELECT count(*) FROM (SELECT DISTINCT A.PROV_ORG_TAX_ID FROM TS_PDPSPCP_XM.PCP_VBP A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON TRIM(LEADING '0' FROM A.TAX_ID)=TRIM(LEADING '0' FROM B.TAX_ID) WHERE B.TAX_ID IS NULL) C;
+
+--To get UnMatched Provider_TIN's
+SELECT DISTINCT A.PROV_ORG_TAX_ID FROM TS_PDPSPCP_XM.PCP_VBP A LEFT OUTER JOIN TS_PDPSPCP_XM.HCA_PROV_RNKNG_08222018 B ON TRIM(LEADING '0' FROM A.TAX_ID)=TRIM(LEADING '0' FROM B.TAX_ID) WHERE B.TAX_ID IS NULL;
+
+
+=============== To Deploy Code Change ===================
+Step 0 - Check bitbucket the latest commite
+	- left -> commit icon -> findout the latest commit
+
+Step 1 - Check out code
+	git branch -a
+	git checkout feature/sprint-10-decouple
+	
+Step 2 - modify the rule:
+	C:\java\git\repos\SmartPCP849Mono\spcp-business-rules\spcp-business-rules\src\main\resources\rules
+
+Step 3 - commit
+	git add .
+	git commit -m ""
+	git push origin feature/sprint-10-decouple
+	
+Step 4 - Merge from the bitbuck site
+	- left -> pull request => create pull request => this will merge
+	- feature/sprint-10-decouple => develop first
+	- develop => master 
+
+Step 5 - Verify master on local
+ git reset --hard origin/master
+ git pull origin master
+
+
+==================================================================
+
+
+  sqoop export --connect "jdbc:jtds:sqlserver://va33twvsql358.devad.wellpoint.com:10001;useNTLMv2=true;ssl=require;domain=US;databaseName=SMARTPCP" --connection-manager org.apache.sqoop.manager.SQLServerManager --driver net.sourceforge.jtds.jdbc.Driver --username <> --password <> --verbose --export-dir /user/af69961/Splice/singleFile.csv -m 10 --table MBR_INFO_EXPORT_TEST --batch --input-fields-terminated-by '|' -- --schema TS_PDPSPCP_XM  
+
+
+1.	To Dev sql server  duration was 30 min
+https://dwbdtest1r1e.wellpoint.com:8890/jobbrowser/jobs/job_1537317516490_15644/single_logs
+                
+2.	TO SIT sql server   duration was  43 min
+https://dwbdtest1r1e.wellpoint.com:8890/jobbrowser/jobs/application_1537317516490_16591
+
+3.	But Using Splice to RDBMS connector job duration was  4 hours 30 min with 1 connection.
+https://dwbdtest1r1e.wellpoint.com:8890/jobbrowser/jobs/application_1537317516490_10320
+
+
+SIT
+•	sit.api.anthem.com/v1/spcp/members/pcp/track-audit/savePCPScoreData
+•	sit.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPAssignmentDataAsJson
+•	sit.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPScoreDataAsJson
+•	sit.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPScoreDataAsXLSX
+
+UAT
+•	uat.api.anthem.com/v1/spcp/members/pcp/track-audit/savePCPScoreData
+•	uat.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPAssignmentDataAsJson
+•	uat.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPScoreDataAsJson
+•	uat.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPScoreDataAsXLSX
+
+Perf
+•	perf.api.anthem.com/v1/spcp/members/pcp/track-audit/savePCPScoreData
+•	perf.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPAssignmentDataAsJson
+•	perf.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPScoreDataAsJson
+•	perf.api.anthem.com/v1/spcp/members/pcp/track-audit/getPCPScoreDataAsXLSX
+
+Container Specs
+---------------------------------------------
+
+ADD_OPTS= -Xss256k -Xmx256m -Xms256m -Xmn96m -XX:SurvivorRatio=3 -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-select-perf
+
+ADD_OPTS= -Xss256k -Xmx160m -Xms160m -Xmn64m -XX:SurvivorRatio=3 -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-track-audit-perf
+
+ADD_OPTS= -Xss256k -Xmx160m -Xms160m -Xmn64m -XX:SurvivorRatio=3 -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-operations-audit-perf
+
+ADD_OPTS= -Xss256k -Xmx128m -Xms128m -Xmn48m -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-config-server-perf
+
+ADD_OPTS= -Xss256k -Xmx128m -Xms128m -Xmn48m -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-business-rules-perf
+
+
+----------------------------------------------
+
+BING license:
+AvmlN1W_Z7eqa1U62K_KaOIewEThKgOqomUac7S55j1ihpc5C_sm6aK1AcNecxKV
+
+
+Reference: https://uat-interlock.anthem.com/perf/spcp-select/env
+
+
+
+---------------------------------------------
+Project 849 - SQLServer SQL Server
+DEVELOPMENT
+Server connection : VA33DWVSQL003\SQL01,10001  
+Database: SMARTPCP 
+Service Id : SRC_SPCP_DEV@us.ad.wellpoint.com
+AD group name : SQL_SPCP_IT_Appdev
+Please Submit "Network Active Directory Group User Access" Request access to AD Group "SQL_SPCP_IT_Appdev"
+
+TEST
+Server connection :  va33twvsql358.devad.wellpoint.com\sql01,10001
+Database: SMARTPCP 
+Service Id : SRC_SPCP_USR@us.ad.wellpoint.com  
+AD Group :  SQL_SPCP_IT_SMARTPCP_RO
+            SQL_SPCP_IT_SMARTPCP_RW
+Developers : Please Submit "Network Active Directory Group User Access" Request access to AD Group "SQL_SPCP_IT_SMARTPCP_RO"
+Testers : Please Submit "Network Active Directory Group User Access" Request access to AD Group "SQL_SPCP_IT_SMARTPCP_RW"
+
+PROD
+Server connection : va10pwvsql484.us.ad.wellpoint.com\sql01,10001
+Database: SMARTPCP 
+Service Id : SRC_SPCP_PROD_USR@us.ad.wellpoint.com  
+AD Group :  SQL_SPCP_IT_SMARTPCP_PROD_RO
+            SQL_SPCP_IT_SMARTPCP_PROD_RW
+Developers : Please Submit "Network Active Directory Group User Access" Request access to AD Group "SQL_SPCP_IT_SMARTPCP_PROD_RO"
+
+-------------------------------------------
+
+
+======================================
+Date: 2018-10-05
+------------------------------------
+Production release Details
+Server details : va10pwvsql484.us.ad.wellpoint.com\sql01,10001
+Username : SRC_SPCP_PROD_USR@us.ad.wellpoint.com or SRC_SPCP_PROD_USR
+Password: AQBbGfaZ0rbuHubzUb891YUPQpgg4OmtbfJq6fRqiCxPvpKknudYBe18nyhRnbIx/ZtzWo4BfU1IK4jQyoAREvbCG97RfD3wyMMoONkAGe3VwRaUBfB5BorS8apnnlN2hrqH0jL2thK/TQRhUlv6QRQgM39XUVKM5ALmMBqeLzlDeEma8ybQ2B+RYhSM/qT76kTCYviiI/jxdL37XU1DtYDtraXtMQywj8NpblwzgFuNQHIQ79mEvXJt48RMgGDJgCiOrBkCgbh6yfBC6x4MFSHehGrRYdojAwbVJFd05LVz4CquSc2Dty2FaJb3tnusZOGTkCr3mtZvnuhuvrk78QGi1rDVDXNpTPm02aA1HltsHHAjGp6kKDEzrFHjVlABCqY=
+
+DB Schema: PDPSPCP_XM
+
+Apigee Details:
+
+Token URL: https://api.anthem.com/v1/oauth/accesstoken
+Client id:
+AQB6Nc9Cv5nqQpT3Jl/jJu92z4XPbjRGGHRlwPGs5EEb5wzgmAdNSTJDoG24XSpRH/cV9FyVjGO4raN9Q9ds/3qzh+uWyI9iZraahFpOpEyYmBtqTWBlnN0yVBjT+5kJPMAboreslLvBmmeK4XOeBupgNO8i91sLmG1ViMCS5CVIvnNhP7RKQQll6CsMan/M4hwd5ZXjUfDSQUwGboTqR6Y5xmiLhOUsUNSIoJFzbyygy60G3jaoavgRDmKND49HH/j07Wc3+Q1U6QHSa0I66a5TAT7NnyvQWnswUR5VasvC0c6f6ZxIOs+RFrpWfc6zg9UPmNCkTHKRzaHoCkgXWkcERNrEa6sK2qM6g/KQJKprtYR95hLcRrq3T3aRlrtKRjaZaxq16D0TsNfjxdFThQmWxg2xblbWX0SK4hG3Pp1qSQ==
+
+Client secret:
+AQA2zh3Zy6bU3/fK3nV0ZweDqYnZaG5TC8uBHpiQqu6Tzhkyqkt6dfUZlGDiP1nSmTY4wt1Ga9kGS5V7gdpBRDoj76zrfmVIGJ8wyjrYW+98Q36e3Ld31zBKpwc5oYQxFdFSVLrTLgEwCsNc5wOStgEnXk2AV/ujZWsStxrziFp2QFxDuIpnJgkVuxMNdZHY6cnyob/EtwujgPIHhllrzCqGwEZOOU/YxkdfuEMMFgjCVYcvhzBGAPrx7sq6ePh/f2AX6Gr4y3AlS3r73wvU3xuekDioz17tT4XxWRvfN0NZyZElhRQ1u8cqiHdRej+W7AKVfgRs8fNvrtV1h2u5okEKB5uYsKU47Qj7GxvEmvVkCTYG042WWf5qjbVOXIu8F1AxbmmJeBaWVJ9ew1qOT8mSZ/13a5pB0LQtnDsRGAxCwZIm/gQE5Ylkgj3HJslvUjR3vKh56PpsJ3Uj9FV6kuZp
+
+Apikey:
+AQAJNpo6W7l2hR5YfiiPm2LNfFkJ2ozCesBEfoeixkKolh5pIdYQ1aI1dXB6nVgY1XlCGysFiL7Lm9RAM9iOMfxA+WXJR32udVhwGPezrVe/s2QzCFt3cYfd40uUXfu2UoxuBswv3ajiA+HOVMkqtcAemXReMaEVEDywYulGDtFXkw7tHlRMQoW9fWYSzqoYootO5gm58SoGm24DF6dyHDC7FuC6RuqlDfsxq6MzVfcO16XgjmSwW3FxcePnqrg5BkzPnvO0UsPGa6eG5tq2UeCVKHX11tumPLtrKnkC9/k5J6/Ct5UFfT2wueMBXxy5AXtBDEUN6gFcjrvURqeijg0kRHfxEWVOHh6sNckI/124Cd1JI2lhh7pJkikm5ZukdhkKpY0UDHBxwYuB1DnAyQ+Eav+HMA8itd77zNijlRuqig==
+
+Apigee URLS for service:
+1.	Spcp-select
+https://api.anthem.com/v1/spcp/members/pcp/select/
+
+2.	Spcp-business-rules
+https://api.anthem.com/v1/spcp/members/pcp/business-rules/
+       
+3.	Spcp-operations-audit
+https://api.anthem.com/v1/spcp/members/pcp/operations-audit/
+
+4.	Spcp-track-audit 
+https://api.anthem.com/v1/spcp/members/pcp/track-audit/
+
+
+
+spcp-operations-audit (Release 125)
+Scale=2
+ADD_OPTS= -Xss256k -Xmx160m -Xms160m -Xmn64m -XX:SurvivorRatio=3 -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-operations-audit
+
+spcp-business-rules (Release 38)
+Scale=2
+ADD_OPTS= -Xss256k -Xmx128m -Xms128m -Xmn48m -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-business-rules
+
+spcp-track-audit (Release 11)
+scale=2
+ADD_OPTS= -Xss256k -Xmx128m -Xms128m -Xmn64m -XX:CICompilerCount=2 -XX:ParallelGCThreads=4 -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:MaxMetaspaceSize=100m -Dcom.wily.introscope.agent.agentName=spcp-track-audit
+
+======================================
+
+Splunk Prod
+https://splunk-prod-search.wellpoint.com/en-US/account/login?return_to=%2Fen-US%2F 
+
+Data1:
+M5qHa9?XfT
+
+Data 2:
+raLPQxTXhdFosKq1z3UbYQuFVZS5cbGP
+
+Data 3:
+33bbd32611db4f6990ed0b9e7867a09d
+
+Data 4:
+f4c1f24719e6173008af2e97971fec61e9cfbd39612c8b3e67443a116429bf3c
+
+
+Production Password 
+SQL Server Password:
+M5qHa9?XfT
+AQBbGfaZ0rbuHubzUb891YUPQpgg4OmtbfJq6fRqiCxPvpKknudYBe18nyhRnbIx/ZtzWo4BfU1IK4jQyoAREvbCG97RfD3wyMMoONkAGe3VwRaUBfB5BorS8apnnlN2hrqH0jL2thK/TQRhUlv6QRQgM39XUVKM5ALmMBqeLzlDeEma8ybQ2B+RYhSM/qT76kTCYviiI/jxdL37XU1DtYDtraXtMQywj8NpblwzgFuNQHIQ79mEvXJt48RMgGDJgCiOrBkCgbh6yfBC6x4MFSHehGrRYdojAwbVJFd05LVz4CquSc2Dty2FaJb3tnusZOGTkCr3mtZvnuhuvrk78QGi1rDVDXNpTPm02aA1HltsHHAjGp6kKDEzrFHjVlABCqY=
+
+
+Apikey: Data 2:
+raLPQxTXhdFosKq1z3UbYQuFVZS5cbGP
+AQAJNpo6W7l2hR5YfiiPm2LNfFkJ2ozCesBEfoeixkKolh5pIdYQ1aI1dXB6nVgY1XlCGysFiL7Lm9RAM9iOMfxA+WXJR32udVhwGPezrVe/s2QzCFt3cYfd40uUXfu2UoxuBswv3ajiA+HOVMkqtcAemXReMaEVEDywYulGDtFXkw7tHlRMQoW9fWYSzqoYootO5gm58SoGm24DF6dyHDC7FuC6RuqlDfsxq6MzVfcO16XgjmSwW3FxcePnqrg5BkzPnvO0UsPGa6eG5tq2UeCVKHX11tumPLtrKnkC9/k5J6/Ct5UFfT2wueMBXxy5AXtBDEUN6gFcjrvURqeijg0kRHfxEWVOHh6sNckI/124Cd1JI2lhh7pJkikm5ZukdhkKpY0UDHBxwYuB1DnAyQ+Eav+HMA8itd77zNijlRuqig==
+
+
+Client id:Data 3:
+33bbd32611db4f6990ed0b9e7867a09d
+AQB6Nc9Cv5nqQpT3Jl/jJu92z4XPbjRGGHRlwPGs5EEb5wzgmAdNSTJDoG24XSpRH/cV9FyVjGO4raN9Q9ds/3qzh+uWyI9iZraahFpOpEyYmBtqTWBlnN0yVBjT+5kJPMAboreslLvBmmeK4XOeBupgNO8i91sLmG1ViMCS5CVIvnNhP7RKQQll6CsMan/M4hwd5ZXjUfDSQUwGboTqR6Y5xmiLhOUsUNSIoJFzbyygy60G3jaoavgRDmKND49HH/j07Wc3+Q1U6QHSa0I66a5TAT7NnyvQWnswUR5VasvC0c6f6ZxIOs+RFrpWfc6zg9UPmNCkTHKRzaHoCkgXWkcERNrEa6sK2qM6g/KQJKprtYR95hLcRrq3T3aRlrtKRjaZaxq16D0TsNfjxdFThQmWxg2xblbWX0SK4hG3Pp1qSQ==
+
+
+Client secret:Data 4:
+f4c1f24719e6173008af2e97971fec61e9cfbd39612c8b3e67443a116429bf3c
+AQA2zh3Zy6bU3/fK3nV0ZweDqYnZaG5TC8uBHpiQqu6Tzhkyqkt6dfUZlGDiP1nSmTY4wt1Ga9kGS5V7gdpBRDoj76zrfmVIGJ8wyjrYW+98Q36e3Ld31zBKpwc5oYQxFdFSVLrTLgEwCsNc5wOStgEnXk2AV/ujZWsStxrziFp2QFxDuIpnJgkVuxMNdZHY6cnyob/EtwujgPIHhllrzCqGwEZOOU/YxkdfuEMMFgjCVYcvhzBGAPrx7sq6ePh/f2AX6Gr4y3AlS3r73wvU3xuekDioz17tT4XxWRvfN0NZyZElhRQ1u8cqiHdRej+W7AKVfgRs8fNvrtV1h2u5okEKB5uYsKU47Qj7GxvEmvVkCTYG042WWf5qjbVOXIu8F1AxbmmJeBaWVJ9ew1qOT8mSZ/13a5pB0LQtnDsRGAxCwZIm/gQE5Ylkgj3HJslvUjR3vKh56PpsJ3Uj9FV6kuZp
+
+
+========================================
+
+Production Hadoop Hue Spark 
+Detailed job cluster
+https://bdpr3r7mn4pr.wellpoint.com:8090/cluster/app/application_1537729904686_12637
+
+Hue job
+https://bdpr3huelb.wellpoint.com:8888/jobbrowser/jobs/application_1537729904686_12612
+
+=========================================
+
+
+--conf 'spark.driver.extraJavaOptions=-Dsplice.spark.local.dir=/tmp/splice -Djava.security.krb5.conf=/etc/krb5.conf -Dspark.yarn.principal=${USER_NAME}@US.AD.WELLPOINT.COM -Dspark.yarn.keytab=$KEYTAB_PATH/${USER_NAME}.keytab -Dlog4j.configuration=log4j.xml  -XX:+UseCompressedOops -XX:+UseG1GC -XX:+PrintFlagsFinal -XX:+PrintReferenceGC -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintAdaptiveSizePolicy -XX:+UnlockDiagnosticVMOptions -XX:+G1SummarizeConcMark -XX:InitiatingHeapOccupancyPercent=35 -XX:ConcGCThreads=12' \
+--conf 'spark.executor.extraJavaOptions=-Dsplice.spark.local.dir=/tmp/splice -Djava.security.krb5.conf=/etc/krb5.conf -Dlog4j.configuration=log4j.xml -XX:+UseCompressedOops -XX:+UseG1GC -XX:+PrintFlagsFinal -XX:+PrintReferenceGC -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintAdaptiveSizePolicy -XX:+UnlockDiagnosticVMOptions -XX:+G1SummarizeConcMark -XX:InitiatingHeapOccupancyPercent=35 -XX:ConcGCThreads=12'  \
+
+
+Here are the Production apigee details which needs be used for validations.
+
+Token URL: https://api.anthem.com/v1/oauth/accesstoken
+Client id: 33bbd32611db4f6990ed0b9e7867a09d
+Secret:  f4c1f24719e6173008af2e97971fec61e9cfbd39612c8b3e67443a116429bf3c
+Apikey: raLPQxTXhdFosKq1z3UbYQuFVZS5cbGP
+
+Service apigee URLs
+
+https://api.anthem.com/v1/spcp/members/pcp/selection/smartSelection
+
+
+
+=================================================
+new SQL server - Dev
+-------------------------------
+[Cloned from current shared Sever SqlServer instance VA33DWVSQL003\SQL01,10001 ]
+Database: SMARTPCP 
+Service Id : SRC_SPCP_DEV@us.ad.wellpoint.com
+AD group name : SQL_SPCP_IT_Appdev
+
+
+=================================================

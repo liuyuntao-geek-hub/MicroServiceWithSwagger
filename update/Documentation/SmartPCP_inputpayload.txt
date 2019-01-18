@@ -1,0 +1,355 @@
+MDO
+{
+                "invocationSystem":"01",
+                "systemType": "O",
+                "requestType": "S",
+                "memberEid": "976A78568",       
+                "memberType": "N",
+                "memberLineOfBusiness": "AS",
+                "memberProcessingState": "VA",
+                "memberContractCode": ["CC86"],
+                "memberNetworkId": ["CC0D"],
+                "address": {
+                                "addressLine1": "525 ROBERTS LN",
+                                "addressLine2": "",
+                                "city": "BAKERSFIELD",
+                                "state": "CA",
+                                "zipCode": 93308,
+                                "zipFour": 4799,
+                                "countyCode": "97"
+                },
+                "memberDob": "1983-09-05",
+                "memberGender": "M",
+                "memberLanguageCode":["SPA","ENG"],
+                "memberProduct":"Z2LK",
+                "memberProductType":"HMO",
+                "memberSourceSystem": "ISG",
+                "memberSequenceNumber": "2",
+                "memberFirstName": "KERI",
+                "memberMiddleName": "H",
+                "memberLastName": "GAYLE",
+                "rollOverPcpId": "AS123",
+                "memberPregnancyIndicator":"Y",
+                "memberEffectiveDate":"2014-01-01",
+                "memberTerminationDate" : "2030-06-13",
+                "updateCounter" : "12",
+                "memberGroupId": 123,
+                "memberSubGroupId": 123
+}
+
+{
+                "invocationSystem":"01",
+                "systemType": "O",
+                "requestType": "S",
+                "memberEid": "976A78568",       
+                "memberType": "N",
+                "memberLineOfBusiness": "AS",
+                "memberProcessingState": "VA",
+                "memberContractCode": ["CC86"],
+                "memberNetworkId": ["CC0D"],
+                "address": {
+                                "addressLine1": "525 ROBERTS LN",
+                                "addressLine2": "",
+                                "city": "BAKERSFIELD",
+                                "state": "CA",
+                                "zipCode": 93308,
+                                "zipFour": 4799,
+                                "countyCode": "97"
+                },
+                "memberDob": "1983-09-05",
+                "memberGender": "M",
+                "memberLanguageCode":["SPA","ENG"],
+                "memberProduct":"Z2LK",
+                "memberProductType":"HMO",
+                "memberSourceSystem": "ISG",
+                "memberSequenceNumber": "2",
+                "memberFirstName": "KERI",
+                "memberMiddleName": "H",
+                "memberLastName": "GAYLE_SPCP_DEV",
+                "rollOverPcpId": "AS123",
+                "memberPregnancyIndicator":"Y",
+                "memberEffectiveDate":"2014-01-01",
+                "memberTerminationDate" : "2030-06-13",
+                "updateCounter" : "12",
+                "memberGroupId": 123,
+                "memberSubGroupId": 123
+}
+
+
+Affinity:
+
+
+{
+                "invocationSystem":"01",
+                "systemType": "O",
+                "requestType": "S",
+                "memberEid": "056M68184",      
+                "memberType": "N",
+                "memberLineOfBusiness": "CAH", 
+ "memberProcessingState": "CA", 
+ "memberNetworkId": ["VAHHK300"], 
+                "address": {
+                                "addressLine1": "201 N WASHINGTON HWY",
+                                "addressLine2": "SUITE 306",
+                                "city": "ASHLAND",
+                                "state": "VA",
+                                "zipCode": 23005,
+                                "zipFour": 4799,
+                                "countyCode": "97"
+                },
+    "memberDob": "1954-03-29", 
+                "memberGender": "M",
+                "memberLanguageCode":["SPA","ENG"],
+                "memberProduct":"Z2LK",
+                "memberProductType":"HMO",
+                "memberSourceSystem": "ISG",
+                "memberSequenceNumber": 2, 
+    "memberFirstName": "DENNIS", 
+                "memberMiddleName": "H",
+                "memberLastName": "GAYLE_SPCP_DEV",
+                "rollOverPcpId": "AS123",
+                "memberPregnancyIndicator":"Y",
+                "memberEffectiveDate":"2002-11-01", 
+                "memberTerminationDate" : "2030-06-13",
+                "updateCounter" : "1",
+                "memberGroupId": 123,
+                "memberSubGroupId": 123
+}
+
+=== The following has issue
+"errorText": "INVALID_UPDATE_COUNTER"
+{
+                "invocationSystem":"01",
+                "systemType": "O",
+                "requestType": "S",
+                "memberEid": "976A78568",       
+                "memberType": "N",
+                "memberLineOfBusiness": "AS",
+                "memberProcessingState": "VA",
+                "memberContractCode": ["CC86"],
+                "memberNetworkId": ["CC0D"],
+                "address": {
+                                "addressLine1": "525 ROBERTS LN",
+                                "addressLine2": "",
+                                "city": "BAKERSFIELD",
+                                "state": "CA",
+                                "zipCode": 93308,
+                                "zipFour": 4799,
+                                "countyCode": "97"
+                },
+                "memberDob": "1983-09-05",
+                "memberGender": "M",
+                "memberLanguageCode":["SPA","ENG"],
+                "memberProduct":"Z2LK",
+                "memberProductType":"HMO",
+                "memberSourceSystem": "ISG",
+                "memberSequenceNumber": "2",
+                "memberFirstName": "KERI",
+                "memberMiddleName": "H",
+                "memberLastName": "GAYLE",
+                "rollOverPcpId": "AS123",
+                "memberPregnancyIndicator":"Y",
+                "memberEffectiveDate":"2014-01-01",
+                "memberTerminationDate" : "2030-06-13",
+                "updateCounter" : "12",
+                "memberGroupId": 123,
+                "memberSubGroupId": 123
+}
+
+
+Payload 1:
+{
+"invocationSystem":"01",
+"systemType": "O",
+"requestType": "S",
+"memberType": "N",
+"memberLineOfBusiness": "CT0",
+"memberGender": "F",
+"memberLanguageCode":["ENG"],
+"memberProduct":"14EM",
+"memberProductType":"HMO",
+"memberSourceSystem": "ISG",
+"memberMiddleName": "H",
+"memberLastName": "GAYLE_SPCP_TEST",
+"rollOverPcpId": "AS123",
+"memberPregnancyIndicator":"Y",
+"memberEffectiveDate":"2019-01-01",
+"memberTerminationDate" : "1992-06-13",
+"updateCounter" : "1",
+"memberGroupId": 123,
+"memberSubGroupId": 123,
+"memberEid":"AN3192018", 
+ "memberProcessingState":"GA", "memberDob":"1962-07-23", "memberSequenceNumber":"1", "address":
+{  "addressLine1":"108 N PARK DR", "addressLine2": "",  "city":"FAYETTEVILLE", "state":"GA", "zipCode":"30214", "zipFour": 2920,
+"countyCode": "97"
+},
+"memberNetworkId":["GAQ1","CCG2"], "memberFirstName":"Michael"}
+
+
+Payload 2:
+
+=> this is CT => work both for affinity and MDO => change the memberSequenceNumber = 12
+{
+"invocationSystem":"01",
+"systemType": "O",
+"requestType": "S",
+"memberType": "N",
+"memberLineOfBusiness": "CT0",
+"memberContractCode":["CC09"],
+"memberGender": "F",
+"memberLanguageCode":["SPA","ENG"],
+"memberProduct":"14EM",
+"memberProductType":"HMO",
+"memberSourceSystem": "ISG",
+"memberMiddleName": "H",
+"memberLastName": "GAYLE_SPCP_TEST",
+"rollOverPcpId": "AS123",
+"memberPregnancyIndicator":"Y",
+"memberEffectiveDate":"2014-01-01",
+"memberTerminationDate" : "1992-06-13",
+"updateCounter" : "1",
+"memberGroupId": 123,
+"memberSubGroupId": 123,
+"memberEid":"88149508", 
+ "memberProcessingState":"CT", "memberDob":"1993-11-04", "memberSequenceNumber":"2", "address":
+{  "addressLine1":"1609 N GRAND AVE STE 310", "addressLine2": "",  "city":"PUEBLO", "state":"CO", "zipCode":"81003", "zipFour": 2920,
+"countyCode": "97"
+},
+"memberNetworkId":["CC48"], "memberFirstName":"TIFFANY"}
+
+
+Payload 3
+{ 
+ "invocationSystem":"06", 
+ "systemType": "B", 
+ "memberEid": "136A52208", 
+ "memberType": "N", 
+ "memberLineOfBusiness": "CAH", 
+ "memberProcessingState": "CA", 
+ "memberNetworkId": ["CC0D"], 
+ "address": { 
+     "latitude":34.118552,
+     "longitude":-118.191908
+                }, 
+    "memberDob": "1998-12-11", 
+    "memberGender": "M", 
+    "memberSequenceNumber": 3, 
+    "memberFirstName": "A  CASE", 
+   "memberEffectiveDate":"2018-07-01", 
+    "memberProductType": "HMO" 
+}
+
+
+
+MDO payload => get 800
+{
+"invocationSystem":"01",
+"systemType": "O",
+"requestType": "S",
+"memberType": "N",
+"memberLineOfBusiness": "CT0",
+"memberContractCode":[],
+"memberGender": "F",
+"memberLanguageCode":["SPA","ENG"],
+"memberProduct":"14EM",
+"memberProductType":"HMO",
+"memberSourceSystem": "ISG",
+"memberMiddleName": "H",
+"rollOverPcpId": "AS123",
+"memberPregnancyIndicator":"Y",
+"memberEffectiveDate":"2014-01-01",
+"memberTerminationDate" : "1992-06-13",
+"updateCounter" : "1",
+"memberGroupId": 123,
+"memberSubGroupId": 123,
+"memberEid":"809M57794", "memberProcessingState":"NV", "memberDob":"1978-04-15", "memberSequenceNumber":"5", "address":
+{  "addressLine1":"409 AIRPORT DRIVE", "addressLine2": "",  "city":"DANVILLE", "state":"NV", "zipCode":"89403" },
+"memberNetworkId":["CC75"], "memberFirstName":"ELIZABETH", "memberLastName":"BARRETT_SPCP_TEST"}
+
+
+
+NV affinity:
+
+{
+"invocationSystem":"01",
+"systemType": "O",
+"requestType": "S",
+"memberType": "N",
+"memberLineOfBusiness": "CAH",
+"memberGender": "F",
+"memberLanguageCode":["ENG"],
+"memberProduct":"2EZQ",
+"memberProductType":"PPO",
+"memberSourceSystem": "WGS",
+"memberMiddleName": "H",
+"memberLastName": "GAYLE_SPCP_TEST",
+"rollOverPcpId": "AS123",
+"memberPregnancyIndicator":"Y",
+"memberEffectiveDate":"2019-01-01",
+"memberTerminationDate" : "1992-06-13",
+"updateCounter" : "1",
+"memberGroupId": 123,
+"memberSubGroupId": 123,
+"memberEid":"287A24716", 
+ "memberProcessingState":"NV", "memberDob":"1999-09-04", "memberSequenceNumber":"3", "address":
+{  "addressLine1":"N", "addressLine2": "",  "city":"KIOWA", "state":"CO", "zipCode":"89801", "zipFour": 2920,
+"countyCode": "97"
+},
+"memberNetworkId":["CC75"], "memberFirstName":"JOSEPH"}
+
+
+another Affinity
+
+{
+"invocationSystem":"01",
+"systemType": "O",
+"requestType": "S",
+"memberType": "N",
+"memberLineOfBusiness": "CT0",
+"memberContractCode":[],
+"memberGender": "F",
+"memberLanguageCode":["SPA","ENG"],
+"memberProduct":"14EM",
+"memberProductType":"",
+"memberSourceSystem": "ISG",
+"memberMiddleName": "H",
+"rollOverPcpId": "AS123",
+"memberPregnancyIndicator":"Y",
+"memberEffectiveDate":"2014-01-01",
+"memberTerminationDate" : "1992-06-13",
+"updateCounter" : "1",
+"memberGroupId": 123,
+"memberSubGroupId": 123,
+"memberEid":"0000018LC", "memberProcessingState":"NY", "memberDob":"1990-04-21", "memberSequenceNumber":"1", "address":
+{  "addressLine1":"2150 MT PLEASANT BLVD", "addressLine2": "",  "city":"ROANOKE", "state":"VA", "zipCode":"24014" },
+"memberNetworkId":["VAHHK300"], "memberFirstName":"ZACHARY", "memberLastName":"BOOTH_SPCP_TEST"}
+
+
+
+CT MDO:
+{
+"invocationSystem":"01",
+"systemType": "O",
+"requestType": "S",
+"memberType": "N",
+"memberLineOfBusiness": "CT0",
+"memberContractCode":[],
+"memberGender": "F",
+"memberLanguageCode":["SPA","ENG"],
+"memberProduct":"14EM",
+"memberProductType":"HMO",
+"memberSourceSystem": "ISG",
+"memberMiddleName": "H",
+"rollOverPcpId": "AS123",
+"memberPregnancyIndicator":"Y",
+"memberEffectiveDate":"2014-01-01",
+"memberTerminationDate" : "1992-06-13",
+"updateCounter" : "1",
+"memberGroupId": 123,
+"memberSubGroupId": 123,
+"memberEid":"809M57794", "memberProcessingState":"CT", "memberDob":"1978-04-15", "memberSequenceNumber":"5", "address":
+{  "addressLine1":"409 AIRPORT DRIVE", "addressLine2": "",  "city":"DANVILLE", "state":"VA", "zipCode":"24540" },
+"memberNetworkId":["VAXHMO00"], "memberFirstName":"ELIZABETH", "memberLastName":"BARRETT_SPCP_TEST"}
+
+
+
