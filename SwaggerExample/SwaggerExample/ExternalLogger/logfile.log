@@ -1,0 +1,83 @@
+2019-03-17 00:04:39,469 - sLogger - DEBUG - This is a debug message
+2019-03-17 00:04:39,470 - sLogger - WARNING - This is a debug message
+2019-03-17 00:04:39,470 - sLogger - DEBUG - debug message
+2019-03-17 00:04:39,470 - sLogger - INFO - info message
+2019-03-17 00:04:39,470 - sLogger - ERROR - error message
+2019-03-17 00:04:39,470 - sLogger - CRITICAL - critical message
+2019-03-17 00:04:39,470 - sLogger - ERROR - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 27, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 00:04:39,472 - sLogger - ERROR - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 34, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 00:43:12,649 - sLogger - WARNING - externalLogger - This is a debug message
+2019-03-17 00:43:12,649 - sLogger - INFO - externalLogger - info message
+2019-03-17 00:43:12,649 - sLogger - ERROR - externalLogger - error message
+2019-03-17 00:43:12,649 - sLogger - CRITICAL - externalLogger - critical message
+2019-03-17 00:43:12,649 - sLogger - ERROR - externalLogger - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 27, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 00:43:12,650 - sLogger - ERROR - externalLogger - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 34, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 00:43:37,450 - sLogger - WARNING - externalLogger - This is a debug message
+2019-03-17 00:43:37,450 - sLogger - INFO - externalLogger - info message
+2019-03-17 00:43:37,450 - sLogger - ERROR - externalLogger - error message
+2019-03-17 00:43:37,450 - sLogger - CRITICAL - externalLogger - critical message
+2019-03-17 00:43:37,450 - sLogger - ERROR - externalLogger - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 27, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 00:43:37,451 - sLogger - ERROR - externalLogger - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 34, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 00:44:06,350 - sLogger - WARNING - externalLogger - This is a debug message
+2019-03-17 00:44:06,351 - sLogger - INFO - externalLogger - info message
+2019-03-17 00:44:06,351 - sLogger - ERROR - externalLogger - error message
+2019-03-17 00:44:06,351 - sLogger - CRITICAL - externalLogger - critical message
+2019-03-17 00:44:06,351 - sLogger - ERROR - externalLogger - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 27, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 00:44:06,352 - sLogger - ERROR - externalLogger - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/ExternalLogger/externalLogger.py", line 34, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-17 21:49:43,694 - sLogger - INFO - simpleTest - Testing of SimpleGet function Start .... 
+2019-03-17 21:49:43,695 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 21:49:43,696 - sLogger - INFO - simpleTest - Testing of SimpleGet function end .... 
+2019-03-17 21:50:18,338 - sLogger - INFO - simple - | Sender = Maulik | RequestType = POST | Request = {'title': 'Read a book'} | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 21:50:37,572 - sLogger - INFO - simple - | Sender = Sasi | RequestType = POST | Request = {'title': 'Read a book'} | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 21:50:54,723 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 21:54:10,648 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 22:30:09,154 - sLogger - INFO - simpleTest - Testing of SimpleGet function Start .... 
+2019-03-17 22:30:09,154 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 22:30:09,155 - sLogger - INFO - simpleTest - Testing of SimpleGet function end .... 
+2019-03-17 23:05:12,277 - sLogger - INFO - simpleTest - Testing of SimpleGet function Start .... 
+2019-03-17 23:05:12,278 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:05:12,280 - sLogger - INFO - simpleTest - Testing of SimpleGet function end .... 
+2019-03-17 23:06:38,315 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:06:46,769 - sLogger - INFO - simple - | Sender = Sasi | RequestType = POST | Request = {'title': 'Read a book'} | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:09:28,096 - sLogger - INFO - simpleTest - Testing of SimpleGet function Start .... 
+2019-03-17 23:09:28,096 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:09:28,097 - sLogger - INFO - simpleTest - Testing of SimpleGet function end .... 
+2019-03-17 23:11:06,571 - sLogger - INFO - simple - | Sender = Sasi | RequestType = POST | Request = {'title': 'Read a book'} | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:11:34,865 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = POST | Request = {'title': 'Read a book'} | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:11:53,936 - sLogger - INFO - simpleTest - Testing of SimpleGet function Start .... 
+2019-03-17 23:11:53,937 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:11:53,937 - sLogger - INFO - simpleTest - Testing of SimpleGet function end .... 
+2019-03-17 23:12:20,573 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
+2019-03-17 23:14:34,040 - sLogger - INFO - simple - | Sender = Yuntao | RequestType = GET | Request = GetRequest | Response = {'tasks': [{'id': 1, 'title': 'Shopping book', 'description': 'shop a book for cooking with Milk, Cheese, Pizza, Fruit, Oil', 'done': False}, {'id': 2, 'title': 'Reading book after purchase', 'description': 'Find a book I like and Read', 'done': False}]}
