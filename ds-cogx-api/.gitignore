@@ -1,0 +1,10 @@
+.idea
+.vscode
+*.pyc
+.DS_Store
+output/
+*.pkl
+*.log
+*.db
+*.generated
+logs/
