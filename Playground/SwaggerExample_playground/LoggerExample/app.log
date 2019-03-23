@@ -1,0 +1,20 @@
+2019-03-16 22:30:59,889 - This will get logged to a file
+2019-03-16 22:30:59,890 - This is a debug message
+2019-03-16 22:30:59,890 - This is an info message
+2019-03-16 22:30:59,890 - This is a warning message
+2019-03-16 22:30:59,890 - This is an error message
+2019-03-16 22:30:59,890 - This is a critical message
+2019-03-16 22:30:59,890 - default logger level is Warning
+2019-03-16 22:30:59,890 - This will get logged
+2019-03-16 22:30:59,890 - something is the message to be displayed
+2019-03-16 22:30:59,890 - something is displayed as f-string
+2019-03-16 22:30:59,891 - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/LoggerExample/simplerRootLogger.py", line 41, in <module>
+    c = a / b
+ZeroDivisionError: division by zero
+2019-03-16 22:30:59,892 - Exception occurred
+Traceback (most recent call last):
+  File "C:/Users/yuntliu/Documents/workstation/Study/python/flask/demo/SwaggerExample/SwaggerExample/LoggerExample/simplerRootLogger.py", line 48, in <module>
+    c = a / b
+ZeroDivisionError: division by zero

@@ -1,0 +1,320 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "array",
+  "title": "The Root Schema",
+  "items": {
+    "$id": "#/items",
+    "type": "object",
+    "title": "The Items Schema",
+    "required": [
+      "KEY_CHK_DCN_NBR",
+      "PROV_NM",
+      "PROV_SCNDRY_NM",
+      "DTL_LINE_NBR",
+      "ICD_CD",
+      "SRVC_FROM_DT",
+      "SRVC_THRU_DT",
+      "SBSCRBR_CERTFN_1_NBR",
+      "SBSCRBR_CERTFN_2_NBR",
+      "SBSCRBR_CERTFN_3_NBR",
+      "PAT_MBR_CD",
+      "PROV_TAX_ID",
+      "HCFA_PT_CD",
+      "PROC_CD",
+      "MDFR_1_CD",
+      "SRVC_TO_DT",
+      "BILLD_SRVC_UNIT_QTY",
+      "POT_CD",
+      "UM_RQRD_IND"
+    ],
+    "properties": {
+      "KEY_CHK_DCN_NBR": {
+        "$id": "#/items/properties/KEY_CHK_DCN_NBR",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 11,
+        "title": "The Key_chk_dcn_nbr Schema",
+        "default": "",
+        "examples": [
+          "1234C03894"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "PAT_MBR_CD": {
+        "$id": "#/items/properties/PAT_MBR_CD",
+        "type": "string",
+        "maxLength":2,
+        "title": "The PAT_MBR_CD Schema",
+        "examples": [
+          "22"
+        ],
+        "pattern": "^([0-9][0-9])$"
+      },
+      "PROV_NM": {
+        "$id": "#/items/properties/PROV_NM",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 25,
+        "title": "The PROV_NM Schema",
+        "examples": [
+          "GOOD SAMARITAN HOSPITAL"
+        ],
+        "pattern": "^([A-Za-z0-9 ]*)$"
+      },
+      "UM_RQRD_IND": {
+        "$id": "#/items/properties/UM_RQRD_IND",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1,
+        "title": "The UM_RQRD_IND Schema",
+        "examples": [
+          "Y","N"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "HCFA_PT_CD": {
+        "$id": "#/items/properties/HCFA_PT_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "The HCFA_PT_CD Schema",
+        "examples": [
+          "SS"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "MDFR_1_CD": {
+        "$id": "#/items/properties/MDFR_1_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4,
+        "title": "The MDFR_1_CD Schema",
+        "examples": [
+          "Sasi"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "BILLD_SRVC_UNIT_QTY": {
+        "$id": "#/items/properties/BILLD_SRVC_UNIT_QTY",
+        "type": "string",
+        "title": "The BILLD_SRVC_UNIT_QTY Schema",
+        "minLength": 1,
+        "maxLength":3,
+        "examples": [
+          "999","33"
+        ],
+        "pattern": "^([0-9]*)$"
+      },
+      "PROC_CD": {
+        "$id": "#/items/properties/PROC_CD",
+        "type": "string",
+        "minLength":5,
+        "maxLength":5,
+        "title": "The PROC_CD Schema",
+        "examples": [
+          99999
+        ],
+        "pattern": "^([0-9][0-9][0-9][0-9][0-9])$"
+      },
+      "SRVC_FROM_DT": {
+        "$id": "#/items/properties/SRVC_FROM_DT",
+        "type": "string",
+        "title": "The SRVC_FROM_DT Schema",
+        "examples": [
+          "10/19/2018"
+        ],
+        "pattern": "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9]|[1-9])/[0-9]{4}$"
+      },
+       "SRVC_TO_DT": {
+        "$id": "#/items/properties/SRVC_TO_DT",
+        "type": "string",
+        "title": "The SRVC_TO_DT Schema",
+        "examples": [
+          "12/6/2018"
+        ],
+        "pattern": "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9]|[1-9])/[0-9]{4}$"
+      },
+      "PROV_SCNDRY_NM": {
+        "$id": "#/items/properties/PROV_SCNDRY_NM",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 25,
+        "title": "The PROV_SCNDRY_NM Schema",
+        "examples": [
+          "*","SAMARITAN HOSPITAL"
+        ],
+        "pattern": "^([A-Za-z0-9 ]*)$"
+      },
+      "DTL_LINE_NBR": {
+        "$id": "#/items/properties/DTL_LINE_NBR",
+        "type": "string",
+        "title": "The DTL_LINE_NBR Schema",
+        "maxLength":2,
+        "examples": [
+          45
+        ],
+        "pattern": "^([0-9][0-9]*)$"
+      },
+      "ICD_CD": {
+        "$id": "#/items/properties/ICD_CD",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "maxLength": 10
+        },
+        "title": "The ICD_CD Schema",
+        "examples": [
+          ["Z3801","P220","P612","P711","P284"]
+        ],
+        "pattern": "^(.*)$"
+      },
+      "SBSCRBR_CERTFN_1_NBR": {
+        "$id": "#/items/properties/SBSCRBR_CERTFN_1_NBR",
+        "type": "string",
+        "title": "The SBSCRBR_CERTFN_1_NBR Schema",
+        "minLength": 1,
+        "maxLength": 3,
+        "examples": [
+          "342"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "SBSCRBR_CERTFN_2_NBR": {
+        "$id": "#/items/properties/SBSCRBR_CERTFN_2_NBR",
+        "type": "string",
+        "title": "The SBSCRBR_CERTFN_1_NBR Schema",
+        "examples": [
+          "231"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "SBSCRBR_CERTFN_3_NBR": {
+        "$id": "#/items/properties/SBSCRBR_CERTFN_3_NBR",
+        "type": "string",
+        "title": "The SBSCRBR_CERTFN_3_NBR Schema",
+        "minLength": 1,
+        "maxLength": 4,
+        "examples": [
+          "3422"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "PROV_TAX_ID": {
+        "$id": "#/items/properties/PROV_TAX_ID",
+        "type": "string",
+        "title": "The PROV_TAX_ID Schema",
+        "minLength": 1,
+        "maxLength": 9,
+        "examples": [
+          "3422232"
+        ],
+        "pattern": "[0-9]*"
+      },
+      "SRVC_THRU_DT": {
+        "$id": "#/items/properties/SRVC_THRU_DT",
+        "type": "string",
+        "title": "The SRVC_THRU_DT Schema",
+        "examples": [
+          "10/19/2018"
+        ],
+        "pattern": "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9]|[1-9])/[0-9]{4}$"
+      },
+      "PROV_TAX_ID": {
+        "$id": "#/items/properties/PROV_TAX_ID",
+        "type": "string",
+        "title": "The PROV_TAX_ID Schema",
+        "minLength": 1,
+        "maxLength": 9,
+        "examples": [
+          "3422232"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "POT_CD": {
+        "$id": "#/items/properties/POT_CD",
+        "type": "string",
+        "title": "The POT_CD Schema",
+        "minLength": 1,
+        "maxLength": 1,
+        "examples": [
+          1,2
+        ],
+        "pattern": "[0-9]"
+      },
+      "HCPCS_CD": {
+        "$id": "#/items/properties/HCPCS_CD",
+        "type": "string",
+        "title": "The HCPCS_CD Schema",
+        "minLength": 1,
+        "maxLength": 5,
+        "default": " ",
+        "examples": [
+           "*","328J"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "PN_CD": {
+        "$id": "#/items/properties/PN_CD",
+        "type": "string",
+        "title": "The PN_CD Schema",
+        "minLength": 1,
+        "maxLength": 4,
+        "default": " ",
+        "examples": [
+           "*","328J"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "TOS_TYPE_CD": {
+        "$id": "#/items/properties/TOS_TYPE_CD",
+        "type": "string",
+        "title": "The TOS_TYPE_CD Schema",
+        "minLength": 1,
+        "maxLength": 8,
+        "default": " ",
+        "examples": [
+           "*","328J21"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "UM_CASE_NBR": {
+        "$id": "#/items/properties/UM_CASE_NBR",
+        "type": "string",
+        "title": "The UM_CASE_NBR Schema",
+        "minLength": 1,
+        "maxLength": 9,
+        "default": " ",
+        "examples": [
+           "*","328J"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "UM_PROV_SQNC_NBR": {
+        "$id": "#/items/properties/UM_PROV_SQNC_NBR",
+        "type": "string",
+        "title": "The UM_PROV_SQNC_NBR Schema",
+        "minLength": 1,
+        "maxLength": 2,
+        "default": " ",
+        "examples": [
+           "*","32"
+        ],
+        "pattern": "^(.*)$"
+      },
+      "BILLG_NPI": {
+        "$id": "#/items/properties/BILLG_NPI",
+        "type": "string",
+        "title": "The BILLG_NPI Schema",
+        "minLength": 1,
+        "maxLength": 10,
+        "default": " ",
+        "examples": [
+           "*","1437103777"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      }
+    }
+  }
+}
