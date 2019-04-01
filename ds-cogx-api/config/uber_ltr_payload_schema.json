@@ -1,0 +1,550 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "array",
+  "title": "The Root Schema",
+  "items": {
+    "$id": "#/items",
+    "type": "object",
+    "title": "The Items Schema",
+    "required": [
+      "KEY_CHK_DCN_NBR",
+      "MBU_CD",
+      "MK_FUND_TYPE_CD",
+      "PROV_IND",
+      "CLM_TYPE_CD",
+      "PROV_ST_CD",
+      "SBSCRBR_ST_CD",
+      "ORGNL_ENTRY_DT",
+      "SRVC_FROM_DT",
+      "SRVC_THRU_DT",
+      "PAT_AGE_NBR",
+      "COB_SGMNT_CNT",
+      "MEDCR_CNT",
+      "PROV_CITY_NM",
+      "SBSCRBR_CITY_NM",
+      "PROV_ZIP_4_CD",
+      "SBSCRBR_ZIP_4_CD",
+      "PROV_ZIP_5_CD",
+      "SBSCRBR_ZIP_5_CD",
+      "ICD_CD",
+      "FULL_MNGMNT_BU_CD",
+      "PROV_TAX_ID",
+      "CURNT_QUE_UNIT_NBR"
+    ],
+    "properties": {
+      "KEY_CHK_DCN_NBR": {
+        "$id": "#/items/properties/KEY_CHK_DCN_NBR",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 11,
+        "title": "KEY_CHK_DCN_NBR in claimDetails",
+        "examples": [
+          "1234C03894"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "ENCNTR_IND": {
+        "$id": "#/items/properties/ENCNTR_IND",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1,
+        "title": "ENCNTR_IND in schema",
+        "examples": [
+          "A"
+        ],
+        "pattern": "^([A-Za-z0-9])$"
+      },
+      "ITS_HOME_IND": {
+        "$id": "#/items/properties/ITS_HOME_IND",
+        "type": "string",
+        "maxLength": 1,
+        "title": "ITS_HOME_IND in schema",
+        "examples": [
+          "B"
+        ],
+        "pattern": "^([A-Za-z0-9])$"
+      },
+      "MBU_CD": {
+        "$id": "#/items/properties/MBU_CD",
+        "type": "string",
+        "maxLength": 1,
+        "title": "MBU_CD in schema",
+        "examples": [
+          "C"
+        ],
+        "pattern": "^([A-Za-z0-9])$"
+      },
+      "MK_FUND_TYPE_CD": {
+        "$id": "#/items/properties/MK_FUND_TYPE_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1,
+        "title": "MK_FUND_TYPE_CD in schema",
+        "examples": [
+          "C"
+        ],
+        "pattern": "^([A-Za-z0-9])$"
+      },
+      "PRMRY_NTWK_CD": {
+        "$id": "#/items/properties/PRMRY_NTWK_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1,
+        "title": "PRMRY_NTWK_CD in schema",
+        "examples": [
+          "C"
+        ],
+        "pattern": "^([A-Za-z0-9])$"
+      },
+      "PROV_IND": {
+        "$id": "#/items/properties/PROV_IND",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1,
+        "title": "PROV_IND in schema",
+        "examples": [
+          "C"
+        ],
+        "pattern": "^([A-Za-z0-9])$"
+      },
+      "ATCHMNT_IND": {
+        "$id": "#/items/properties/ATCHMNT_IND",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "ATCHMNT_IND",
+        "examples": [
+          "CA"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "CLM_TYPE_CD": {
+        "$id": "#/items/properties/CLM_TYPE_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "CLM_TYPE_CD",
+        "examples": [
+          "12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "EDI_CLM_FLNG_IND": {
+        "$id": "#/items/properties/EDI_CLM_FLNG_IND",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "EDI_CLM_FLNG_IND",
+        "examples": [
+          "12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "PROV_ST_CD": {
+        "$id": "#/items/properties/PROV_ST_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "PROV_ST_CD",
+        "examples": [
+          "12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "SBSCRBR_ST_CD": {
+        "$id": "#/items/properties/SBSCRBR_ST_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "SBSCRBR_ST_CD",
+        "examples": [
+          "12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "SRVC_TYPE_CURNT_CD": {
+        "$id": "#/items/properties/SRVC_TYPE_CURNT_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "SRVC_TYPE_CURNT_CD",
+        "examples": [
+          "12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "SRVC_TYPE_ORGNL_CD": {
+        "$id": "#/items/properties/SRVC_TYPE_ORGNL_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2,
+        "title": "SRVC_TYPE_ORGNL_CD",
+        "examples": [
+          "12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "ORGNL_ENTRY_DT": {
+        "$id": "#/items/properties/ORGNL_ENTRY_DT",
+        "type": "string",
+        "title": "ORGNL_ENTRY_DT",
+        "default": "2019-01-01",
+        "examples": [
+          "2019-02-02"
+        ],
+        "pattern": "^(18|19|20)[0-9]{2}[-](0[13578]|1[02])[-](0[1-9]|[12][0-9]|3[01])|(18|19|20)[0-9]{2}[-](0[469]|11)[-](0[1-9]|[12][0-9]|30)|(18|19|20)[0-9]{2}[-](02)[-](0[1-9]|1[0-9]|2[0-8])|(((18|19|20)(04|08|[2468][048]|[13579][26]))|2000)[-](02)[-]29$"
+      },
+      "SRVC_FROM_DT": {
+        "$id": "#/items/properties/SRVC_FROM_DT",
+        "type": "string",
+        "title": "SRVC_FROM_DT",
+        "default": "2019-01-01",
+        "examples": [
+          "2019-02-02"
+        ],
+        "pattern": "^(18|19|20)[0-9]{2}[-](0[13578]|1[02])[-](0[1-9]|[12][0-9]|3[01])|(18|19|20)[0-9]{2}[-](0[469]|11)[-](0[1-9]|[12][0-9]|30)|(18|19|20)[0-9]{2}[-](02)[-](0[1-9]|1[0-9]|2[0-8])|(((18|19|20)(04|08|[2468][048]|[13579][26]))|2000)[-](02)[-]29$"
+      },
+      "SRVC_THRU_DT": {
+        "$id": "#/items/properties/SRVC_THRU_DT",
+        "type": "string",
+        "title": "SRVC_THRU_DT",
+        "default": "2019-01-01",
+        "examples": [
+          "2019-02-02"
+        ],
+        "pattern": "^(18|19|20)[0-9]{2}[-](0[13578]|1[02])[-](0[1-9]|[12][0-9]|3[01])|(18|19|20)[0-9]{2}[-](0[469]|11)[-](0[1-9]|[12][0-9]|30)|(18|19|20)[0-9]{2}[-](02)[-](0[1-9]|1[0-9]|2[0-8])|(((18|19|20)(04|08|[2468][048]|[13579][26]))|2000)[-](02)[-]29$"
+      },
+      "BSIC_PAYMNT_AMT": {
+        "$id": "#/items/properties/BSIC_PAYMNT_AMT",
+        "type": "number",
+        "title": "BSIC_PAYMNT_AMT in header",
+        "exclusiveMaximum": 100000000000,
+        "multipleOf": 1.00,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*.[0-9]*)$"
+      },
+      "COB_BSIC_PAYMNT_AMT": {
+        "$id": "#/items/properties/COB_BSIC_PAYMNT_AMT",
+        "type": "number",
+        "title": "COB_BSIC_PAYMNT_AMT in header",
+        "exclusiveMaximum": 100000000000,
+        "multipleOf": 1.00,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*.[0-9]*)$"
+      },
+      "COB_MM_PAYMNT_AMT": {
+        "$id": "#/items/properties/COB_MM_PAYMNT_AMT",
+        "type": "number",
+        "title": "COB_MM_PAYMNT_AMT in header",
+        "exclusiveMaximum": 100000000000,
+        "multipleOf": 1.00,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*.[0-9]*)$"
+      },
+      "MM_PAY_AMT": {
+        "$id": "#/items/properties/MM_PAY_AMT",
+        "type": "number",
+        "title": "MM_PAY_AMT in header",
+        "exclusiveMaximum": 100000000000,
+        "multipleOf": 1.00,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*.[0-9]*)$"
+      },
+      "TOTL_CHRG_AMT": {
+        "$id": "#/items/properties/TOTL_CHRG_AMT",
+        "type": "number",
+        "title": "TOTL_CHRG_AMT in header",
+        "exclusiveMaximum": 100000000000,
+        "multipleOf": 1.00,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*.[0-9]*)$"
+      },
+      "PAT_AGE_NBR": {
+        "$id": "#/items/properties/PAT_AGE_NBR",
+        "type": "integer",
+        "title": "PAT_AGE_NBR in header",
+        "maximum": 999,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*)$"
+      },
+      "COB_SGMNT_CNT": {
+        "$id": "#/items/properties/COB_SGMNT_CNT",
+        "type": "integer",
+        "title": "COB_SGMNT_CNT in header",
+        "maximum": 9999,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*)$"
+      },
+      "MEDCR_CNT": {
+        "$id": "#/items/properties/MEDCR_CNT",
+        "type": "integer",
+        "title": "MEDCR_CNT in header",
+        "maximum": 9999,
+        "examples": [
+          "AB"
+        ],
+        "pattern": "^([0-9]*)$"
+      },
+      "PROV_CITY_NM": {
+        "$id": "#/items/properties/PROV_CITY_NM",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 13,
+        "title": "The PROV_CITY_NM Schema",
+        "examples": [
+          "CITY NAME"
+        ],
+        "pattern": "^([A-Za-z0-9 ]*)$"
+      },
+      "SBSCRBR_CITY_NM": {
+        "$id": "#/items/properties/SBSCRBR_CITY_NM",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 13,
+        "title": "The SBSCRBR_CITY_NM Schema",
+        "examples": [
+          "SBSCITY NAME"
+        ],
+        "pattern": "^([A-Za-z0-9 ]*)$"
+      },
+      "ITS_ORGNL_SCCF_NEW_NBR": {
+        "$id": "#/items/properties/ITS_ORGNL_SCCF_NEW_NBR",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 17,
+        "title": "The ITS_ORGNL_SCCF_NEW_NBR Schema",
+        "examples": [
+          "SCCF NBR"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "PROV_ZIP_4_CD": {
+        "$id": "#/items/properties/PROV_ZIP_4_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4,
+        "title": "The PROV_ZIP_4_CD Schema",
+        "examples": [
+          "CD12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "SBSCRBR_ZIP_4_CD": {
+        "$id": "#/items/properties/SBSCRBR_ZIP_4_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4,
+        "title": "The SBSCRBR_ZIP_4_CD Schema",
+        "examples": [
+          "CD12"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "PROV_ZIP_5_CD": {
+        "$id": "#/items/properties/PROV_ZIP_5_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 5,
+        "title": "The PROV_ZIP_5_CD Schema",
+        "examples": [
+          "CD123"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "SBSCRBR_ZIP_5_CD": {
+        "$id": "#/items/properties/SBSCRBR_ZIP_5_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 5,
+        "title": "The SBSCRBR_ZIP_5_CD Schema",
+        "examples": [
+          "CD123"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "ICD_CDS": {
+        "$id": "#/items/properties/ICD_CDS",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 10
+        },
+        "minItems": 1,
+        "maxItems": 20,
+        "title": "The ICD_CD Schema",
+        "examples": [
+          [
+            "Z3801",
+            "P220",
+            "P612",
+            "P711",
+            "P284"
+          ]
+        ],
+        "pattern": "^(.*)$"
+      },
+      "ERR_CDS": {
+        "$id": "#/items/properties/ERR_CDS",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 32
+        },
+        "minItems": 1,
+        "maxItems": 32,
+        "title": "The ERR_CDS Schema",
+        "examples": [
+          [
+            "Z3801",
+            "P220",
+            "P612",
+            "P711",
+            "P284"
+          ]
+        ],
+        "pattern": "^(.*)$"
+      },
+      "FULL_MNGMNT_BU_CD": {
+        "$id": "#/items/properties/FULL_MNGMNT_BU_CD",
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 8,
+        "title": "The FULL_MNGMNT_BU_CD Schema",
+        "examples": [
+          "CD12345"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "PROV_TAX_ID": {
+        "$id": "#/items/properties/PROV_TAX_ID",
+        "type": "string",
+        "title": "The PROV_TAX_ID Schema",
+        "minLength": 1,
+        "maxLength": 9,
+        "examples": [
+          "AS1245F9S"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "CURNT_QUE_UNIT_NBR": {
+        "$id": "#/items/properti      es/CURNT_QUE_UNIT_NBR",
+        "type": "string",
+        "title": "The CURNT_QUE_UNIT_NBR Schema",
+        "minLength": 1,
+        "maxLength": 2,
+        "examples": [
+          "AS"
+        ],
+        "pattern": "^([A-Za-z0-9]*)$"
+      },
+      "nationalSegment1": {
+        "$id": "#/items/properties/nationalSegment1",
+        "type": "object",
+        "title": "nationalSegment1::::",
+        "properties": {
+          "TAX_LIC_SPLTYCDE": {
+            "$id": "#/items/properties/TAX_LIC_SPLTYCD",
+            "type": "string",
+            "title": "The TAX_LIC_SPLTYCDE Schema",
+            "minLength": 1,
+            "maxLength": 1,
+            "examples": [
+              "A"
+            ],
+            "pattern": "^([A-Za-z0-9]*)$"
+          }
+        },
+        "nationalSegment2": {
+          "$id": "#/items/properties/nationalSegment2",
+          "type": "object",
+          "title": "nationalSegment2::::",
+          "properties": {
+            "TYPE_OF_BILL_CD": {
+              "$id": "#/items/properties/TYPE_OF_BILL_CD",
+              "type": "string",
+              "title": "The TYPE_OF_BILL_CD Schema",
+              "minLength": 1,
+              "maxLength": 1,
+              "examples": [
+                "A"
+              ],
+              "pattern": "^([A-Za-z0-9]*)$"
+            }
+          },
+          "required": [
+            "TYPE_OF_BILL_CD"
+          ]
+        },
+        "nationalSegment3": {
+          "$id": "#/items/properties/nationalSegment3",
+          "type": "object",
+          "title": "nationalSegment3::::",
+          "properties": {
+            "CLM_FILE_COB_IND": {
+              "$id": "#/items/properties/CLM_FILE_COB_IND",
+              "type": "string",
+              "title": "The CLM_FILE_COB_IND Schema",
+              "minLength": 1,
+              "maxLength": 2,
+              "examples": [
+                "AB"
+              ],
+              "pattern": "^([A-Za-z0-9]*)$"
+            },
+            "BILLG_TXNMY_CD": {
+              "$id": "#/items/properties/BILLG_TXNMY_CD",
+              "type": "string",
+              "title": "The BILLG_TXNMY_CD Schema",
+              "minLength": 1,
+              "maxLength": 10,
+              "examples": [
+                "ABKD832"
+              ],
+              "pattern": "^([A-Za-z0-9]*)$"
+            },
+            "RNDRG_TXNMY_CD": {
+              "$id": "#/items/properties/RNDRG_TXNMY_CD",
+              "type": "string",
+              "title": "The RNDRG_TXNMY_CD Schema",
+              "minLength": 1,
+              "maxLength": 10,
+              "examples": [
+                "ABKD832"
+              ],
+              "pattern": "^([A-Za-z0-9]*)$"
+            },
+            "RNDRG_TAX_ID": {
+              "$id": "#/items/properties/RNDRG_TAX_ID",
+              "type": "string",
+              "title": "The RNDRG_TAX_ID Schema",
+              "minLength": 1,
+              "maxLength": 9,
+              "examples": [
+                "ABKD832"
+              ],
+              "pattern": "^([A-Za-z0-9]*)$"
+            }
+          }
+        }
+      }
+    }
+  }
+}

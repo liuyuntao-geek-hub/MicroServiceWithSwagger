@@ -1,0 +1,50 @@
+um_claim:
+  KEY_CHK_DCN_NBR: KEY_CHK_DCN_NBR
+  CURNT_QUE_UNIT_NBR: CURNT_QUE_UNIT_NBR
+  CLM_CMPLTN_DT:
+  action_code:
+  PROV_NM: PROV_NM
+  PROV_SCNDRY_NM: PROV_SCNDRY_NM
+  DTL_LINE_NBR: DTL_LINE_NBR
+  ICD_A_CD: icdPrimaryCds#0.ICD_CD
+  ICD_B_CD: icdPrimaryCds#1.ICD_CD
+  ICD_C_CD: icdPrimaryCds#2.ICD_CD
+  ICD_D_CD: icdPrimaryCds#3.ICD_CD
+  ICD_E_CD: icdPrimaryCds#4.ICD_CD
+  ICD_OTHR_6_CD: ICD_CDS.0
+  ICD_OTHR_7_CD: ICD_CDS.1
+  ICD_OTHR_8_CD: ICD_CDS.2
+  ICD_OTHR_9_CD: ICD_CDS.3
+  ICD_OTHR_10_CD: ICD_CDS.4
+  ICD_OTHR_11_CD: ICD_CDS.5
+  ICD_OTHR_12_CD: ICD_CDS.6
+  ICD_OTHR_13_CD: ICD_CDS.7
+  ICD_OTHR_14_CD: ICD_CDS.8
+  ICD_OTHR_15_CD: ICD_CDS.9
+  ICD_OTHR_16_CD: ICD_CDS.10
+  ICD_OTHR_17_CD: ICD_CDS.11
+  ICD_OTHR_18_CD: ICD_CDS.12
+  ICD_OTHR_19_CD: ICD_CDS.13
+  ICD_OTHR_20_CD: ICD_CDS.14
+  CLAIM_TYPE:
+  clm_from_dt: SRVC_FROM_DT
+  clm_to_dt: SRVC_THRU_DT
+  memID:
+  PAT_MBR_CD: PAT_MBR_CD
+  PROV_TAX_ID: PROV_TAX_ID
+  bypass_code: BYPS_CDS
+  HCFA_PT_CD: claimDetails#0.HCFA_PT_CD
+  PROC_CD: claimDetails#0.PROC_CD
+  PROC_MDFR_CD: claimDetails#0.MDFR_1_CD
+  HCPCS_CD: claimDetails#0.HCPCS_CD
+  HCPCS_MDFR_CD: claimDetails#0.MDFR_1_CD
+  dtl_from_dt: claimDetails#0.SRVC_FROM_DT
+  dtl_to_dt: claimDetails#0.SRVC_TO_DT
+  BILLD_SRVC_UNIT_QTY: claimDetails#0.BILLD_SRVC_UNIT_QTY
+  PN_CD: claimDetails#0.PN_CD
+  TOS_TYPE_CD: claimDetails#0.TOS_TYPE_CD
+  POT_CD: claimDetails#0.POT_CD
+  UM_CASE_NBR: claimDetails#0.UM_CASE_NBR
+  UM_PROV_SQNC_NBR: claimDetails#0.UM_PROV_SQNC_NBR
+  UM_RQRD_IND: claimDetails#0.UM_RQRD_IND
+  BILLG_NPI: nationalSegment2.BILLG_NPI
