@@ -1,0 +1,15 @@
+#NOTE: This is an Aether internal implementation file, its format can be changed without prior notice.
+#Thu May 09 14:14:26 MDT 2019
+http\://www.datanucleus.org/downloads/maven2/.error=
+http\://conjars.org/repo/.lastUpdated=1557432866130
+https\://repository.cloudera.com/content/repositories/third-party/.lastUpdated=1557432865229
+https\://repository.cloudera.com/content/groups/cdh-releases-rcs/.lastUpdated=1557432862873
+http\://download.java.net/maven/2/.lastUpdated=1557432865235
+http\://download.java.net/maven/2/.error=
+https\://repository.cloudera.com/content/groups/cdh-releases-rcs/.error=
+http\://www.datanucleus.org/downloads/maven2/.lastUpdated=1557432863240
+http\://repo1.maven.org/maven2/.error=
+http\://repo1.maven.org/maven2/.lastUpdated=1557432861634
+https\://repository.cloudera.com/artifactory/cloudera-repos/.lastUpdated=1557432862063
+https\://repository.cloudera.com/artifactory/cloudera-repos/.error=
+https\://repository.cloudera.com/content/repositories/third-party/.error=
