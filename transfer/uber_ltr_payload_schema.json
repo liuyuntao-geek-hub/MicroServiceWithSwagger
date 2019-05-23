@@ -1,0 +1,806 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "array",
+    "title": "The Root Schema",
+    "items": {
+        "$id": "#/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+            "KEY_CHK_DCN_NBR",
+            "CLM_TYPE_CD",
+            "SBSCRBR_ST_CD",
+            "ORGNL_ENTRY_DT",
+            "SRVC_FROM_DT",
+            "SRVC_THRU_DT",
+            "PAT_AGE_NBR",
+            "COB_SGMNT_CNT",
+            "MEDCR_CNT",
+            "PROV_CITY_NM",
+            "SBSCRBR_CITY_NM",
+            "FULL_MNGMNT_BU_CD",
+            "PROV_TAX_ID",
+            "CURNT_QUE_UNIT_NBR",
+            "icdPrimaryCds",
+            "claimDetails"
+        ],
+        "properties": {
+            "KEY_CHK_DCN_NBR": {
+                "$id": "#/items/properties/KEY_CHK_DCN_NBR",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 11,
+                "title": "KEY_CHK_DCN_NBR",
+                "examples": [
+                    "1234C03894"
+                ],
+                "pattern": "^([A-Za-z0-9]*)$"
+            },
+            "ENCNTR_IND": {
+                "$id": "#/items/properties/ENCNTR_IND",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 1,
+                "title": "ENCNTR_IND",
+                "examples": [
+                    "A"
+                ]
+            },
+            "ITS_PARG_PROV_IND": {
+                "$id": "#/items/properties/ITS_PARG_PROV_IND",
+                "type": ["string","null"],
+                "maxLength": 1,
+                "title": "ITS_PARG_PROV_IND",
+                "examples": [
+                    "A"
+                ]
+            },
+            "ITS_HOME_IND": {
+                "$id": "#/items/properties/ITS_HOME_IND",
+                "type": ["string","null"],
+                "maxLength": 1,
+                "title": "ITS_HOME_IND",
+                "examples": [
+                    "B"
+                ]
+            },
+            "MBU_CD": {
+                "$id": "#/items/properties/MBU_CD",
+                "type": ["string","null"],
+                "maxLength": 1,
+                "title": "MBU_CD",
+                "examples": [
+                    "C"
+                ]
+            },
+            "MK_FUND_TYPE_CD": {
+                "$id": "#/items/properties/MK_FUND_TYPE_CD",
+                "type": ["string","null"],
+                "minLength": 0,
+                "maxLength": 1,
+                "title": "MK_FUND_TYPE_CD",
+                "examples": [
+                    "C"
+                ]
+            },
+            "PRMRY_NTWK_CD": {
+                "$id": "#/items/properties/PRMRY_NTWK_CD",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 1,
+                "title": "PRMRY_NTWK_CD",
+                "examples": [
+                    "C"
+                ]
+            },
+            "PROV_IND": {
+                "$id": "#/items/properties/PROV_IND",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 1,
+                "title": "PROV_IND",
+                "examples": [
+                    "C"
+                ]
+            },
+            "ATCHMNT_IND": {
+                "$id": "#/items/properties/ATCHMNT_IND",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "ATCHMNT_IND",
+                "examples": [
+                    "CA"
+                ]
+            },
+            "CLM_TYPE_CD": {
+                "$id": "#/items/properties/CLM_TYPE_CD",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "CLM_TYPE_CD",
+                "examples": [
+                    "12"
+                ],
+                "pattern": "^([A-Za-z0-9]*)$"
+            },
+            "EDI_CLM_FLNG_IND": {
+                "$id": "#/items/properties/EDI_CLM_FLNG_IND",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "EDI_CLM_FLNG_IND",
+                "examples": [
+                    "12"
+                ]
+            },
+            "PROV_ST_CD": {
+                "$id": "#/items/properties/PROV_ST_CD",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "PROV_ST_CD",
+                "examples": [
+                    "12"
+                ]
+
+            },
+            "SBSCRBR_ST_CD": {
+                "$id": "#/items/properties/SBSCRBR_ST_CD",
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "SBSCRBR_ST_CD",
+                "examples": [
+                    "12"
+                ],
+                "pattern": "^([A-Za-z0-9]*)$"
+            },
+            "SRVC_TYPE_CURNT_CD": {
+                "$id": "#/items/properties/SRVC_TYPE_CURNT_CD",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "SRVC_TYPE_CURNT_CD",
+                "examples": [
+                    "12"
+                ]
+            },
+            "SRVC_TYPE_ORGNL_CD": {
+                "$id": "#/items/properties/SRVC_TYPE_ORGNL_CD",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "SRVC_TYPE_ORGNL_CD",
+                "examples": [
+                    "12"
+                ]
+            },
+            "ORGNL_ENTRY_DT": {
+                "$id": "#/items/properties/ORGNL_ENTRY_DT",
+                "type": "string",
+                "title": "ORGNL_ENTRY_DT",
+                "default": "2019-01-01",
+                "examples": [
+                    "2019-02-02"
+                ],
+                "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+            },
+            "icdPrimaryCds": {
+                "$id": "#/items/properties/icdPrimaryCds",
+                "type": "array",
+                "title": "icdPrimaryCds",
+                "items": {
+                    "title": "icdPrimaryCds",
+                    "type": "object",
+                    "required": [
+                        "ICD_CD"
+                    ],
+                    "properties": {
+                        "ICD_CD": {
+                            "$id": "#/items/properties/icdPrimaryCds/properties/ICD_CD",
+                            "title": "ICD_CD",
+                            "type": ["string"],
+                            "minLength": 1,
+                            "maxLength": 10,
+                            "pattern": "^([A-Za-z0-9]*)$"
+                        }
+                    }
+                },
+                "minItems": 1,
+                "maxItems": 5
+            },
+            "LMT_CLS": {
+                            "$id": "#/items/properties/icdPrimaryCds/properties/limitClass",
+                            "type": ["array","null"],
+                            "title": "LMT_CLS",
+                            "items": {
+                                "title": "limitClass",
+                                "type": ["string","null"],
+                                "minLength": 0
+                            },
+                            "minItems": 0,
+                            "maxItems": 15
+            },
+            "claimDetails": {
+                "$id": "#/items/properties/claimDetails",
+                "type": "array",
+                "title": "claimDetails:",
+                "items": {
+                    "title": "claimDetails:",
+                    "type": "object",
+                    "required": [
+                        "POT_CD",
+                        "TRTMNT_TYPE_CD",
+                        "BNFT_YEAR_CNTRCT_EFCTV_DT",
+                        "BNFT_YEAR_CNTRCT_REV_DT",
+                        "MBR_CNTRCT_EFCTV_DT",
+                        "MBR_CNTRCT_END_DT",
+                        "SRVC_FROM_DT",
+                        "SRVC_TO_DT",
+                        "BILLD_CHRGD_AMT",
+                        "MBR_CNTRCT_CD",
+                        "PROC_CD"
+                    ],
+                    "properties": {
+                        "POT_CD": {
+                            "$id": "#/items/properties/claimDetails/POT_CD",
+                            "type": "string",
+                            "title": "POT_CD",
+                            "minLength": 1,
+                            "maxLength": 1,
+                            "examples": [
+                                "1",
+                                "2"
+                            ],
+                            "pattern": "^([A-Za-z0-9]*)$"
+                        },
+                        "MDFR_1_CD": {
+                            "$id": "#/items/properties/claimDetails/MDFR_1_CD",
+                            "type": ["string","null"],
+                            "minLength": 1,
+                            "maxLength": 2,
+                            "title": "MDFR_1_CD",
+                            "default": " ",
+                            "examples": [
+                                "Sa"
+                            ]
+                        },
+                        "TRTMNT_TYPE_CD": {
+                            "$id": "#/items/properties/claimDetails/TRTMNT_TYPE_CD",
+                            "type": ["string","null"],
+                            "maxLength": 2,
+                            "title": "TRTMNT_TYPE_CD",
+                            "default": " ",
+                            "examples": [
+                                "Sa"
+                            ],
+                            "pattern": "^([A-Za-z0-9]*)$"
+                        },
+                        "BNFT_YEAR_CNTRCT_EFCTV_DT": {
+                            "$id": "#/items/properties/BNFT_YEAR_CNTRCT_EFCTV_DT",
+                            "type": "string",
+                            "title": "BNFT_YEAR_CNTRCT_EFCTV_DT",
+                            "default": "01/01/2019",
+                            "examples": [
+                                "01/01/2019"
+                            ],
+                            "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                        },
+                        "BNFT_YEAR_CNTRCT_REV_DT": {
+                            "$id": "#/items/properties/BNFT_YEAR_CNTRCT_REV_DT",
+                            "type": "string",
+                            "title": "BNFT_YEAR_CNTRCT_REV_DT",
+                            "default": "01/01/2019",
+                            "examples": [
+                                "01/01/2019"
+                            ],
+                            "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                        },
+                        "MBR_CNTRCT_EFCTV_DT": {
+                            "$id": "#/items/properties/MBR_CNTRCT_EFCTV_DT",
+                            "type": "string",
+                            "title": "MBR_CNTRCT_EFCTV_DT",
+                            "default": "01/01/2019",
+                            "examples": [
+                                "01/01/2019"
+                            ],
+                            "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                        },
+                        "MBR_CNTRCT_END_DT": {
+                            "$id": "#/items/properties/MBR_CNTRCT_END_DT",
+                            "type": "string",
+                            "title": "MBR_CNTRCT_END_DT",
+                            "default": "01/01/2019",
+                            "examples": [
+                                "01/01/2019"
+                            ],
+                            "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                        },
+                        "SRVC_FROM_DT": {
+                            "$id": "#/items/properties/SRVC_FROM_DT",
+                            "type": "string",
+                            "title": "SRVC_FROM_DT",
+                            "default": "01/01/2019",
+                            "examples": [
+                                "01/01/2019"
+                            ],
+                            "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                        },
+                        "SRVC_TO_DT": {
+                            "$id": "#/items/properties/SRVC_TO_DT",
+                            "type": "string",
+                            "title": "SRVC_TO_DT",
+                            "default": "01/01/2019",
+                            "examples": [
+                                "01/01/2019"
+                            ],
+                            "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                        },
+                        "BILLD_CHRGD_AMT": {
+                            "$id": "#/items/properties/BILLD_CHRGD_AMT",
+                            "type": ["number","null"],
+                            "title": "BILLD_CHRGD_AMT",
+                            "exclusiveMaximum": 100000000000,
+                            "examples": [
+                                "AB"
+                            ]
+                        },
+                        "MBR_CNTRCT_CD": {
+                            "$id": "#/items/properties/claimDetails/MBR_CNTRCT_CD",
+                            "type": ["string","null"],
+                            "minLength": 0,
+                            "maxLength": 4,
+                            "title": "MBR_CNTRCT_CD",
+                            "default": " ",
+                            "examples": [
+                                "GD9s"
+                            ],
+                            "pattern": "^([A-Za-z0-9]*)$"
+                        },
+                        "PROC_CD": {
+                            "$id": "#/items/properties/claimDetails/PROC_CD",
+                            "type": ["string","null"],
+                            "maxLength": 5,
+                            "title": "PROC_CD",
+                            "examples": [
+                                "99999"
+                            ],
+                            "pattern": "^([A-Za-z0-9]*)$"
+                        },
+                        "MDFR_2_CD": {
+                            "$id": "#/items/properties/claimDetails/MDFR_2_CD",
+                            "type": ["string","null"],
+                            "minLength": 0,
+                            "maxLength": 2,
+                            "title": "MDFR_2_CD",
+                            "default": " ",
+                            "examples": [
+                                "S9"
+                            ]
+                        },
+                        "MDFR_3_CD": {
+                            "$id": "#/items/properties/claimDetails/MDFR_3_CD",
+                            "type": ["string","null"],
+                            "minLength": 0,
+                            "maxLength": 2,
+                            "title": "MDFR_3_CD",
+                            "default": " ",
+                            "examples": [
+                                "SG"
+                            ]
+                        },
+                        "MBR_CNTRCT_CVRG_CD": {
+                            "$id": "#/items/properties/claimDetails/MBR_CNTRCT_CVRG_CD",
+                            "type": ["string","null"],
+                            "minLength": 0,
+                            "maxLength": 3,
+                            "title": "MBR_CNTRCT_CVRG_CD",
+                            "default": " ",
+                            "examples": [
+                                "SG"
+                            ]
+                        },
+                        "MEDCRB_APRVD_AMT": {
+                            "$id": "#/items/properties/MEDCRB_APRVD_AMT",
+                            "type": ["number","null"],
+                            "title": "MEDCRB_APRVD_AMT",
+                            "exclusiveMaximum": 10000000000,
+                            "examples": [
+                                99.99
+                            ]
+                        },
+                        "MEDCRB_COINSRN_AMT": {
+                            "$id": "#/items/properties/MEDCRB_COINSRN_AMT",
+                            "type": ["number","null"],
+                            "title": "MEDCRB_COINSRN_AMT",
+                            "exclusiveMaximum": 10000000000,
+                            "examples": [
+                                99.99
+                            ]
+                        },
+                        "MEDCRB_DDCTBL_AMT": {
+                            "$id": "#/items/properties/MEDCRB_DDCTBL_AMT",
+                            "type": ["number","null"],
+                            "title": "MEDCRB_DDCTBL_AMT",
+                            "exclusiveMaximum": 10000000000,
+                            "examples": [
+                                99.99
+                            ]
+                        },
+                        "MEDCRB_PAID_AMT": {
+                            "$id": "#/items/properties/MEDCRB_PAID_AMT",
+                            "type": ["number","null"],
+                            "title": "MEDCRB_PAID_AMT",
+                            "exclusiveMaximum": 10000000000,
+                            "examples": [
+                               99.99
+                            ]
+                        },
+                        "PN_CD": {
+                            "$id": "#/items/properties/claimDetails/PN_CD",
+                            "type": ["string","null"],
+                            "minLength": 0,
+                            "maxLength": 4,
+                            "title": "PN_CD",
+                            "default": " ",
+                            "examples": [
+                                "Sb9J"
+                            ]
+                        },
+                        "HCPCS_CD": {
+                            "$id": "#/items/properties/claimDetails/HCPCS_CD",
+                            "type": ["string","null"],
+                            "minLength": 0,
+                            "maxLength": 5,
+                            "title": "HCPCS_CD",
+                            "default": " ",
+                            "examples": [
+                                "Sb9J8"
+                            ]
+                        },
+                        "TOS_TYPE_CD": {
+                            "$id": "#/items/properties/claimDetails/TOS_TYPE_CD",
+                            "type": ["string","null"],
+                            "minLength": 0,
+                            "maxLength": 8,
+                            "title": "TOS_TYPE_CD",
+                            "default": " ",
+                            "examples": [
+                                "Sb9J8nU9"
+                            ]
+                        }
+                    }
+                },
+                "SRVC_FROM_DT": {
+                    "$id": "#/items/properties/SRVC_FROM_DT",
+                    "type": "string",
+                    "title": "SRVC_FROM_DT",
+                    "default": "2019-01-01",
+                    "examples": [
+                        "2019-02-02"
+                    ],
+                    "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                },
+                "SRVC_THRU_DT": {
+                    "$id": "#/items/properties/SRVC_THRU_DT",
+                    "type": "string",
+                    "title": "SRVC_THRU_DT",
+                    "default": "2019-01-01",
+                    "examples": [
+                        "2019-02-02"
+                    ],
+                    "pattern": "^(((0[13-9]|1[012])[/]?(0[1-9]|[12][0-9]|30)|(0[13578]|1[02])[/]?31|02[/]?(0[1-9]|1[0-9]|2[0-8]))[/]?[0-9]{4}|02[/]?29[/]?([0-9]{2}(([2468][048]|[02468][48])|[13579][26])|([13579][26]|[02468][048]|0[0-9]|1[0-6])00))$"
+                },
+                "BSIC_PAYMNT_AMT": {
+                    "$id": "#/items/properties/BSIC_PAYMNT_AMT",
+                    "type": ["number","null"],
+                    "title": "BSIC_PAYMNT_AMT",
+                    "exclusiveMaximum": 100000000000,
+                    "examples": [
+                        99.99
+                    ]
+                },
+                "COB_BSIC_PAYMNT_AMT": {
+                    "$id": "#/items/properties/COB_BSIC_PAYMNT_AMT",
+                    "type": ["number","null"],
+                    "title": "COB_BSIC_PAYMNT_AMT",
+                    "exclusiveMaximum": 100000000000,
+                    "examples": [
+                        99.99
+                    ]
+                },
+                "COB_MM_PAYMNT_AMT": {
+                    "$id": "#/items/properties/COB_MM_PAYMNT_AMT",
+                    "type": ["number","null"],
+                    "title": "COB_MM_PAYMNT_AMT",
+                    "exclusiveMaximum": 100000000000,
+                    "examples": [
+                        99.99
+                    ]
+                },
+                "MM_PAY_AMT": {
+                    "$id": "#/items/properties/MM_PAY_AMT",
+                    "type": ["number","null"],
+                    "title": "MM_PAY_AMT",
+                    "exclusiveMaximum": 100000000000,
+                    "examples": [
+                        99.99
+                    ]
+                },
+                "TOTL_CHRG_AMT": {
+                    "$id": "#/items/properties/TOTL_CHRG_AMT",
+                    "type": ["number","null"],
+                    "title": "TOTL_CHRG_AMT",
+                    "exclusiveMaximum": 100000000000,
+                    "examples": [
+                        99.99
+                    ]
+                },
+                "PAT_AGE_NBR": {
+                    "$id": "#/items/properties/PAT_AGE_NBR",
+                    "type": "integer",
+                    "title": "PAT_AGE_NBR",
+                    "maximum": 999,
+                    "examples": [
+                        99
+                    ],
+                    "pattern": "^([0-9]*)$"
+                },
+                "COB_SGMNT_CNT": {
+                    "$id": "#/items/properties/COB_SGMNT_CNT",
+                    "type": "integer",
+                    "title": "COB_SGMNT_CNT",
+                    "maximum": 9999,
+                    "examples": [
+                        8243
+                    ],
+                    "pattern": "^([0-9]*)$"
+                },
+                "MEDCR_CNT": {
+                    "$id": "#/items/properties/MEDCR_CNT",
+                    "type": "integer",
+                    "title": "MEDCR_CNT",
+                    "maximum": 9999,
+                    "examples": [
+                        434
+                    ],
+                    "pattern": "^([0-9]*)$"
+                },
+                "PROV_CITY_NM": {
+                    "$id": "#/items/properties/PROV_CITY_NM",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 13,
+                    "title": "PROV_CITY_NM",
+                    "examples": [
+                        "CITY NAME"
+                    ],
+                    "pattern": "^([A-Za-z0-9 ]*)$"
+                },
+                "SBSCRBR_CITY_NM": {
+                    "$id": "#/items/properties/SBSCRBR_CITY_NM",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 13,
+                    "title": "SBSCRBR_CITY_NM",
+                    "examples": [
+                        "SBSCITY NAME"
+                    ],
+                    "pattern": "^([A-Za-z0-9 ]*)$"
+                },
+                "ITS_ORGNL_SCCF_NEW_NBR": {
+                    "$id": "#/items/properties/ITS_ORGNL_SCCF_NEW_NBR",
+                    "type": ["string","null"],
+                    "minLength": 1,
+                    "maxLength": 17,
+                    "title": "ITS_ORGNL_SCCF_NEW_NBR",
+                    "examples": [
+                        "SCCF NBR"
+                    ]
+                },
+                "PROV_ZIP_4_CD": {
+                    "$id": "#/items/properties/PROV_ZIP_4_CD",
+                    "type": ["string","null"],
+                    "minLength": 1,
+                    "maxLength": 4,
+                    "title": "PROV_ZIP_4_CD",
+                    "examples": [
+                        "CD12"
+                    ]
+                },
+                "SBSCRBR_ZIP_4_CD": {
+                    "$id": "#/items/properties/SBSCRBR_ZIP_4_CD",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4,
+                    "title": "SBSCRBR_ZIP_4_CD",
+                    "examples": [
+                        "CD12"
+                    ],
+                    "pattern": "^([A-Za-z0-9 ]*)$"
+                },
+                "PROV_ZIP_5_CD": {
+                    "$id": "#/items/properties/PROV_ZIP_5_CD",
+                    "type": ["string"],
+                    "minLength": 0,
+                    "maxLength": 5,
+                    "title": "PROV_ZIP_5_CD",
+                    "examples": [
+                        "CD123"
+                    ]
+                },
+                "SBSCRBR_ZIP_5_CD": {
+                    "$id": "#/items/properties/SBSCRBR_ZIP_5_CD",
+                    "type": ["string","null"],
+                    "minLength": 1,
+                    "maxLength": 5,
+                    "title": "SBSCRBR_ZIP_5_CD",
+                    "examples": [
+                        "CD123"
+                    ]
+                },
+                "ICD_CDS": {
+                    "$id": "#/items/properties/ICD_CDS",
+                    "type": ["array","null"],
+                    "items": {
+                        "title": "ICD_CD",
+                        "type": ["string"],
+                        "minLength": 0,
+                        "maxLength": 10
+                    },
+                    "minItems": 1,
+                    "maxItems": 20,
+                    "title": "ICD_CDS",
+                    "examples": [
+                        [
+                            "Z3801",
+                            "P220",
+                            "P612",
+                            "P711",
+                            "P284"
+                        ]
+                    ]
+                },
+                "ERR_CDS": {
+                    "$id": "#/items/properties/ERR_CDS",
+                    "type": ["array","null"],
+                    "items": {
+                        "title": "ERR_CD",
+                        "type": ["string"],
+                        "minLength": 0,
+                        "maxLength": 10
+                    },
+                    "minItems": 0,
+                    "maxItems": 32,
+                    "title": "ERR_CDS",
+                    "examples": [
+                        [
+                            "Z3801",
+                            "P220",
+                            "P612",
+                            "P711",
+                            "P284"
+                        ]
+                    ]
+                },
+                "FULL_MNGMNT_BU_CD": {
+                    "$id": "#/items/properties/FULL_MNGMNT_BU_CD",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 8,
+                    "title": "FULL_MNGMNT_BU_CD",
+                    "examples": [
+                        "CD12345"
+                    ],
+                    "pattern": "^([A-Za-z0-9 ]*)$"
+                },
+                "PROV_TAX_ID": {
+                    "$id": "#/items/properties/PROV_TAX_ID",
+                    "type": "string",
+                    "title": "PROV_TAX_ID",
+                    "minLength": 1,
+                    "maxLength": 9,
+                    "examples": [
+                        "AS1245F9S"
+                    ],
+                    "pattern": "^([A-Za-z0-9]*)$"
+                },
+                "CURNT_QUE_UNIT_NBR": {
+                    "$id": "#/items/properties/CURNT_QUE_UNIT_NBR",
+                    "type": "string",
+                    "title": "CURNT_QUE_UNIT_NBR",
+                    "minLength": 1,
+                    "maxLength": 2,
+                    "examples": [
+                        "AS"
+                    ],
+                    "pattern": "^([A-Za-z0-9%_@./#&+-]*)$"
+                },
+                "nationalSegment1": {
+                    "$id": "#/items/properties/nationalSegment1",
+                    "type": "object",
+                    "title": "nationalSegment1::::",
+                    "properties": {
+                        "TAX_LIC_SPLTYCDE": {
+                            "$id": "#/items/properties/TAX_LIC_SPLTYCD",
+                            "type": ["string","null"],
+                            "title": "TAX_LIC_SPLTYCDE",
+                            "minLength": 1,
+                            "maxLength": 1,
+                            "examples": [
+                                "A"
+                            ]
+                        }
+                    },
+                    "nationalSegment2": {
+                        "$id": "#/items/properties/nationalSegment2",
+                        "type": "object",
+                        "title": "nationalSegment2",
+                        "properties": {
+                            "TYPE_OF_BILL_CD": {
+                                "$id": "#/items/properties/TYPE_OF_BILL_CD",
+                                "type": ["string","null"],
+                                "title": "TYPE_OF_BILL_CD",
+                                "minLength": 0,
+                                "maxLength": 1,
+                                "examples": [
+                                    "A"
+                                ]
+                            }
+                        }
+                    },
+                    "nationalSegment3": {
+                        "$id": "#/items/properties/nationalSegment3",
+                        "type": "object",
+                        "title": "nationalSegment3",
+                        "properties": {
+                            "CLM_FILE_COB_IND": {
+                                "$id": "#/items/properties/CLM_FILE_COB_IND",
+                                "type": ["string","null"],
+                                "title": "CLM_FILE_COB_IND",
+                                "minLength": 1,
+                                "maxLength": 2,
+                                "examples": [
+                                    "AB"
+                                ]
+                            },
+                            "BILLG_TXNMY_CD": {
+                                "$id": "#/items/properties/BILLG_TXNMY_CD",
+                                "type": ["string","null"],
+                                "title": "BILLG_TXNMY_CD",
+                                "minLength": 1,
+                                "maxLength": 10,
+                                "examples": [
+                                    "ABKD832"
+                                ]
+                            },
+                            "RNDRG_TXNMY_CD": {
+                                "$id": "#/items/properties/RNDRG_TXNMY_CD",
+                                "type": ["string","null"],
+                                "title": "RNDRG_TXNMY_CD",
+                                "minLength": 1,
+                                "maxLength": 10,
+                                "examples": [
+                                    "ABKD832"
+                                ]
+                            },
+                            "RNDRG_TAX_ID": {
+                                "$id": "#/items/properties/RNDRG_TAX_ID",
+                                "type": ["string","null"],
+                                "title": "RNDRG_TAX_ID",
+                                "minLength": 1,
+                                "maxLength": 9,
+                                "examples": [
+                                    "ABKD832"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
