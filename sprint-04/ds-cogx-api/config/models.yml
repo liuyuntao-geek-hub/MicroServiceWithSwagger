@@ -1,0 +1,103 @@
+version: v1
+kind: model_execution
+type: sync
+usecases:
+- name: ltr
+  selection: top3
+  models:
+  - model: '9COB0'
+    path: LTR_Other_reasons_xg_boost_9COB0_final_5_months_AUDIT_VAR_reduce_overfit.sav
+    active: True
+  - model: '01030'
+    path: LTR_Other_reasons_xg_boost_01030_final_5_months_AUDIT_VAR_reduce_overfit.sav  
+    active: True
+  - model: '11250'
+    path: LTR_Other_reasons_xg_boost_11250_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: '12390'
+    path: LTR_Other_reasons_xg_boost_12390_final_5_months_AUDIT_VAR_reduce_overfit.sav
+    active: True
+  - model: '12900'
+    path: LTR_Other_reasons_xg_boost_12900_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: '20540'
+    path: LTR_Other_reasons_xg_boost_20540_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: '21410'
+    path: LTR_Other_reasons_xg_boost_21410_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: '21640'
+    path: LTR_Other_reasons_xg_boost_21640_final_5_months_AUDIT_VAR_reduce_overfit.sav
+    active: True
+  - model: '40230'
+    path: LTR_Other_reasons_xg_boost_40230_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: '50060'
+    path: LTR_Other_reasons_xg_boost_50060_final_5_months_AUDIT_VAR_reduce_overfit.sav
+    active: True
+  - model: '50110'
+    path: LTR_Other_reasons_xg_boost_50110_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: '51420'
+    path: LTR_Other_reasons_xg_boost_51420_final_5_months_AUDIT_VAR_reduce_overfit.sav
+    active: True
+  - model: '51480'
+    path: LTR_Other_reasons_xg_boost_51480_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: '51530'
+    path: LTR_Other_reasons_xg_boost_51530_final_5_months_AUDIT_VAR.sav  
+    active: True
+  - model: '75010'
+    path: LTR_Other_reasons_xg_boost_75010_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: ASH00
+    path: LTR_Other_reasons_xg_boost_ASH00_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: AUOHO
+    path: LTR_Other_reasons_xg_boost_AUOHO_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: D0706
+    path: LTR_Other_reasons_xg_boost_D0706_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: G2400
+    path: LTR_Other_reasons_xg_boost_G2400_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: HDJA1
+    path: LTR_Other_reasons_xg_boost_HDJA1_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: HDJAA
+    path: LTR_Other_reasons_xg_boost_HDJAA_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: LABX0
+    path: LTR_Other_reasons_xg_boost_LABX0_final_5_months_AUDIT_VAR_reduce_overfit.sav
+    active: True
+  - model: M9999
+    path: LTR_Other_reasons_xg_boost_M9999_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: MCJ00
+    path: LTR_Other_reasons_xg_boost_MCJ00_final_5_months_AUDIT_VAR.sav
+    active: True
+  - model: PREFX
+    path: LTR_Other_reasons_xg_boost_PREFX_final_5_months_AUDIT_VAR.sav
+    active: True
+- name: um
+  selection: avg
+  models:
+  - model: 'name1'
+    path: 201901_201904_RP_alldata_xgboost_model.sav
+    active: True
+- name: dup
+  selection: avg
+  models:
+  - model: 'billing'
+    path: 201901_201905_code_multi_alldata_xgboost_model.sav
+    active: True
+  - model: 'dup_model'
+    path: Dup_201811_201812_0131_alltrain_RP_alldata_random_forest_100_moretree_model.sav
+    active: True
+- name: ben
+  selection: avg
+  models:
+  - model: 'name1'
+    path: v0529_code_multi_norevenue_xgboost_model.sav
+    active: True

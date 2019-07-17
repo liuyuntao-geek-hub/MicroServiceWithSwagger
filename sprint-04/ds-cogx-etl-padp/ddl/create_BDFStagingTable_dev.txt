@@ -1,0 +1,14 @@
+
+
+
+CREATE  TABLE IF NOT EXISTS dv_ccpcogxph_nogbd_r000_sg.COGX_BDF_STAGING (
+rowKey varchar(500) COMMENT '',
+jsonData varchar(50000) COMMENT ''
+)
+
+stored as parquet
+ 
+
+
+select count (*) from dv_ccpcogxph_nogbd_r000_sg.COGX_BDF_STAGING;
+

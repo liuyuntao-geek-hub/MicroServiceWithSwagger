@@ -1,0 +1,91 @@
+SELECT   hdr.ddc_cd_dcn as ddc_cd_dcn,
+  hdr.ddc_cd_dcn_cc as ddc_cd_dcn_cc,
+   hdr.ddc_cd_itm_cde as ddc_cd_itm_cde,
+   hdr.ddc_cd_clm_compl_dte as ddc_cd_clm_compl_dte,
+   hdr.ddc_cd_clm_pay_act_1 as ddc_cd_clm_pay_act_1,
+   hdr.ddc_cd_clm_pay_act_2_6 as ddc_cd_clm_pay_act_2_6,
+   hdr.ddc_cd_cert_nbr1 as ddc_cd_cert_nbr1,
+   hdr.ddc_cd_cert_nbr2 as ddc_cd_cert_nbr2,
+   hdr.ddc_cd_cert_nbr3 as ddc_cd_cert_nbr3,
+   hdr.ddc_cd_pat_mbr_cde as ddc_cd_pat_mbr_cde,
+   hdr.ddc_cd_grp_nbr as ddc_cd_grp_nbr,
+   hdr.ddc_cd_svc_from_dte as ddc_cd_svc_from_dte,
+   hdr.ddc_cd_svc_thru_dte as ddc_cd_svc_thru_dte,
+   hdr.ddc_cd_prvdr_tax_id as ddc_cd_prvdr_tax_id,
+   hdr.ddc_cd_prvdr_nme as ddc_cd_prvdr_nme,
+   hdr.ddc_cd_prvdr_sec_nme as ddc_cd_prvdr_sec_nme,
+   hdr.ddc_cd_prvdr_spclty_cde as ddc_cd_prvdr_spclty_cde,
+   hdr.ddc_cd_prvdr_lic_alpha as ddc_cd_prvdr_lic_alpha
+   hdr.ddc_cd_prvdr_lic_nmrc as ddc_cd_prvdr_lic_nmrc
+   hdr.ddc_cd_tot_chrg_amt as ddc_cd_tot_chrg_amt,
+   hdr.ddc_cd_med_rec_nbr_2 as ddc_cd_med_rec_nbr_2,
+   hdr.ddc_cd_med_rec_nbr as ddc_cd_med_rec_nbr,
+   hdr.ddc_cd_icda_cde_1 as ddc_cd_icda_cde_1,
+   hdr.ddc_cd_icda_cde_2 as ddc_cd_icda_cde_2,
+   hdr.ddc_cd_icda_cde_3 as ddc_cd_icda_cde_3,
+   hdr.ddc_cd_icda_cde_4 as ddc_cd_icda_cde_4,
+   hdr.ddc_cd_icda_cde_5 as ddc_cd_icda_cde_5,
+   hdr.ddc_cd_its_home_ind as ddc_cd_its_home_ind,
+   hdr.ddc_cd_its_orig_sccf_nbr_new as ddc_cd_its_orig_sccf_nbr_new,
+   hdr.ddc_cd_its_host_prvdr_ind as ddc_cd_its_host_prvdr_ind,
+   hdr.ddc_cd_prvdr_ind as ddc_cd_prvdr_ind,
+   hdr.ddc_cd_clm_type as ddc_cd_clm_type,
+   hdr.load_ingstn_id as load_ingstn_id,
+   hdr.load_dtm as load_dtm  
+   FROM <<sourceDB>>.clm_wgs_gncclmp hdr   WHERE hdr.ddc_cd_itm_cde = '80'   AND hdr.ddc_cd_clm_compl_dte >= <<histDate>>  <<Header_Additional_Filter>>
+
+
+use 
+ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx
+
+
+select * from dv_ccpcogxph_nogbd_r000_wh.clm_wgs_gncclmp_cogx limit 10;
+
+CREATE  TABLE IF NOT EXISTS ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx (
+
+
+drop table ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx purge;
+
+CREATE  TABLE IF NOT EXISTS dv_ccpcogxph_nogbd_r000_wh.clm_wgs_gncclmp_cogx (
+
+CREATE  TABLE IF NOT EXISTS ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx_TEST (
+ddc_cd_dcn varchar(11) COMMENT '', 
+ddc_cd_dcn_cc varchar(2) COMMENT '', 
+ddc_cd_itm_cde varchar(2) COMMENT '', 
+ddc_cd_clm_compl_dte decimal(9,0) COMMENT '', 
+ddc_cd_clm_pay_act_1 varchar(1) COMMENT '', 
+ddc_cd_clm_pay_act_2_6 varchar(5) COMMENT '', 
+ddc_cd_cert_nbr1 varchar(3) COMMENT '', 
+ddc_cd_cert_nbr2 varchar(2) COMMENT '', 
+ddc_cd_cert_nbr3 varchar(4) COMMENT '', 
+ddc_cd_pat_mbr_cde varchar(2) COMMENT '', 
+ddc_cd_grp_nbr varchar(10) COMMENT '', 
+ddc_cd_svc_from_dte decimal(9,0) COMMENT '', 
+ddc_cd_svc_thru_dte decimal(9,0) COMMENT '',
+ddc_cd_prvdr_tax_id varchar(9) COMMENT '', 
+ddc_cd_prvdr_nme varchar(25) COMMENT '', 
+ddc_cd_prvdr_sec_nme varchar(25) COMMENT '', 
+ddc_cd_prvdr_spclty_cde varchar(3) COMMENT '', 
+ddc_cd_prvdr_lic_alpha varchar(3) COMMENT '', 
+ddc_cd_prvdr_lic_nmrc varchar(8) COMMENT '', 
+ddc_cd_tot_chrg_amt decimal(11,2) COMMENT '', 
+ddc_cd_med_rec_nbr_2 varchar(10) COMMENT '', 
+ddc_cd_med_rec_nbr varchar(10) COMMENT '', 
+ddc_cd_icda_cde_1 varchar(10) COMMENT '', 
+ddc_cd_icda_cde_2 varchar(10) COMMENT '', 
+ddc_cd_icda_cde_3 varchar(10) COMMENT '', 
+ddc_cd_icda_cde_4 varchar(10) COMMENT '', 
+ddc_cd_icda_cde_5 varchar(10) COMMENT '', 
+ddc_cd_its_home_ind varchar(1) COMMENT '', 
+ddc_cd_its_orig_sccf_nbr_new varchar(17) COMMENT '', 
+ddc_cd_its_host_prvdr_ind varchar(1) COMMENT '', 
+ddc_cd_prvdr_ind varchar(1) COMMENT '', 
+ddc_cd_clm_type varchar(2) COMMENT '', 
+load_dtm varchar(50) COMMENT '' 
+)
+PARTITIONED BY ( 
+load_ingstn_id varchar(8))
+stored as parquet
+
+
+

@@ -1,0 +1,291 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "array",
+    "title": "The Root Schema",
+    "items": {
+      "$id": "#/items",
+      "type": "object",
+      "title": "The Items Schema",
+      "required": [
+        "KEY_CHK_DCN_NBR",
+        "CLM_TYPE_CD",
+        "CURNT_QUE_UNIT_NBR",
+        "claimDetails"
+      ],
+      "properties": {
+        "KEY_CHK_DCN_NBR": {
+          "$id": "#/items/properties/KEY_CHK_DCN_NBR",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 11,
+          "title": "KEY_CHK_DCN_NBR in claimDetails",
+          "examples": [
+            "1234C03894"
+          ],
+          "pattern": "^([A-Za-z0-9]*)$"
+        },
+        "CLM_TYPE_CD": {
+          "$id": "#/items/properties/CLM_TYPE_CD",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2,
+          "title": "CLM_TYPE_CD",
+          "examples": [
+            "12"
+          ],
+          "pattern": "^([A-Za-z0-9]*)$"
+        },
+        "CURNT_QUE_UNIT_NBR": {
+          "$id": "#/items/properties/CURNT_QUE_UNIT_NBR",
+          "type": ["string","null"],
+          "title": "CURNT_QUE_UNIT_NBR",
+          "minLength": 1,
+          "maxLength": 2,
+          "examples": [
+            "AS"
+          ]
+        },
+        "claimDetails": {
+          "$id": "#/items/properties/claimDetails",
+          "type": "array",
+          "title": "claimDetails:",
+          "items": {
+            "title": "claimDetails:",
+            "type": "object",
+            "required": [
+              "DTL_LINE_NBR",
+              "HCFA_PT_CD",
+              "PROC_CD"
+            ],
+            "properties": {
+              "DTL_LINE_NBR": {
+                "$id": "#/items/properties/DTL_LINE_NBR",
+                "type": "string",
+                "title": "DTL_LINE_NBR in claimDetails",
+                "minLength": 1,
+                "maxLength": 2,
+                "examples": [
+                  "AB"
+                ],
+                "pattern": "^([A-Za-z0-9 ]*)$"
+              },
+              "HCFA_PT_CD": {
+                "$id": "#/items/properties/claimDetails/HCFA_PT_CD",
+                "type": ["string" , "null"],
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "HCFA_PT_CD",
+                "default": " ",
+                "examples": [
+                  "SS"
+                ],
+                "pattern": "^([A-Za-z0-9 ]*)$"
+              },
+              "KEY_CHK_DCN_NBR": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 11,
+                "title": "KEY_CHK_DCN_NBR in claimDetails",
+                "examples": [
+                  "1234C03894"
+                ],
+                "pattern": "^([A-Za-z0-9]*)$"
+              },
+              "PROC_CD": {
+                "$id": "#/items/properties/claimDetails/PROC_CD",
+                "type": ["string" , "null"],
+                "minLength": 1,
+                "maxLength": 5,
+                "title": "PROC_CD",
+                "examples": [
+                  "99999"
+                ],
+                "pattern": "^([A-Za-z0-9]*)$"
+              },
+              "UM_RQRD_IND": {
+                "$id": "#/items/properties/claimDetails/UM_RQRD_IND",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 1,
+                "title": "UM_RQRD_IND",
+                "default": " ",
+                "examples": [
+                  "S"
+                ]
+               },
+              "UM_PROV_SQNC_NBR": {
+                "$id": "#/items/properties/claimDetails/UM_PROV_SQNC_NBR",
+                "type": ["string","null"],
+                "title": "UM_PROV_SQNC_NBR",
+                "default": "",
+                "maxLength": 2,
+                "examples": [
+                  "AG",
+                  ""
+                ]
+              },
+              "PN_CD": {
+                "$id": "#/items/properties/claimDetails/PN_CD",
+                "type": ["string","null"],
+                "maxLength": 4,
+                "title": "PN_CD",
+                "default": "",
+                "examples": [
+                  "368G"
+                ]
+              },
+              "HCPCS_CD": {
+                "$id": "#/items/properties/claimDetails/HCPCS_CD",
+                "type": ["string","null"],
+                "maxLength": 5,
+                "title": "HCPCS_CD",
+                "default": "",
+                "examples": [
+                  "YWe6"
+                ]
+              },
+              "TOS_TYPE_CD": {
+                "$id": "#/items/properties/claimDetails/TOS_TYPE_CD",
+                "type": ["string","null"],
+                "maxLength": 8,
+                "title": "TOS_TYPE_CD",
+                "default": "",
+                "examples": [
+                  "Lq9N"
+                ]
+              },
+              "UM_CASE_NBR": {
+                "$id": "#/items/properties/claimDetails/UM_CASE_NBR",
+                "type": ["string","null"],
+                "maxLength": 9,
+                "title": "UM_CASE_NBR",
+                "default": "",
+                "examples": [
+                  "9"
+                ]
+              }
+            }
+          }
+        },
+        "BYPS_CDS": {
+          "$id": "#/items/properties/BYPS_CDS",
+          "type": ["array","null"],
+          "items": {
+            "title": "BYPS_CD",
+            "type": "string",
+            "maxLength": 2
+          },
+          "maxItems": 5,
+          "title": "BYPS_CDS",
+          "examples": [
+            [
+              "Z3",
+              "20"
+            ]
+          ]
+        },
+        "MDFR_1_CD": {
+                "$id": "#/items/properties/claimDetails/MDFR_1_CD",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 2,
+                "title": "MDFR_1_CD",
+                "default": " ",
+                "examples": [
+                  "Sa"
+                ]
+        },
+        "PROV_SCNDRY_NM": {
+          "$id": "#/items/properties/PROV_SCNDRY_NM",
+          "type": ["string","null"],
+          "minLength": 1,
+          "maxLength": 25,
+          "title": "PROV_SCNDRY_NM",
+          "examples": [
+            "*",
+            "SAMARITAN HOSPITAL"
+          ]
+        },
+        "PROV_ZIP_5_CD": {
+          "$id": "#/items/properties/PROV_ZIP_5_CD",
+          "type": ["string","null"],
+          "minLength": 1,
+          "maxLength": 5,
+          "title": "PROV_ZIP_5_CD",
+          "examples": [
+            "*","HWD89"
+          ]
+        },
+        "SBSCRBR_ZIP_5_CD": {
+          "$id": "#/items/properties/SBSCRBR_ZIP_5_CD",
+          "type": ["string","null"],
+          "minLength": 1,
+          "maxLength": 5,
+          "title": "SBSCRBR_ZIP_5_CD",
+          "examples": [
+            "*",
+            "GW6y9"
+          ]
+        },
+  
+        "ICD_CDS": {
+          "$id": "#/items/properties/ICD_CDS",
+          "type": ["array","null"],
+          "items": {
+            "title": "ICD_CD",
+            "type": "string",
+            "minLength": 0,
+            "maxLength": 10
+          },
+          "minItems": 0,
+          "maxItems": 20,
+          "title": "ICD_CDS",
+          "examples": [
+            [
+              "Z3801",
+              "P220",
+              "P612",
+              "P711",
+              "P284"
+            ]
+          ]
+        },
+        "nationalSegment1": {
+          "$id": "#/items/properties/nationalSegment2",
+          "type": "object",
+          "title": "nationalSegment1::::",
+          "properties": {
+            "TAX_LIC_SPLTYCDE": {
+              "$id": "#/items/properties/TAX_LIC_SPLTYCDE",
+              "type": ["string","null"],
+              "maxLength": 10,
+              "title": "TAX_LIC_SPLTYCDE",
+              "default": "",
+              "examples": [
+                "AGD3"
+              ]
+            }
+          }
+        },
+        "nationalSegment2": {
+          "$id": "#/items/properties/nationalSegment2",
+          "type": "object",
+          "title": "nationalSegment2::::",        
+          "properties": {
+            "BILLG_NPI": {
+              "$id": "#/items/properties/BILLG_NPI",
+              "type": ["string","null"],
+              "maxLength": 10,
+              "title": "BILLG_NPI",
+              "default": "",
+              "examples": [
+                "AGD3"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,266 @@
+Section 1 - Wide table to Narrow Tables
+=================================================================
+Step 1 - Property files for Wide to Narrow tables:
+------------------------
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/application_sit.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFSyncSITAll.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFSyncSITIncremental.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/bin/ds-cogx-etl-2.0.7.jar
+
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/application_sit.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFSyncSITAll.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFSyncSITIncremental.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/bin/ds-cogx-etl-2.0.7.jar   /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000//bin/
+
+------------------------------
+
+
+Step 2 - Truncate Audit table:
+---------------------------------------
+beeline -u "jdbc:hive2://dwbdtest1hs2lb.wellpoint.com:10000/default;principal=hive/_HOST@DEVAD.WELLPOINT.COM;ssl=true" 
+truncate table ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit ;
+------------------------------------------
+Step 3 - insert audit records for partition 20190521
+----------------------------------------
+insert into ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit values ('COGX HBase ETL: cogx_BDF_Sync_Load - by AF35352', 'AF35352', 'local-1559749206160', '2019-05-20 09:40:09', '151 Seconds', 'completed', 0, '2019-05-20 09:40:09' )   ;
+
+select max(CAST(date_format(to_date(lastupdate),'yyyyMMdd') as INT)) from ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit where program='COGX HBase ETL: cogx_BDF_Sync_Load - by AF35352' and status ='completed'
+-------------------------------------
+Step 4 - Run  the incremental job:
+------------------------------
+spark2-submit \
+--master yarn \
+--deploy-mode cluster \
+--queue cdl_yarn  \
+--driver-cores 5 \
+--driver-memory 8G \
+--num-executors 50 \
+--executor-memory 20G \
+--executor-cores 4 \
+--conf spark.ui.port=5052 \
+--conf spark.yarn.maxAppAttempts=1 \
+--conf spark.yarn.driver.memoryOverhead=2048 \
+--conf spark.yarn.executor.memoryOverhead=9096 \
+--conf spark.network.timeout=800 \
+--conf spark.driver.maxResultSize=0 \
+--conf spark.kryoserializer.buffer.max=1024m \
+--conf spark.rpc.message.maxSize=1024 \
+--conf spark.sql.broadcastTimeout=4800 \
+--conf spark.executor.heartbeatInterval=30s \
+--conf spark.dynamicAllocation.executorIdleTimeout=180 \
+--conf spark.dynamicAllocation.initialExecutors=30 \
+--conf spark.dynamicAllocation.maxExecutors=100 \
+--conf spark.dynamicAllocation.minExecutors=30 \
+--conf spark.sql.shuffle.partitions=2200 \
+--conf hive.exec.dynamic.partition=true  \
+--conf hive.exec.max.dynamic.partitions=10000  \
+--principal srcccpcogxbthts \
+--keytab /home/srcccpcogxbthts/srcccpcogxbthts.keytab  \
+--files /etc/alternatives/spark2-conf/yarn-conf/hive-site.xml,/opt/cloudera/parcels/CDH/lib/hbase/conf/hbase-site.xml  \
+--conf "spark.executor.extraClassPath=/opt/cloudera/parcels/CDH/lib/hbase/lib/" \
+--conf "spark.yarn.security.tokens.hbase.enabled=true" \
+--name "COGX HBase ETL: cogx_BDF_Sync_Load - by AF35352" \
+--class com.anthem.cogx.etl.HiveBDFSync.CogxHiveBDFSyncDriver \
+hdfs:///ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000//bin/ds-cogx-etl-2.0.7.jar   \
+hdfs:///ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control sit cogxHiveBDFSyncSITIncremental
+
+--------------------------------------------
+
+
+Step 5 - Verify the Running job:
+Total Uptime: 10.0 min 
+
+
+audition records
+select * from ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit where cogx_etl_audit.app_id='application_1562824131263_5748';
+6146160 
+
+* If need to kill the job: 
+	yarn application -kill application_1562824131263_5748/
+	
+Spark UI:
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_5748/
+Total Uptime: 3.7 min 
+
+Hadoop history
+https://dwbdtest1r1m.wellpoint.com:8090/cluster/app/application_1562824131263_5748/
+
+
+
+
+
+
+Section 2 - Narrow Table to Hive Staging
+=================================================================
+
+Step 1 - Property Files for loading from Narrow tables to Staging tables
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/application_sit.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFHiveIncremental.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFHiveHistory.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/bin/ds-cogx-etl-2.0.7.jar
+
+
+
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/application_sit.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFHiveIncremental.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFHiveHistory.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/bin/ds-cogx-etl-2.0.7.jar   /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000//bin/
+-----------------------
+
+Step 2 - Truncate Audit table:
+---------------------------------------
+beeline -u "jdbc:hive2://dwbdtest1hs2lb.wellpoint.com:10000/default;principal=hive/_HOST@DEVAD.WELLPOINT.COM;ssl=true" 
+truncate table ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit ;
+------------------------------------------
+Step 3 - insert audit records for partition 20190521
+----------------------------------------
+insert into ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit values ('COGX HBase ETL: cogx_BDF_Hive_Staging_load - by AF35352', 'AF35352', 'local-1559749206160', '2019-05-20 09:40:09', '151 Seconds', 'completed', 0, '2019-05-20 09:40:09' )   ;
+
+select max(CAST(date_format(to_date(lastupdate),'yyyyMMdd') as INT)) from ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit where program='COGX HBase ETL: cogx_BDF_Hive_Staging_load - by AF35352' and status ='completed';
+
+
+Step 4 - Run  the incremental job:
+----------------------------------------------------
+spark2-submit \
+--master yarn \
+--deploy-mode cluster \
+--queue cdl_yarn  \
+--driver-cores 5 \
+--driver-memory 8G \
+--num-executors 50 \
+--executor-memory 20G \
+--executor-cores 4 \
+--conf spark.ui.port=5052 \
+--conf spark.yarn.maxAppAttempts=1 \
+--conf spark.yarn.driver.memoryOverhead=2048 \
+--conf spark.yarn.executor.memoryOverhead=9096 \
+--conf spark.network.timeout=800 \
+--conf spark.driver.maxResultSize=0 \
+--conf spark.kryoserializer.buffer.max=1024m \
+--conf spark.rpc.message.maxSize=1024 \
+--conf spark.sql.broadcastTimeout=4800 \
+--conf spark.executor.heartbeatInterval=30s \
+--conf spark.dynamicAllocation.executorIdleTimeout=180 \
+--conf spark.dynamicAllocation.initialExecutors=30 \
+--conf spark.dynamicAllocation.maxExecutors=100 \
+--conf spark.dynamicAllocation.minExecutors=30 \
+--conf spark.sql.shuffle.partitions=2200 \
+--conf hive.exec.dynamic.partition=true  \
+--conf hive.exec.max.dynamic.partitions=10000  \
+--principal srcccpcogxbthts \
+--keytab /home/srcccpcogxbthts/srcccpcogxbthts.keytab  \
+--files /etc/alternatives/spark2-conf/yarn-conf/hive-site.xml,/opt/cloudera/parcels/CDH/lib/hbase/conf/hbase-site.xml  \
+--conf "spark.executor.extraClassPath=/opt/cloudera/parcels/CDH/lib/hbase/lib/" \
+--conf "spark.yarn.security.tokens.hbase.enabled=true" \
+--name "COGX HBase ETL: cogx_BDF_Hive_Staging_load - by AF35352" \
+--class com.anthem.cogx.etl.HiveBDFHive.CogxHiveBDFHiveDriver \
+hdfs:///ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000//bin/ds-cogx-etl-2.0.7.jar   \
+hdfs:///ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control sit cogxHiveBDFHiveIncremental
+
+-----------------------------------------
+Step 5 - Verify the Running job:
+Total Uptime: 58 min 
+
+
+audition records
+select * from ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit where cogx_etl_audit.app_id='application_1562824131263_6051';
+2336389 
+3561500 
+
+* If need to kill the job: 
+	yarn application -kill application_1562824131263_6051/
+	
+Spark UI:
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_6051/
+Total Uptime: 1.4 min 
+
+Hadoop history
+https://dwbdtest1r1m.wellpoint.com:8090/cluster/app/application_1562824131263_6051/
+
+count on the staging table:
+	select count (*) from ts_ccpcogxph_nogbd_r000_sg.COGX_BDF_STAGING;
+	select * from ts_ccpcogxph_nogbd_r000_sg.COGX_BDF_STAGING ;
+
+=====================================================================
+
+
+Section 3 - Load from Hive Staging to HBase table
+=================================================================
+
+Step 1 - Property Files for loading from Narrow tables to Staging tables
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/application_sit.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFHbase.properties
+hadoop fs -rm /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/bin/ds-cogx-etl-2.0.7.jar
+
+
+
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/application_sit.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/control/query_cogxHiveBDFHbase.properties  /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control/
+hadoop fs -put  /data/01/ts/app/ve2/ccp/cogx/phi/no_gbd/r000/bin/ds-cogx-etl-2.0.7.jar   /ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000//bin/
+-----------------------
+
+
+Step 2 - Run  the incremental job:
+----------------------------------
+spark2-submit \
+--master yarn \
+--deploy-mode cluster \
+--queue cdl_yarn  \
+--driver-cores 5 \
+--driver-memory 8G \
+--num-executors 50 \
+--executor-memory 20G \
+--executor-cores 4 \
+--conf spark.ui.port=5052 \
+--conf spark.yarn.maxAppAttempts=1 \
+--conf spark.yarn.driver.memoryOverhead=2048 \
+--conf spark.yarn.executor.memoryOverhead=9096 \
+--conf spark.network.timeout=800 \
+--conf spark.driver.maxResultSize=0 \
+--conf spark.kryoserializer.buffer.max=1024m \
+--conf spark.rpc.message.maxSize=1024 \
+--conf spark.sql.broadcastTimeout=4800 \
+--conf spark.executor.heartbeatInterval=30s \
+--conf spark.dynamicAllocation.executorIdleTimeout=180 \
+--conf spark.dynamicAllocation.initialExecutors=30 \
+--conf spark.dynamicAllocation.maxExecutors=100 \
+--conf spark.dynamicAllocation.minExecutors=30 \
+--conf spark.sql.shuffle.partitions=2200 \
+--conf hive.exec.dynamic.partition=true  \
+--conf hive.exec.max.dynamic.partitions=10000  \
+--principal srcccpcogxbthts \
+--keytab /home/srcccpcogxbthts/srcccpcogxbthts.keytab  \
+--files /etc/alternatives/spark2-conf/yarn-conf/hive-site.xml,/opt/cloudera/parcels/CDH/lib/hbase/conf/hbase-site.xml  \
+--conf "spark.executor.extraClassPath=/opt/cloudera/parcels/CDH/lib/hbase/lib/" \
+--conf "spark.yarn.security.tokens.hbase.enabled=true" \
+--name "COGX HBase ETL: cogx_BDF_HBase_load - by AF35352" \
+--class com.anthem.cogx.etl.HiveBDFHBase.CogxHiveBDFHBaseDriver \
+hdfs:///ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000//bin/ds-cogx-etl-2.0.7.jar   \
+hdfs:///ts/hdfsapp/ve2/ccp/cogx/phi/no_gbd/r000/control sit cogxHiveBDFHbase
+
+-------------------------------------------------
+
+Step 3 - - Verify the Running job:
+Total Uptime: 21 min 
+
+
+audition records
+select * from ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit where cogx_etl_audit.app_id='application_1562824131263_6162';
+2336389 
+3561500 
+
+* If need to kill the job: 
+	yarn application -kill application_1562824131263_6162/
+	
+Spark UI:
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_6162/
+
+
+Hadoop history
+https://dwbdtest1r1m.wellpoint.com:8090/cluster/app/application_1562824131263_6162/
+
+Count the output in HBase
+count 'ts_hb_ccpcogx_nogbd_r000_in:cogx_claims'
+
+
+

@@ -1,0 +1,597 @@
+SELECT   hdr.ddc_cd_dcn as ddc_cd_dcn,
+    hdr.ddc_cd_dcn_cc as ddc_cd_dcn_cc,
+     hdr.ddc_cd_itm_cde as ddc_cd_itm_cde,
+     hdr.ddc_cd_clm_compl_dte as ddc_cd_clm_compl_dte,
+     hdr.ddc_cd_clm_pay_act_1 as ddc_cd_clm_pay_act_1,
+     hdr.ddc_cd_clm_pay_act_2_6 as ddc_cd_clm_pay_act_2_6,
+     hdr.ddc_cd_cert_nbr1 as ddc_cd_cert_nbr1,
+     hdr.ddc_cd_cert_nbr2 as ddc_cd_cert_nbr2,
+     hdr.ddc_cd_cert_nbr3 as ddc_cd_cert_nbr3,
+     hdr.ddc_cd_pat_mbr_cde as ddc_cd_pat_mbr_cde,
+     hdr.ddc_cd_grp_nbr as ddc_cd_grp_nbr,
+     hdr.ddc_cd_svc_from_dte as ddc_cd_svc_from_dte,
+     hdr.ddc_cd_svc_thru_dte as ddc_cd_svc_thru_dte,
+     hdr.ddc_cd_prvdr_tax_id as ddc_cd_prvdr_tax_id,
+     hdr.ddc_cd_prvdr_nme as ddc_cd_prvdr_nme,
+     hdr.ddc_cd_prvdr_sec_nme as ddc_cd_prvdr_sec_nme,
+     hdr.ddc_cd_prvdr_spclty_cde as ddc_cd_prvdr_spclty_cde,
+     hdr.ddc_cd_prvdr_lic_alpha as ddc_cd_prvdr_lic_alpha,
+     hdr.ddc_cd_prvdr_lic_nmrc as ddc_cd_prvdr_lic_nmrc,
+     hdr.ddc_cd_tot_chrg_amt as ddc_cd_tot_chrg_amt,
+     hdr.ddc_cd_med_rec_nbr_2 as ddc_cd_med_rec_nbr_2,
+     hdr.ddc_cd_med_rec_nbr as ddc_cd_med_rec_nbr,
+     hdr.ddc_cd_icda_cde_1 as ddc_cd_icda_cde_1,
+     hdr.ddc_cd_icda_cde_2 as ddc_cd_icda_cde_2,
+     hdr.ddc_cd_icda_cde_3 as ddc_cd_icda_cde_3,
+     hdr.ddc_cd_icda_cde_4 as ddc_cd_icda_cde_4,
+     hdr.ddc_cd_icda_cde_5 as ddc_cd_icda_cde_5,
+     hdr.ddc_cd_its_home_ind as ddc_cd_its_home_ind,
+     hdr.ddc_cd_its_orig_sccf_nbr_new as ddc_cd_its_orig_sccf_nbr_new,
+     hdr.ddc_cd_its_host_prvdr_ind as ddc_cd_its_host_prvdr_ind,
+     hdr.ddc_cd_prvdr_ind as ddc_cd_prvdr_ind,
+     hdr.ddc_cd_clm_type as ddc_cd_clm_type,
+     hdr.load_ingstn_id as load_ingstn_id,
+     hdr.load_dtm as load_dtm      
+     
+     FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where  hdr.load_ingstn_id = 20180801 imit 10
+     
+     
+     
+     select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where  hdr.load_ingstn_id = 20180801 and  hdr.ddc_cd_itm_cde = '80' and hdr.ddc_cd_clm_compl_dte is not null;
+     	- 999118
+     	- 4 m 45 s
+      select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_Cogx_TEST hdr where  hdr.load_ingstn_id = 20180801 and  hdr.ddc_cd_itm_cde = '80' and hdr.ddc_cd_clm_compl_dte is not null;
+      	- 992041
+ 	- 1 m 27 s
+     	
+     	
+     	
+     
+     select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where  hdr.load_ingstn_id = 20180801;
+     	- 1420051
+     	- 5 m 28 s
+     	
+     	
+     	
+     select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx hdr where hdr.load_ingstn_id = 20180801 and hdr.ddc_cd_clm_compl_dte is not null;     
+     
+     
+     
+     show partitions ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx;
+     
+
+
+
+
+
+
+
+
+SELECT   hdr.ddc_cd_dcn as ddc_cd_dcn,
+     hdr.load_ingstn_id as load_ingstn_id,
+     hdr.load_dtm as load_dtm   
+     FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where  hdr.load_ingstn_id = 20180801 imit 10
+
+
+
+
+
+Narrow table slowness Root cause: Table was not created correctly
+
+Load one Partition 20180801 => 3 Narrow tables => takes 5 minutes to complete
+
+
+ select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where  hdr.load_ingstn_id = 20180801 and  hdr.ddc_cd_itm_cde = '80' AND hdr.ddc_cd_clm_compl_dte >= 20160708 and hdr.ddc_cd_clm_compl_dte is not null;
+	 - 992041
+ 
+ select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_Cogx_TEST hdr where  hdr.load_ingstn_id = 20180801 and  hdr.ddc_cd_itm_cde = '80' and hdr.ddc_cd_clm_compl_dte is not null;
+ 	- 992041
+ 	- 992041 
+ 	- 992041
+ 	- 1984082
+ 	- 1984082
+ 	- 1 m 27 s
+ 	
+ 	
+-------------------------------------------
+-- select *   FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx hdr where hdr.load_ingstn_id = '20180801' ;     
+
+--select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where hdr.load_ingstn_id = 20180801 ; 
+
+
+--show partitions ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx;
+
+--show partitions dv_ccpcogxph_nogbd_r000_wh.clm_wgs_gncclmp_cogx;
+
+--show create table  ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncnatp_ea2_cogx;
+
+--show partitions ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx_TEST;
+
+--show partitions ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx;
+
+
+--SELECT   *     FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncnatp_ea2_cogx_TEST hdr limit 10
+
+TRUNCATE table ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx purge;
+
+--drop table ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx purge;
+
+-- select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_Cogx_TEST hdr where  hdr.load_ingstn_id = 20180801 and hdr.ddc_cd_clm_compl_dte is not null;
+ 
+ 
+-- select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where  hdr.load_ingstn_id = 20180801 and  hdr.ddc_cd_itm_cde = '80' and hdr.ddc_cd_clm_compl_dte is not null;
+ 
+--  select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_Cogx_TEST hdr where  hdr.load_ingstn_id = 20180801 and  hdr.ddc_cd_itm_cde = '80' and hdr.ddc_cd_clm_compl_dte is not null;
+ 
+ select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr where  hdr.load_ingstn_id = 20180801 and  hdr.ddc_cd_itm_cde = '80' AND hdr.ddc_cd_clm_compl_dte >= 20160708 and hdr.ddc_cd_clm_compl_dte is not null;
+  
+
+ select count (*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_Cogx_TEST hdr where  hdr.load_ingstn_id = 20190501 and  hdr.ddc_cd_itm_cde = '80' AND hdr.ddc_cd_clm_compl_dte >= 20160708 and hdr.ddc_cd_clm_compl_dte is not null;
+ 
+ 
+ select *    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_Cogx_TEST  hdr  limit 10
+ 
+ select *  ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncnatp_ea2_cogx_TEST limit 10
+ 
+ show  partitions ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncnatp_ea2_cogx_TEST;
+ ---------------------------------------
+ 
+ 
+ Findings:
+ 
+ -----------------------------------------
+ 
+   
+   
+select count(*)    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_Cogx_TEST  hdr  
+
++------------+--+
+|    _c0     |
++------------+--+
+| 686603417  |
++------------+--+
+1 row selected (5060.116 seconds)
+   -- This is because we have less data now since the filter of 80
+   
+   
+
+
+   
+   Original Query: 
+ --------------------------------------------
+ select count (*) 
+   FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr  
+   INNER JOIN (SELECT DISTINCT ddc_cd_dcn from ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp   
+   WHERE load_ingstn_id = 20190521 AND ddc_cd_itm_cde = '80')X  ON hdr.ddc_cd_dcn = x.ddc_cd_dcn  AND hdr.ddc_cd_itm_cde = '80'  
+   AND hdr.ddc_cd_clm_compl_dte >= 20160607    
+
+
++----------+--+
+|   _c0    |
++----------+--+
+| 3464877  |
++----------+--+
+1 row selected (43907.618 seconds)
+   -- 3714235 
+   -- 4 hours 39 minutes 51 seconds 470 msec
+ ---------------------------------------------- 
+  
+  New Query
+ -------------------------------------------------
+  select count (*) 
+   FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp hdr  
+   where  hdr.load_ingstn_id = 20190521 AND hdr.ddc_cd_itm_cde = '80'  
+  AND hdr.ddc_cd_clm_compl_dte >= 20160607  
+
+  -- 3714235 
+  -- 2 hours 39 minutes 51 seconds 470 msec
+
+  -------------------------------------------------
+  
+  ------------------------------------------------
+    select count (*) 
+    FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx_TEST hdr   
+    WHERE hdr.load_ingstn_id >= 20190521   
+    AND hdr.ddc_cd_itm_cde = '80'  
+  AND hdr.ddc_cd_clm_compl_dte >= 20160607 
+
+  -- 3714235 
+  -- 21 minutes 18 seconds 290 msec
+------------------------------------------------
+      select count (*) 
+      FROM ts_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp_cogx_TEST hdr   
+      WHERE hdr.load_ingstn_id >= 20180801   
+      AND hdr.ddc_cd_itm_cde = '80'  
+  AND hdr.ddc_cd_clm_compl_dte >= 20160607 
+  
+
+https://dwbdtest1r1m.wellpoint.com:8090/proxy/application_1562157072409_9105/jobs/
+Original Wide Source Table
+Loading since 20180521
+Total Uptime: 5.4 h 
+count: 133021137
+(Writing to HBase: 2.4 hour)
+(Reading from Hive: 3.0 hour)
+
+https://dwbdtest1r1m.wellpoint.com:8090/proxy/application_1562773011107_0007
+New Narrow Source Table
+Loading since 20180521
+Total load Time: 4.6 h
+count: 133021137
+(Writing to HBase: 2.1 hour)
+(Reading from Hive: 1.8 hour)
+
+
+
+
+https://dwbdtest1r1m.wellpoint.com:8090/proxy/application_1562157072409_11341
+New Narrow Source Table
+Loading since 20190521
+46 min 
+Loading to HBase count: 2336389
+
+
+
+2019-07-10
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562794595640_0068
+Original Wide Source Table
+Loading since 20190521
+Load Time: 2.3 h
+Failed
+one partition on Header + all partition on EA2 & Detail
+
+
+
+2019-07-10
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562794595640_0066
+New Narrow Source Table
+Loading since 20190521
+Load Time: 1.3 h
+Success
+one partition on Header + all partition on EA2 & Detail
+
+
+
+
+
+2019-07-11
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_1712
+New Narrow Source Table
+Loading since 20190521
+1.6 h
+
+
+2019-07-11
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_1713 
+Original Wide Source Table
+Loading since 20190521
+2.2 h
+
+2019-07-11
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2112/
+Original Wide Source Table
+Loading since 20190521
+Total Uptime: 1.6 h 
+(Load to HBase: 1.9 min)
+(Read from Hive: 1.5 h )
+
+2019-07-11
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2113/
+New Narrow Source Table
+Loading since 20190521
+Total Uptime: 56 min
+(Load to HBase: 2.2 min)
+(Read from Hive: 46 min)
+
+2019-07-11
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2113/
+New Narrow Source Table = with Broadcast
+Loading since 20190521
+Total Uptime: 55 min
+(Load to HBase: 1.9 min)
+(Read from Hive: 47 min)
+
+=========================================================
+2019-07-11
+Distinct incremental sync loading
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2284/jobs/
+Total Uptime:5.1 min 
+
+2019-07-11
+Load from Narrow Table to Hive Staging table
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2609/jobs/
+Total Uptime: 29 min 
+row count: 2336389 
+
+
+2019-07-11
+Load from Hive Staging table to HBase
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2750/
+Total Uptime: 2.2 min 
+row count: 2336389 
+
+=========================================
+
+2019-07-11
+Full load from wide to narrow
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2769/
+Total Uptime: 5.7 h 
+Row count: 685160979
+
+
+2019-07-12
+Full load from Narrow table to Staging table
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_2865/
+Total Uptime: 54 min 
+Row count: 161940674 
+
+
+2019-07-12
+Full load from Staging table to 
+https://dwbdtest1r2m.wellpoint.com:8090/proxy/application_1562824131263_4799/
+Total Uptime: 1.6 h 
+
+=================================================
+
+select * from ts_ccpcogxph_nogbd_r000_wh.cogx_etl_audit where cogx_etl_audit.app_id='application_1562824131263_2865';
+
+
+
+
+class com.anthem.cogx.etl.HiveBDFSync.CogxHiveBDFSyncDriver
+
+
+
+com.anthem.cogx.etl.HiveBDFHive.CogxHiveBDFHiveDriver
+
+
+
+
+
+
+
+
+
+
+
+
+
+===========================================================
+
+Option 1:
+Step 1 - BDR: 12:15 AM - 12:30 AM
+
+	
+Step 2 - Narrow table incremental loading: (need one time )
+	- include mck repair for external wide table as the first step in this script
+	- Start 01:00 AM
+	= assumption: complete 01:10 AM
+	(not possible to set up dependency on BDR)
+	=> Mck repair -> read one partition from three wide tables => write to three narrow tables
+	
+
+Step 3 - HBase incremental loading from Narrow table to HBase
+	- Dependency on Narrow table incremental loading
+	- Remove the mck repair from this step (included in the existing script)
+	= Start on 2:00 AM
+	=> Read from Narrow source (one partion of header + all partition of detial & EA2) -> Join between tables + Re-org -> write to HBase (5 minutes)
+	=> real write time to HBase 
+	
+	
+
+Option 2:
+Step 1 - BDR: 12:15 AM - 12:30 AM
+
+	
+Step 2 - Narrow table incremental loading: 
+	- include mck repair for external wide table as the first step in this script
+	- Start 01:00 AM
+	= assumption: complete 01:10 AM
+	(not possible to set up dependency on BDR)
+	=> Mck repair -> read one partition from three wide tables => write to three narrow tables
+	
+Step 3 - Hive incremental loading from Narrow table to Hive Staging table
+	- Dependency on Narrow table incremental loading
+	- Remove the mck repair from this step (included in the existing script)
+	= Start on 2:00 AM
+	=> Read from Narrow source (one partion of header + all partition of detial & EA2) -> Join between tables + Re-org -> write to Hive (5 minutes)
+	
+Step 4 - Read from Hive Staging table and write to HBase
+	- Start on 3:00 AM
+	=> read from Hive Staging and write to HBase
+	= Assumption: Complete 3:30 AM
+
+
+===============================================
+
+Task 1: Run another set of test = Done
+Task 2: add spark.sql("msck") = for 3 tables = Done
+	- Test 
+Task 3: broadcast = Done
+Task 4: Do the final approach 
+Task 5: test all incrementals
+
+Additional items:
+1 - Option 2 is OK = Done
+2 - Add distinct for all loading from wide table to narrow table = Done
+3 - src_load_dtm replace load_dtm = Done
+
+
+=======================================
+
+* spark.sql("") = for 3 tables
+* end to end run the incremental 
+* try the broadcast join 
+===========================================================
+
+
+Read from source => join between tables (*) => re-org data => write the HBase
+
+Read from Narrow source => join between tables (*) => re-org data => write the HBase
+
+
+New approach (Save time) = Option 1
+Read from wide source => write to narrow source Hive
+Read from narrow source => do complicate operation (* = 46 min) => HBase (44 min) - 1.6 hour
+
+Old approach
+Read from wide source => do complication operation (*** = 1.8 h ) => HBase (22 min) - 2.2 hour
+
+Final approach (Save time) = Option 2
+Read from wide source => write to narrow source Hive
+Read from narrow source => do complicate operation (*) => Hive 
+Read from Hive -> write to HBase
+
+=====================================================
+
+Create Yarn log for the application job
+
+===========================================
+
+161941950
+
+Current count: 1018000, row: 6f7ced97559332565702019-05-072019-05-07
+
+
+Current count: 1018000, row: 01f64239806974592402019-01-022019-01-02
+
+
+
+
+
+
+
+  
+  select *    FROM dv_ccpcogxph_nogbd_r000_in.clm_wgs_gncclmp hdr  limit 10
+  select *    FROM  ts_ccpcogxph_gbd_r000_in.clm_wgs_gncclmp hdr  limit 10;
+  
+  /dv/app/ve2/ccp/cogx/phi/gbd/r000/control/af35352Test/
+  
+   dv_ccpcogxph_nogbd_r000_sg.clm_wgs_gncclmp 
+   
+   
+   
+   audit_schema=dv_ccpcogxph_nogbd_r000_wh
+   
+   ### Hive solution need the following
+   #inbound-hive-db=inbound-hive-db
+   #stage-hive-db=stage-hive-db
+   #warehouse-hive-db=warehouse-hive-db
+   #audit-column-name=audit-column-name
+   
+   inbound-hive-db=ts_ccpcogxph_nogbd_r000_in
+   
+   stage-hive-db=ts_ccpcogxph_nogbd_r000_sg
+   
+   
+   warehouse-hive-db=ts_ccpcogxph_gbd_r000_ou
+   audit-column-name=last_updt_dtm
+   
+   repartitionNum=2000
+   ArraySizeLimit=3000
+   
+   
+   
+   dv_hb_ccpcogx_nogbd_r000_in
+
+
+
+
+
+
+
+
+==========================================
+Loading from Wide table to Narrow table
+------------------------------
+## Header query
+query_clm_wgs_gncclmp=" SELECT distinct  hdr.ddc_cd_dcn as ddc_cd_dcn,    hdr.ddc_cd_dcn_cc as ddc_cd_dcn_cc,     hdr.ddc_cd_itm_cde as ddc_cd_itm_cde,     hdr.ddc_cd_clm_compl_dte as ddc_cd_clm_compl_dte,     hdr.ddc_cd_clm_pay_act_1 as ddc_cd_clm_pay_act_1,     hdr.ddc_cd_clm_pay_act_2_6 as ddc_cd_clm_pay_act_2_6,     hdr.ddc_cd_cert_nbr1 as ddc_cd_cert_nbr1,     hdr.ddc_cd_cert_nbr2 as ddc_cd_cert_nbr2,     hdr.ddc_cd_cert_nbr3 as ddc_cd_cert_nbr3,     hdr.ddc_cd_pat_mbr_cde as ddc_cd_pat_mbr_cde,     hdr.ddc_cd_grp_nbr as ddc_cd_grp_nbr,     hdr.ddc_cd_svc_from_dte as ddc_cd_svc_from_dte,     hdr.ddc_cd_svc_thru_dte as ddc_cd_svc_thru_dte,     hdr.ddc_cd_prvdr_tax_id as ddc_cd_prvdr_tax_id,     hdr.ddc_cd_prvdr_nme as ddc_cd_prvdr_nme,     hdr.ddc_cd_prvdr_sec_nme as ddc_cd_prvdr_sec_nme,     hdr.ddc_cd_prvdr_spclty_cde as ddc_cd_prvdr_spclty_cde,     hdr.ddc_cd_prvdr_lic_alpha as ddc_cd_prvdr_lic_alpha,     hdr.ddc_cd_prvdr_lic_nmrc as ddc_cd_prvdr_lic_nmrc,     hdr.ddc_cd_tot_chrg_amt as ddc_cd_tot_chrg_amt,     hdr.ddc_cd_med_rec_nbr_2 as ddc_cd_med_rec_nbr_2,     hdr.ddc_cd_med_rec_nbr as ddc_cd_med_rec_nbr,     hdr.ddc_cd_icda_cde_1 as ddc_cd_icda_cde_1,     hdr.ddc_cd_icda_cde_2 as ddc_cd_icda_cde_2,     hdr.ddc_cd_icda_cde_3 as ddc_cd_icda_cde_3,     hdr.ddc_cd_icda_cde_4 as ddc_cd_icda_cde_4,     hdr.ddc_cd_icda_cde_5 as ddc_cd_icda_cde_5,     hdr.ddc_cd_its_home_ind as ddc_cd_its_home_ind,     hdr.ddc_cd_its_orig_sccf_nbr_new as ddc_cd_its_orig_sccf_nbr_new,     hdr.ddc_cd_its_host_prvdr_ind as ddc_cd_its_host_prvdr_ind,     hdr.ddc_cd_prvdr_ind as ddc_cd_prvdr_ind,     hdr.ddc_cd_clm_type as ddc_cd_clm_type,  hdr.src_load_dtm as load_dtm     , hdr.load_ingstn_id as load_ingstn_id           FROM <<sourceDB>>.clm_wgs_gncclmp hdr   WHERE hdr.ddc_cd_itm_cde = '80'   AND hdr.ddc_cd_clm_compl_dte >= <<histDate>>  <<Header_Additional_Filter>>  "
+
+## Detail query
+query_clm_wgs_gncdtlp="select  distinct  dtl.gnchiios_hclm_dcn as gnchiios_hclm_dcn,     dtl.gnchiios_hclm_item_cde as gnchiios_hclm_item_cde,     dtl.ddc_dtl_lne_nbr as ddc_dtl_lne_nbr,     dtl.ddc_dtl_icda_pntr_1 as ddc_dtl_icda_pntr_1,     dtl.ddc_dtl_prcdr_cde as ddc_dtl_prcdr_cde,     dtl.ddc_dtl_svc_cde_1_3 as ddc_dtl_svc_cde_1_3,     dtl.ddc_dtl_proc_svc_cls_1 as ddc_dtl_proc_svc_cls_1,     dtl.ddc_dtl_proc_svc_cls_2 as ddc_dtl_proc_svc_cls_2,     dtl.ddc_dtl_proc_svc_cls_3 as ddc_dtl_proc_svc_cls_3,     dtl.ddc_dtl_pcodec_hcpcs_cde as ddc_dtl_pcodec_hcpcs_cde,     dtl.ddc_dtl_blld_amt as ddc_dtl_blld_amt,     dtl.ddc_dtl_unts_occur as ddc_dtl_unts_occur,     dtl.ddc_dtl_units_occur as ddc_dtl_units_occur,     dtl.ddc_dtl_prcdr_modfr_cde as ddc_dtl_prcdr_modfr_cde,     dtl.ddc_dtl_pcodec_hcpcs_mod as ddc_dtl_pcodec_hcpcs_mod,     dtl.ddc_dtl_mod_cde_1 as ddc_dtl_mod_cde_1,     dtl.ddc_dtl_mod_cde_2 as ddc_dtl_mod_cde_2,     dtl.ddc_dtl_mod_cde_3 as ddc_dtl_mod_cde_3,     dtl.ddc_dtl_hcfa_pt_cde as ddc_dtl_hcfa_pt_cde,     dtl.ddc_dtl_pt_cde as ddc_dtl_pt_cde,     dtl.ddc_dtl_elig_expsn_amt as ddc_dtl_elig_expsn_amt,     dtl.ddc_dtl_svc_from_dte AS ddc_dtl_svc_from_dte,     dtl.ddc_dtl_svc_thru_dte AS ddc_dtl_svc_thru_dte  ,      dtl.load_ingstn_id as load_ingstn_id     from <<sourceDB>>.clm_wgs_gncdtlp dtl where dtl.gnchiios_hclm_item_cde='80'  <<Detail_Additional_Filter>> " 
+
+
+
+## EA2 query
+query_clm_wgs_gncnatp_ea2=" SELECT  distinct EA2.ddc_nat_ea2_type_of_bill as ddc_nat_ea2_type_of_bill,   EA2.gnchiios_hclm_dcn as gnchiios_hclm_dcn,   EA2.gnchiios_hclm_dcn_cc as gnchiios_hclm_dcn_cc,   EA2.gnchiios_hclm_item_cde as   gnchiios_hclm_item_cde,   EA2.load_ingstn_id as load_ingstn_id   FROM   <<sourceDB>>.clm_wgs_gncnatp_ea2 EA2   WHERE EA2.gnchiios_hclm_item_cde = '80' <<ea_Additional_Filter>> "
+
+------------------------------
+
+Join three tables:
+				 var bdfCombineClaimsDF = broadcast (spark.sql("""
+				   select 
+				   header.ddc_cd_dcn as KEY_CHK_DCN_NBR,
+				   header.ddc_cd_itm_cde as KEY_CHK_DCN_ITEM_CD,
+				   --header.ddc_cd_clm_compl_dte as CLM_CMPLTN_DT,
+				   cast(to_date(cast(unix_timestamp(cast(header.ddc_cd_clm_compl_dte as String),'yyyyMMdd') as timestamp)) as String) as CLM_CMPLTN_DT,
+				   header.ddc_cd_clm_pay_act_1 as CLM_PAYMNT_ACTN_1_CD,
+				   header.ddc_cd_clm_pay_act_2_6 as CLM_PAYMNT_ACTN_2_6_CD,
+				   header.member_id as MEMBER_SSN,
+				   header.ddc_cd_pat_mbr_cde as PAT_MBR_CD,
+				   header.ddc_cd_grp_nbr as GRP_NBR,
+				   --header.ddc_cd_svc_from_dte as SRVC_FROM_DT,
+				   cast(to_date(cast(unix_timestamp(cast(header.ddc_cd_svc_from_dte as String),'yyyyMMdd') as timestamp)) as String) as SRVC_FROM_DT,
+				   --header.ddc_cd_svc_thru_dte as SRVC_THRU_DT,
+				   cast(to_date(cast(unix_timestamp(cast(header.ddc_cd_svc_thru_dte as String),'yyyyMMdd') as timestamp)) as String) as SRVC_THRU_DT,
+				   header.ddc_cd_prvdr_tax_id as PROV_TAX_ID,
+				   header.ddc_cd_prvdr_nme as PROV_NM,
+				   header.ddc_cd_prvdr_sec_nme as PROV_SCNDRY_NM,
+				   header.ddc_cd_prvdr_spclty_cde as PROV_SPCLTY_CD,
+				   header.prov_lcns_cd as PROV_LCNS_CD,
+				   header.ddc_cd_tot_chrg_amt as TOTL_CHRG_AMT,
+				   ea2.ddc_nat_ea2_type_of_bill as TYPE_OF_BILL_CD,
+				   header.ddc_cd_med_rec_nbr_2 as MDCL_RCRD_2_NBR,
+				   header.ddc_cd_med_rec_nbr as MRN_NBR,
+				   header.ddc_cd_icda_cde_1 as ICD_A_CD,
+				   header.ddc_cd_icda_cde_2 as ICD_B_CD,
+				   header.ddc_cd_icda_cde_3 as ICD_C_CD,
+				   header.ddc_cd_icda_cde_4 as ICD_D_CD,
+				   header.ddc_cd_icda_cde_5 as ICD_E_CD,
+				   header.prvdr_status as PRVDR_STATUS,
+				   header.claim_type as CLAIM_TYPE,
+				   detail.ddc_dtl_lne_nbr as DTL_LINE_NBR,
+				   detail.ddc_dtl_icda_pntr_1 as ICD_9_1_CD,
+				   detail.ddc_dtl_prcdr_cde as PROC_CD,
+				   detail.ddc_dtl_svc_cde_1_3 as TOS_TYPE_CD,
+				   detail.ddc_dtl_proc_svc_cls_1 as PROC_SRVC_CLS_1_CD,
+				   detail.ddc_dtl_proc_svc_cls_2 as PROC_SRVC_CLS_2_CD,
+				   detail.ddc_dtl_proc_svc_cls_3 as PROC_SRVC_CLS_3_CD,
+				   detail.ddc_dtl_pcodec_hcpcs_cde as HCPCS_CD,
+				   detail.ddc_dtl_blld_amt as BILLD_CHRGD_AMT,
+				   detail.ddc_dtl_unts_occur as BILLD_SRVC_UNIT_QTY,
+				   detail.ddc_dtl_units_occur as UNITS_OCR_NBR,
+				   detail.ddc_dtl_prcdr_modfr_cde as PROC_MDFR_CD,
+				   detail.ddc_dtl_pcodec_hcpcs_mod as HCPCS_MDFR_CD,
+				   detail.ddc_dtl_mod_cde_1 as MDFR_1_CD,
+				   detail.ddc_dtl_mod_cde_2 as MDFR_2_CD,
+				   detail.ddc_dtl_mod_cde_3 as MDFR_3_CD,
+				   detail.ddc_dtl_hcfa_pt_cde as HCFA_PT_CD,
+				   detail.ddc_dtl_pt_cde as POT_CD,
+				   detail.ddc_dtl_elig_expsn_amt as ELGBL_EXPNS_AMT,
+				   --detail.srvc_from_dt_dtl as SRVC_FROM_DT_DTL,
+				   cast(to_date(cast(unix_timestamp(cast(detail.srvc_from_dt_dtl as String),'yyyyMMdd') as timestamp)) as String) as SRVC_FROM_DT_DTL,
+				   --detail.srvc_to_dt_dtl as SRVC_TO_DT_DTL,
+				   cast(to_date(cast(unix_timestamp(cast(detail.srvc_to_dt_dtl as String),'yyyyMMdd') as timestamp)) as String) as SRVC_TO_DT_DTL,
+				   header.load_ingstn_id as LOAD_INGSTN_ID,
+				   header.load_dtm as LOAD_DTM
+				   from clmHeaderDF header 
+				   inner join 
+				   clmDetailDF detail 
+				   on header.ddc_cd_dcn = detail.gnchiios_hclm_dcn
+				   inner join 
+				   clmgncnatpea2DF ea2
+				   on header.ddc_cd_dcn = ea2.gnchiios_hclm_dcn
+				   and header.ddc_cd_dcn_cc = ea2.gnchiios_hclm_dcn_cc
+				   """)).repartition(repartitionNum)
+						
+--------------------------------
+
+
+windowing:
+
+		var bdfClaimsPartition = Window.partitionBy("KEY_CHK_DCN_NBR", "KEY_CHK_DCN_ITEM_CD", "DTL_LINE_NBR").orderBy(col("LOAD_DTM").desc)
+		bdfCombineClaimsDF = bdfCombineClaimsDF.withColumn("rank", rank().over(bdfClaimsPartition)).filter("rank=1")
+
+
+
+------------------------------------------------

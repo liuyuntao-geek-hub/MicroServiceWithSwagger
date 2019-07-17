@@ -1,0 +1,73 @@
+
+Loading Basic Tables:
+===================================================================
+
+count at CogxHiveBDFOperation.scala:68  = Cogx Performance Test ClmWgsGncclmpDf: 13351347 = 3.6 min
+	- clm_wgs_gncclmp
+	
+count at CogxHiveBDFOperation.scala:72  = Cogx Performance Test ClmWgsGncdtlpDf: 37953734 = 2.1 min
+	- clm_wgs_gncdtlp
+
+count at CogxHiveBDFOperation.scala:76  = Cogx Performance Test QueryClmWgsGncnatpEa2: 1028678894 = 21 min
+	- clm_wgs_gncnatp_ea2
+	
+======================================================================
+
+count at CogxHiveBDFOperation.scala:146 = Cogx Performance Test clmHeaderDF: 7919474 = 2.4 min
+
+count at CogxHiveBDFOperation.scala:176 = Cogx Performance Test clmDetailDF: 27952363 = 2.4 min
+
+count at CogxHiveBDFOperation.scala:189 = Cogx Performance Test clmgncnatpea2DF: 599586089 = 22 min 
+
+======================================================================
+
+
+count at CogxHiveBDFOperation.scala:204 = Cogx Performance Test bdfCombineClaimsDF: 46409788: = 29 min
+
+count at CogxHiveBDFOperation.scala:212 = [COGX]INFO: CogX Row Count = after partition/window/filtering  19 min 
+
+
+
+
+
+
+
+
+=============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
