@@ -1,8 +1,0 @@
-export scripts_dir=/$COGX_HDP_ENV/app/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/bin/scripts
-export logs_dir=/$COGX_HDP_ENV/app/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/logs
-export output_dir=/$COGX_HDP_ENV/app/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/etl
-export hdfs_out=/$COGX_HDP_ENV/hdfsapp/ve2/ccp/cogx/phi/gbd/$COGX_HDP_ENV_RVSN/control
-export sqlite_out=/$COGX_HDP_ENV/app/ve2/ccp/cogx/phi/gbd/$COGX_HDP_ENV_RVSN/bin/ds-cogx-api
-export LOGON=/home/srcccpcogxbthts
-export LOGON_ID_ODS=LOGON_Prod1_COGCLM_EDW_ALL_HADOOP_OUT
-export ETL_VIEWS_DB_ODS=T3_etl_views_ne

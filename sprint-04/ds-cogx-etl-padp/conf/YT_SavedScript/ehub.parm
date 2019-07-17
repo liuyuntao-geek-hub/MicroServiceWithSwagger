@@ -1,6 +1,0 @@
-export scripts_dir=/$COGX_HDP_ENV/app/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/bin/scripts
-export logs_dir=/$COGX_HDP_ENV/app/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/logs
-export inbound_dir=/dv/data/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/inbound/ehub
-export output_dir=/dv/data/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/outbound/ehub
-export hdfs_out=/$COGX_HDP_ENV/hdfsapp/ve2/ccp/cogx/phi/gbd/$COGX_HDP_ENV_RVSN/control
-export sqlite_out=/$COGX_HDP_ENV/app/ve2/ccp/cogx/phi/gbd/$COGX_HDP_ENV_RVSN/bin/ds-cogx-api
