@@ -1,0 +1,4 @@
+create 'pr_hb_ccpcogx_gbd_r000_wh:cogx_claims', {NAME => 'c1', COMPRESSION => 'SNAPPY'}, {NUMREGIONS => 40, SPLITALGO => 'HexStringSplit', DURABILITY => 'ASYNC_WAL'}
+create 'pr_hb_ccpcogx_gbd_r000_wh:um_auth', {NAME => 'um', COMPRESSION => 'SNAPPY'}, {NUMREGIONS => 40, SPLITALGO => 'HexStringSplit', DURABILITY => 'ASYNC_WAL'}
+create 'pr_hb_ccpcogx_gbd_r000_wh:cogx_benefits', {NAME => 'c1', COMPRESSION => 'SNAPPY'}, {NUMREGIONS => 40, SPLITALGO => 'HexStringSplit', DURABILITY => 'ASYNC_WAL'}
+exit
