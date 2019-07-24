@@ -1,9 +1,0 @@
-export COGX_HDP_ENV_RVSN=r000
-export control_dir=/pr/app/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/bin/control
-export logs_dir=/pr/app/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/logs
-export inbound_dir=/pr/data/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/inbound/ehub
-export output_dir=/pr/data/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/outbound/ehub
-export hdfs_out=/pr/hdfsapp/ve2/ccp/cogx/phi/gbd/$COGX_HDP_ENV_RVSN/control/EhubsExtract
-export sqlite_out=/pr/app/ve2/ccp/cogx/phi/gbd/$COGX_HDP_ENV_RVSN/bin/ds-cogx-api
-export inbound_backup_dir=/pr/data/ve2/ccp/cogx/phi/no_gbd/$COGX_HDP_ENV_RVSN/inbound/ehub_bkp
-
